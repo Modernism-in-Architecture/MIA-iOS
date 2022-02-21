@@ -12,6 +12,9 @@ import MapKit
 extension Color {
     static let shadow = Color("shadow")
     static let cellBackground = Color("cellBackground")
+    static let background = Color(UIColor.systemBackground)
+    static let secondaryBackground = Color(UIColor.secondarySystemBackground)
+    static let tertiaryBackground = Color(UIColor.tertiarySystemBackground)
 }
 
 extension CLLocationCoordinate2D {
@@ -19,5 +22,15 @@ extension CLLocationCoordinate2D {
 }
 
 extension MKCoordinateSpan {
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
 }
+
+extension MKCoordinateRegion {
+    static let leipzig = MKCoordinateRegion(center: .leipzig, span: .defaultSpan)
+}
+
+extension CGPoint {
+    static let center = CGPoint(x: 0.5, y: 0.5)
+}
+
+

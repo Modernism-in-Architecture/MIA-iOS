@@ -9,29 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    @StateObject var mia = BuildingsController()
-//    @StateObject var architectsController = ArchitectsController()
-    @State private var selection = 1
+    @EnvironmentObject var tabController: TabController
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $tabController.selection) {
             BuildingsListView().tabItem {
                 Label("Buildings", systemImage: "building.2")
-            }.tag(1)
+            }.tag(TabController.Tab.buildings)
             MIAMapView().tabItem {
                 Label("Places", systemImage: "map")
-            }.tag(2)
+            }.tag(TabController.Tab.map)
             ArchitectsListView().tabItem {
                 Label("Architects", systemImage: "person.2")
-            }.tag(3)
+            }.tag(TabController.Tab.architects)
             MIAErrorView(error: .NetworkError).tabItem {
                 Label("Bookmarks", systemImage: "bookmark")
-            }.tag(4)
+            }.tag(TabController.Tab.bookmarks)
         }
-//        .task {
-//            await mia.fetchData()
-////            await architectsController.fetchData()
-//        }
     }
 }
 

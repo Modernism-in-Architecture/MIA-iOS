@@ -36,20 +36,14 @@ struct BuildingsListView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                    .refreshable {
-                        Task {
-                            buildingsController.state = .loading
-                            await buildingsController.fetchData()
-                        }
-                    }
                     .padding()
                 }
                 .searchable(text: $searchText)
                 .disableAutocorrection(true)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Buildings")
+                .navigationViewStyle(StackNavigationViewStyle())
             }
-            .navigationViewStyle(StackNavigationViewStyle())
         case .loading:
             MIAActivityIndicator()
         case .error(let error):

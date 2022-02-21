@@ -11,27 +11,58 @@ import MapKit
 struct MIAMapView: View {
 
     @EnvironmentObject var mia: BuildingsController
-    @StateObject var mapController = MIAMapController()
+    @EnvironmentObject var tabController: TabController
+    @EnvironmentObject var mapController: MIAMapController
 
     var body: some View {
         NavigationView {
-            Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: mia.buildings) {item in
-                MapAnnotation(
-                    coordinate: item.coordinate,
-                    anchorPoint: CGPoint(x: 0.5, y: 0.5)
-                ) {
-                    NavigationLink(destination: BuildingDetailView(item: item)) {
-                       MIAMapPinView()
+            ZStack {
+                Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: mia.buildings) {item in
+                    MapAnnotation(
+                        coordinate: item.coordinate,
+                        anchorPoint: .center
+                    ) {
+                        NavigationLink(destination: BuildingDetailView(item: item),
+                                       isActive: $tabController.mapSubviewsVisible)
+                        {
+                           MIAMapPinView()
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
                 }
+                .accentColor(Color(.systemRed))
+                .onAppear {
+                    mapController.checkLocationServiceIsEnabled()
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Orte")
+                VStack(alignment: .trailing) {
+                    if mapController.distance() > 1000 {
+                        HStack {
+                            Spacer()
+                            Button (action: {
+                                withAnimation {
+                                    mapController.home()
+                                }
+                            }) {
+                                Image(systemName: "location")
+                                    .font(.title3)
+                                    .padding(8)
+                                    .background(Color.secondaryBackground)
+                                    .cornerRadius(5)
+                                    .shadow(radius: 3)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                        .transition(.opacity.animation(.easeInOut(duration: 0.5)))
+                    }
+                    Spacer()
+//                    Text("\(mapController.distance())")
+                }
+                .padding()
+                
             }
-            .accentColor(Color(.systemRed))
-            .onAppear {
-                mapController.checkLocationServiceIsEnabled()
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Orte")
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

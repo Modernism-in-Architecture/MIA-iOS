@@ -12,12 +12,16 @@ struct MIAappApp: App {
     
     @StateObject var buildingsController = BuildingsController()
     @StateObject var architectsController = ArchitectsController()
+    @StateObject var tabController = TabController()
+    @StateObject var mapController = MIAMapController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(buildingsController)
                 .environmentObject(architectsController)
+                .environmentObject(mapController)
+                .environmentObject(tabController)
                 .task {
                     await buildingsController.fetchData()
                     await architectsController.fetchData()

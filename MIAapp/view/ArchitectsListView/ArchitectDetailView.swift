@@ -17,9 +17,7 @@ struct ArchitectDetailView: View {
     var body: some View {
         switch architectDetailController.architectDetail {
         case .loading:
-//            LoadingActivityView().task {
             MIAActivityIndicator().task {
-//                await architectDetailController.fetchData(for: architect.id)
                 await architectDetailController.fetchData(for: id)
             }
         case .success(let detail):

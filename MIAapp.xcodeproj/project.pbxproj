@@ -25,6 +25,7 @@
 		1157250127B44F540005A404 /* MIATabGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7FA012740441D00E94015 /* MIATabGalleryView.swift */; };
 		1163482B272438FB00547A28 /* BuildingDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482A272438FB00547A28 /* BuildingDetailController.swift */; };
 		1163482D272439B700547A28 /* BuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482C272439B700547A28 /* BuildingDetail.swift */; };
+		1168107027C1378100A62DD8 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168106F27C1378100A62DD8 /* TabController.swift */; };
 		118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118680D927B5B0360008C589 /* MIAFoldableText.swift */; };
 		118FA9D127AF3E3A002AAD4B /* Architect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FA9D027AF3E3A002AAD4B /* Architect.swift */; };
 		11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA227B30B8800CC5368 /* LoadingState.swift */; };
@@ -68,6 +69,7 @@
 		1163482A272438FB00547A28 /* BuildingDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailController.swift; sourceTree = "<group>"; };
 		1163482C272439B700547A28 /* BuildingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetail.swift; sourceTree = "<group>"; };
 		1163482E27245E0700547A28 /* BuildingDetailGridGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailGridGalleryView.swift; sourceTree = "<group>"; };
+		1168106F27C1378100A62DD8 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		117DBB4427285E85005A0EB6 /* BuildingGalleryImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingGalleryImageView.swift; sourceTree = "<group>"; };
 		118680D927B5B0360008C589 /* MIAFoldableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAFoldableText.swift; sourceTree = "<group>"; };
 		118E2ED52722053C001B5F50 /* BuildingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailView.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				11F55A11271C551400BF5E8E /* model */,
 				11F55A18271C5B8E00BF5E8E /* view */,
 				11F55A03271C546800BF5E8E /* MIAappApp.swift */,
+				1168106F27C1378100A62DD8 /* TabController.swift */,
 				11F55A05271C546800BF5E8E /* ContentView.swift */,
 				113417D42723169D005C7B42 /* MyPlayground.playground */,
 				11F55A07271C546C00BF5E8E /* Assets.xcassets */,
@@ -362,6 +365,7 @@
 				118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */,
 				11907CA927B30CD600CC5368 /* ArchitectDetail.swift in Sources */,
 				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
+				1168107027C1378100A62DD8 /* TabController.swift in Sources */,
 				1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */,
 				1163482D272439B700547A28 /* BuildingDetail.swift in Sources */,
 				1157250127B44F540005A404 /* MIATabGalleryView.swift in Sources */,

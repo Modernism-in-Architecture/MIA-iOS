@@ -7,12 +7,20 @@
 
 import SwiftUI
 import MapKit
+import UIKit
 
 struct BuildingDetailView: View {
     
-    @State var item: Building
+    @EnvironmentObject var mapController: MIAMapController
+    @EnvironmentObject var tabController: TabController
+
     @StateObject var detailController = BuildingDetailController()
+
+    @State var item: Building
+    @State var showShareSheet = false
     
+    @State var sharedItems = []
+        
     var body: some View {
         switch detailController.detail {
         case .success(let detail):
@@ -55,13 +63,23 @@ struct BuildingDetailView: View {
                             }
                         }
                         MIASection("Location") {
-                            BuildingDetailMapView(item: item, region: MKCoordinateRegion(
-                                center: item.coordinate, latitudinalMeters: 500, longitudinalMeters: 500
-                            ))
-                                .frame(height: 250)
-                                .mask(RoundedRectangle(cornerRadius: 10))
-                                .padding(.top, 5)
-                                .allowsHitTesting(false) // No Interaction
+                            ZStack {
+                                BuildingDetailMapView(item: item, region: MKCoordinateRegion(
+                                    center: item.coordinate, span: .defaultSpan
+                                ))
+                                    .frame(height: 250)
+                                    .mask(RoundedRectangle(cornerRadius: 10))
+                                    .padding(.top, 5)
+                                    .allowsHitTesting(false) // No Interaction
+                                Color.clear
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        let region = MKCoordinateRegion(center: item.coordinate, span: .defaultSpan)
+                                        mapController.region = region
+                                        self.tabController.mapSubviewsVisible = false
+                                        tabController.selection = .map
+                                    }
+                            }
                         }
                         if !detail.galleryImages.isEmpty {
                             MIASection("Impressions") {
@@ -72,11 +90,30 @@ struct BuildingDetailView: View {
                     }
                     .padding()
                 }
-                .navigationTitle(item.name)
             }
+            .padding(.top, 10)
+            .navigationTitle(item.name)
+            .toolbar {
+                Button(action: {
+                    let sharedUrl = URL(string: "https://modernism-in-architecture.org/buildings/lindtuv-dum/")!
+                    let sharedText = "Sent with ❤️ from your MIA App."
+                    let sharedItems = [sharedUrl, sharedText] as [Any]
+                    let ac = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+                    
+                    let allScenes = UIApplication.shared.connectedScenes
+                    let scene = allScenes.first { $0.activationState == .foregroundActive }
+                    if let windowScene = scene as? UIWindowScene {
+                        windowScene.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
+                    }
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+
+            
         case .loading:
-            LoadingActivityView().task {
-//            MIAActivityIndicator().task {
+//            LoadingActivityView().task {
+            MIAActivityIndicator().task {
                 await detailController.fetchData(for: item.id)
             }
         case .error(let error):

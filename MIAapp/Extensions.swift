@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import MapKit
 
 extension URL: Identifiable {
     public var id: Self { self }
@@ -30,8 +31,8 @@ extension String {
 
 }
 
-public extension Color {
-    static let background = Color(UIColor.systemBackground)
-    static let secondaryBackground = Color(UIColor.secondarySystemBackground)
-    static let tertiaryBackground = Color(UIColor.tertiarySystemBackground)
+extension CLLocation {
+    convenience init (_ location: CLLocationCoordinate2D) {
+        self.init(latitude: location.latitude, longitude: location.longitude)
+    }
 }
