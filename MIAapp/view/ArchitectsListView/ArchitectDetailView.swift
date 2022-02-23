@@ -28,11 +28,11 @@ struct ArchitectDetailView: View {
                             .font(.headline)
                             .padding(.bottom, 5)
                         if !detail.birth.isEmpty {
-                            Text(detail.birth)
+                            Text("\(Image(systemName: "heart.circle")) \(detail.birth)")
                                 .lineLimit(1)
                         }
-                        if !detail.birth.isEmpty {
-                            Text(detail.death)
+                        if !detail.death.isEmpty {
+                            Text("\(Image(systemName: "heart.slash.circle")) \(detail.death)")
                                 .lineLimit(1)
                         }
                     }
@@ -58,6 +58,23 @@ struct ArchitectDetailView: View {
                 .padding()
             }
             .navigationBarTitle(detail.fullName)
+            .toolbar {
+                // TODO: extract to seperate View. Same Code with BuildingDetailView
+                Button(action: {
+                    let sharedText = "Sent with ❤️ from your MIA App."
+                    let sharedItems = [detail.absoluteURL, sharedText] as [Any]
+                    let ac = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+                    
+                    let allScenes = UIApplication.shared.connectedScenes
+                    let scene = allScenes.first { $0.activationState == .foregroundActive }
+                    if let windowScene = scene as? UIWindowScene {
+                        windowScene.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
+                    }
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+            
         case .error(_):
             Text("Error")
         }
