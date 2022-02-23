@@ -10,24 +10,27 @@ import MapKit
 
 struct MIAMapView: View {
 
-    @EnvironmentObject var mia: BuildingsController
+    @EnvironmentObject var buildingsController: BuildingsController
     @EnvironmentObject var tabController: TabController
     @EnvironmentObject var mapController: MIAMapController
-
+    
+    @State var selectedItem: Building = .empty
+    
     var body: some View {
         NavigationView {
             ZStack {
-                Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: mia.buildings) {item in
+                Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: buildingsController.buildings) {item in
                     MapAnnotation(
                         coordinate: item.coordinate,
                         anchorPoint: .center
                     ) {
-                        NavigationLink(destination: BuildingDetailView(item: item),
-                                       isActive: $tabController.mapSubviewsVisible)
-                        {
-                           MIAMapPinView()
-                        }
-                        .buttonStyle(.plain)
+                        //                        NavigationLink(destination: BuildingDetailView(item: item), isActive: $subviewIsActive)
+                        MIAMapPinView()
+                            .onTapGesture {
+                                selectedItem = item
+                                tabController.mapSubviewsVisible = true
+                            }
+                            .buttonStyle(.plain)
                     }
                 }
                 .accentColor(Color(.systemRed))
@@ -60,9 +63,12 @@ struct MIAMapView: View {
 //                    Text("\(mapController.distance())")
                 }
                 .padding()
-                
+                .background(
+                    NavigationLink(destination: BuildingDetailView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) {EmptyView()}
+                        .isDetailLink(false)//,
+//                                   isActive: $isActivated) {EmptyView()}
+                )
             }
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
