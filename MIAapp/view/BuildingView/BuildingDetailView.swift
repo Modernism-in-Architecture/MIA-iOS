@@ -40,6 +40,10 @@ struct BuildingDetailView: View {
                             Text(detail.name)
                                 .font(.headline)
                                 .padding(.bottom, 5)
+                            if !detail.buildingType.isEmpty {
+                                Text(detail.buildingType)
+                                    .padding(.bottom, 5)
+                            }
                             Text(detail.address)
                             Text(detail.cityCountry)
                         }
@@ -95,9 +99,8 @@ struct BuildingDetailView: View {
             .navigationTitle(item.name)
             .toolbar {
                 Button(action: {
-                    let sharedUrl = URL(string: "https://modernism-in-architecture.org/buildings/lindtuv-dum/")!
                     let sharedText = "Sent with ❤️ from your MIA App."
-                    let sharedItems = [sharedUrl, sharedText] as [Any]
+                    let sharedItems = [detail.absoluteURL, sharedText] as [Any]
                     let ac = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
                     
                     let allScenes = UIApplication.shared.connectedScenes
@@ -122,8 +125,8 @@ struct BuildingDetailView: View {
     }
 }
 
-struct MIADetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        BuildingDetailView(item: .example())
-    }
-}
+//struct MIADetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BuildingDetailView(item: .example())
+//    }
+//}

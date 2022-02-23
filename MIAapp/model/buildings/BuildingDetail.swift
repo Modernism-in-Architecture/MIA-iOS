@@ -29,6 +29,8 @@ struct BuildingDetail: Decodable {
         let description: String
         let history: String
         let architects: [Architect]
+        let absoluteURL: URL
+        let buildingType: String
         
         let attributedDescription: AttributedString
         let attributedHistory: AttributedString
@@ -56,7 +58,8 @@ struct BuildingDetail: Decodable {
            case id, name, yearOfConstruction,
                 address, zipCode, city, country,
                 latitude, longitude, galleryImages, subtitle,
-                todaysUse, description, history, architects
+                todaysUse, description, history, architects,
+                absoluteURL, buildingType
         }
         
         init(from decoder: Decoder) throws {
@@ -77,6 +80,8 @@ struct BuildingDetail: Decodable {
             self.description = try container.decode(String.self, forKey: .description)
             self.history = try container.decode(String.self, forKey: .history)
             self.architects = try container.decode([Detail.Architect].self, forKey: .architects)
+            self.absoluteURL = try container.decode(URL.self, forKey: .absoluteURL)
+            self.buildingType = try container.decode(String.self, forKey: .buildingType)
             
             self.attributedDescription = description.fromHtmlToAttributed()
             self.attributedHistory = history.fromHtmlToAttributed()
