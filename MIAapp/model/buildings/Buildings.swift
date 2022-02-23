@@ -26,3 +26,7 @@ struct Building: Decodable, Identifiable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
+
+extension Building {
+    static let empty = Building(id: 0, name: "", yearOfConstruction: "", city: "", country: "", latitude: 0.0, longitude: 0.0, feedImage: URL(string: "https://modernism-in-architecture.org")!)
+}
