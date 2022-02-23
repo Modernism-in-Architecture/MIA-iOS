@@ -18,7 +18,6 @@ struct BuildingGalleryImageView: View {
         ZStack(alignment: .trailing) {
             Rectangle()
                 .overlay(
-//                    MIAAsyncImage(url: galleryImage.value.image.large.src)
                     MIAAsyncImage(url: galleryImage)
                 )
                 .clipped()
@@ -28,7 +27,7 @@ struct BuildingGalleryImageView: View {
                 Button(action: {
                     self.presentation.wrappedValue.dismiss()
                 }) {
-                    Text("schließen")
+                    Text("close")
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
                 }
