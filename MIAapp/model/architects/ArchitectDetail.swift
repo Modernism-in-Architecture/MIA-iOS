@@ -28,12 +28,14 @@ struct ArchitectDetail: Decodable {
         let attributedDescription: AttributedString
         let birth: String
         let death: String
+        let absoluteURL: URL
         
         enum CodingKeys: CodingKey {
             case id, lastName, firstName,
                  birthDay, birthPlace, birthCountry,
                  deathDay, deathPlace, deathCountry,
-                 description, relatedBuildings
+                 description, relatedBuildings,
+                 absoluteURL
         }
         
         init(from decoder: Decoder) throws {
@@ -62,14 +64,23 @@ struct ArchitectDetail: Decodable {
             self.description = try container.decode(String.self, forKey: .description)
             self.attributedDescription = description.fromHtmlToAttributed()
             self.relatedBuildings = try container.decode([Building].self, forKey: .relatedBuildings)
-            self.birth = dateAndPlace(type: "born", date: birthDay, place: birthPlace, country: birthCountry)
-            self.death = dateAndPlace(type: "died", date: deathDay, place: deathPlace, country: deathCountry)
+            self.birth = dateAndPlace(date: formatDate(birthDay), place: birthPlace, country: birthCountry)
+            self.death = dateAndPlace(date: formatDate(deathDay), place: deathPlace, country: deathCountry)
+            self.absoluteURL = try container.decode(URL.self, forKey: .absoluteURL)
         }
     }
 }
 
-func dateAndPlace(type: String, date: String, place: String, country: String) -> String {
+func dateAndPlace(date: String, place: String, country: String) -> String {
     let location = [place, country].filter{ !$0.isEmpty }.joined(separator: ", ")
     guard !(location.isEmpty && date.isEmpty) else{ return "" }
-    return "\(type) \(date) \(location.isEmpty ? "" : " in \(location)")"
+    return "\(date) \(location.isEmpty ? "" : " in \(location)")"
+}
+
+func formatDate(_ dateString: String) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yy-MM-dd"
+    formatter.locale = Locale(identifier: "en_US")
+    guard let date = formatter.date(from: dateString) else { return "" }
+    return date.formatted(date: .abbreviated, time: .omitted)
 }
