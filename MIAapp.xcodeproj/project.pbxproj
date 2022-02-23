@@ -21,7 +21,6 @@
 		1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */; };
 		1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152BF7727A7399B004EBD97 /* Extensions.swift */; };
 		1152BF7927A73EDA004EBD97 /* BuildingGalleryImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117DBB4427285E85005A0EB6 /* BuildingGalleryImageView.swift */; };
-		115724FF27B426BF0005A404 /* MIADataExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D836C7272303F400D43AD0 /* MIADataExamples.swift */; };
 		1157250127B44F540005A404 /* MIATabGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7FA012740441D00E94015 /* MIATabGalleryView.swift */; };
 		1163482B272438FB00547A28 /* BuildingDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482A272438FB00547A28 /* BuildingDetailController.swift */; };
 		1163482D272439B700547A28 /* BuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482C272439B700547A28 /* BuildingDetail.swift */; };
@@ -48,7 +47,6 @@
 		11F55A17271C5A6400BF5E8E /* BuildingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A16271C5A6400BF5E8E /* BuildingsListView.swift */; };
 		11F55A1A271CACC900BF5E8E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F55A19271CACC800BF5E8E /* Colors.xcassets */; };
 		11F55A1C271CAD2A00BF5E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A1B271CAD2A00BF5E8E /* Constants.swift */; };
-		11FAA9B327259AA300692DA3 /* TestGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAA9B227259AA300692DA3 /* TestGalleryView.swift */; };
 		11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */; };
 		11FAA9B72725F3D200692DA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FAA9B62725F3D200692DA3 /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -83,7 +81,6 @@
 		11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAActivityIndicator.swift; sourceTree = "<group>"; };
 		11C478A027973BF7001C9D21 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		11C7FA012740441D00E94015 /* MIATabGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIATabGalleryView.swift; sourceTree = "<group>"; };
-		11D836C7272303F400D43AD0 /* MIADataExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIADataExamples.swift; sourceTree = "<group>"; };
 		11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingSwipeGalleryView.swift; sourceTree = "<group>"; };
 		11E475A12726F933001C2BE6 /* MIAAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImage.swift; sourceTree = "<group>"; };
 		11EA313D27A5C783009AE014 /* TestImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages.xcassets; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		11F55A19271CACC800BF5E8E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		11F55A1B271CAD2A00BF5E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		11FAA9B0272599CA00692DA3 /* TestImages2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TestImages2.xcassets; sourceTree = "<group>"; };
-		11FAA9B227259AA300692DA3 /* TestGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGalleryView.swift; sourceTree = "<group>"; };
 		11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailMapView.swift; sourceTree = "<group>"; };
 		11FAA9B62725F3D200692DA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,7 +257,6 @@
 				115724FE27B4263E0005A404 /* buildings */,
 				1157250027B426FE0005A404 /* map */,
 				118FA9CF27AF3DF2002AAD4B /* architects */,
-				11D836C7272303F400D43AD0 /* MIADataExamples.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -274,7 +269,6 @@
 				11B0ED88272DDD4600CA75FF /* BuildingsListView */,
 				11B0ED89272DDD6700CA75FF /* MIAMapView */,
 				11907CAA27B3296D00CC5368 /* shared */,
-				11FAA9B227259AA300692DA3 /* TestGalleryView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -353,7 +347,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */,
-				115724FF27B426BF0005A404 /* MIADataExamples.swift in Sources */,
 				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,
 				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
 				11907CA527B30BCD00CC5368 /* ArchitectDetailView.swift in Sources */,
@@ -377,7 +370,6 @@
 				1163482B272438FB00547A28 /* BuildingDetailController.swift in Sources */,
 				1120DC62272990CA007E9806 /* MIAMapController.swift in Sources */,
 				11F55A15271C574300BF5E8E /* BuildingsController.swift in Sources */,
-				11FAA9B327259AA300692DA3 /* TestGalleryView.swift in Sources */,
 				118FA9D127AF3E3A002AAD4B /* Architect.swift in Sources */,
 				113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */,
 				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
