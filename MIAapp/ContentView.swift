@@ -22,9 +22,9 @@ struct ContentView: View {
             ArchitectsListView().tabItem {
                 Label("Architects", systemImage: "person.2")
             }.tag(TabController.Tab.architects)
-            MIAErrorView(error: .NetworkError).tabItem {
-                Label("Bookmarks", systemImage: "bookmark")
-            }.tag(TabController.Tab.bookmarks)
+//            MIAErrorView(error: .NetworkError).tabItem {
+//                Label("Bookmarks", systemImage: "bookmark")
+//            }.tag(TabController.Tab.bookmarks)
         }
     }
 }
