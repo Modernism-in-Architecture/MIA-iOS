@@ -18,11 +18,8 @@ struct BuildingSwipeGalleryView: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
-            
             TabView(selection: $selection) {
-//                ForEach(detailController.detail.galleryImages) { galleryImage in
                 ForEach(images) { galleryImage in
-
                     MIADetailSwipeGalleryImageView(galleryImage: galleryImage)
                         .id(galleryImage.id)
                 }
@@ -34,7 +31,7 @@ struct BuildingSwipeGalleryView: View {
                 Button(action: {
                     self.presentation.wrappedValue.dismiss()
                 }) {
-                    Text("schließen")
+                    Text("close")
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
                 }
