@@ -9,14 +9,16 @@ import SwiftUI
 
 struct LoadingActivityView: View {
     var body: some View {
-        VStack {
-//            MIAActivityIndicator()
-            ProgressView()
-                .scaleEffect(1.5)
-                .padding()
-            Text("loading …")
-                .foregroundColor(.secondary)
-        }
+//        VStack {
+////            MIAActivityIndicator()
+//            ProgressView()
+//                .scaleEffect(1.5)
+//                .padding()
+//            Text("loading …")
+//                .foregroundColor(.secondary)
+//        }
+        MIAActivityIndicator()
+            .drawingGroup()
     }
 }
 

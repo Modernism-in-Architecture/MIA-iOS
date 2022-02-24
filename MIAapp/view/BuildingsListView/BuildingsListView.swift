@@ -60,7 +60,6 @@ struct BuildingsListView: View {
             building.country.lowercased().contains(trimmed)
         }
     }
-    
 }
 
 //struct MIAListView_Previews: PreviewProvider {
