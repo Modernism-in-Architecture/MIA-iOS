@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MapKit
-import UIKit
 
 struct BuildingDetailView: View {
     
@@ -26,7 +25,7 @@ struct BuildingDetailView: View {
         case .success(let detail):
             ScrollView {
                 LazyVStack(alignment: .leading) {
-                    // Image
+                    // MARK: - Image
                     Rectangle()
                         .aspectRatio(1.3, contentMode: .fill)
                         .overlay{
@@ -34,8 +33,8 @@ struct BuildingDetailView: View {
                         }
                         .clipped()
 
-                    // Details
                     VStack (alignment: .leading, spacing: 15) {
+                        // MARK: - Details
                         MIASection("Building") {
                             Text(detail.name)
                                 .font(.headline)
@@ -66,6 +65,7 @@ struct BuildingDetailView: View {
                                 MIAFoldableText(text: detail.attributedHistory)
                             }
                         }
+                        // MARK: - Small Map
                         MIASection("Location") {
                             ZStack {
                                 BuildingDetailMapView(item: item, region: MKCoordinateRegion(
@@ -85,6 +85,7 @@ struct BuildingDetailView: View {
                                     }
                             }
                         }
+                        // MARK: - Grid Gallery
                         if !detail.galleryImages.isEmpty {
                             MIASection("Impressions") {
                                 BuildingDetailGridGalleryView(images: detail.galleryImages)
@@ -97,6 +98,7 @@ struct BuildingDetailView: View {
             }
             .padding(.top, 10)
             .navigationTitle(item.name)
+            // MARK: - Share Button
             .toolbar {
                 Button(action: {
                     let sharedText = "Sent with ❤️ from your MIA App."
@@ -113,10 +115,9 @@ struct BuildingDetailView: View {
                 }
             }
 
-            
         case .loading:
-//            LoadingActivityView().task {
             MIAActivityIndicator().task {
+//                try! await Task.sleep(nanoseconds: 5 * NSEC_PER_SEC)
                 await detailController.fetchData(for: item.id)
             }
         case .error(let error):
