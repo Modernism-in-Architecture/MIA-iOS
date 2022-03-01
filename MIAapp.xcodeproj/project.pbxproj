@@ -11,6 +11,7 @@
 		1103C27027BAD82A0064D1E5 /* MIAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103C26F27BAD82A0064D1E5 /* MIAClient.swift */; };
 		1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103C27127BAE41B0064D1E5 /* MIAErrorView.swift */; };
 		1120DC62272990CA007E9806 /* MIAMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120DC61272990CA007E9806 /* MIAMapController.swift */; };
+		112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */; };
 		1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */; };
 		1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C910271DE67F00DE3FAA /* MIAMapView.swift */; };
 		113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113478A3272B2B7700C94E69 /* MIAMapPinView.swift */; };
@@ -56,6 +57,7 @@
 		1103C26F27BAD82A0064D1E5 /* MIAClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAClient.swift; sourceTree = "<group>"; };
 		1103C27127BAE41B0064D1E5 /* MIAErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAErrorView.swift; sourceTree = "<group>"; };
 		1120DC61272990CA007E9806 /* MIAMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapController.swift; sourceTree = "<group>"; };
+		112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAToolBarLogo.swift; sourceTree = "<group>"; };
 		1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsListCellView.swift; sourceTree = "<group>"; };
 		1131C910271DE67F00DE3FAA /* MIAMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapView.swift; sourceTree = "<group>"; };
 		113417D42723169D005C7B42 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = MIAapp/MyPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -169,6 +171,7 @@
 				118680D927B5B0360008C589 /* MIAFoldableText.swift */,
 				11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */,
 				1103C27127BAE41B0064D1E5 /* MIAErrorView.swift */,
+				112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
 				1168107027C1378100A62DD8 /* TabController.swift in Sources */,
 				1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */,
+				112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */,
 				1163482D272439B700547A28 /* BuildingDetail.swift in Sources */,
 				1157250127B44F540005A404 /* MIATabGalleryView.swift in Sources */,
 				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
@@ -535,7 +539,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,7 +573,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
