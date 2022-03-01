@@ -43,8 +43,19 @@ struct BuildingDetailView: View {
                                 Text(detail.buildingType)
                                     .padding(.bottom, 5)
                             }
+                            
                             Text(detail.address)
                             Text(detail.cityCountry)
+                            
+                            VStack(alignment: .leading) {
+                                if !detail.todaysUse.isEmpty {
+                                    Text("Today's Use: \(detail.todaysUse)")
+                                }
+                                if !detail.yearOfConstruction.isEmpty {
+                                    Text("Year of Construction: \(detail.yearOfConstruction)")
+                                }
+                            }
+                            .padding(.top, 5)
                         }
                         MIASection("Architects") {
                             ForEach(detail.architects) { architect in
