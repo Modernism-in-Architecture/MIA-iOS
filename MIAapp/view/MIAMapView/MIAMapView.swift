@@ -38,7 +38,7 @@ struct MIAMapView: View {
                     mapController.checkLocationServiceIsEnabled()
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Orte")
+                .navigationTitle("Places")
                 VStack(alignment: .trailing) {
                     if mapController.distance() > 1000 {
                         HStack {
@@ -68,6 +68,11 @@ struct MIAMapView: View {
                         .isDetailLink(false)//,
 //                                   isActive: $isActivated) {EmptyView()}
                 )
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    MIAToolBarLogo()
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

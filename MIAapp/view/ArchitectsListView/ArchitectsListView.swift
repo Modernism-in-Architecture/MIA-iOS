@@ -11,6 +11,8 @@ struct ArchitectsListView: View {
     
     @EnvironmentObject var architectsController: ArchitectsController
     @State private var searchText = ""
+//    @Environment(\.isSearching) var isSearching
+    @State var isKeyboardShowing = false
     
     var body: some View {
         switch architectsController.state {
@@ -19,7 +21,6 @@ struct ArchitectsListView: View {
                 let groupedArchitects = groupedArchitects
                 ScrollViewReader { proxy in
                     ZStack {
-                        
                         // List
                         List{
                             ForEach(groupedArchitects.keys.sorted(), id:\.self) { key in
@@ -32,24 +33,31 @@ struct ArchitectsListView: View {
                                         }
                                     }
                                 }
+
                             }
                         }
-                        .refreshable{
-                            Task {
-                                architectsController.state = .loading
-                                await architectsController.fetchData()
-                            }
-                        }
+//                        .refreshable{
+//                            Task {
+//                                architectsController.state = .loading
+//                                await architectsController.fetchData()
+//                            }
+//                        }
                         .searchable(text: $searchText)
                         .disableAutocorrection(true)
                         .listStyle(.insetGrouped)
                         .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                MIAToolBarLogo()
+                            }
+                        }
                         
                         // Index Bar on the Side
                         if searchText.isEmpty {
+//                        if !isKeyboardShowing {
                             HStack {
                                 Spacer()
-                                VStack(spacing:0) {
+                                VStack(spacing:1) {
                                     ForEach(groupedArchitects.keys.sorted(), id:\.self) { key in
                                         Button(action: {
                                             withAnimation{
@@ -57,13 +65,16 @@ struct ArchitectsListView: View {
                                             }
                                         }) {
                                             Text("\(key)")
-                                                .font(.caption)
+                                                .font(.footnote)
                                                 .padding(.leading, 30)
+                                                .padding(.trailing, 5)
+//                                                .background(Color.yellow)
                                         }
                                     }
                                 }
                             }
-                            .padding(.trailing, 5)
+//                            .transition(.opacity.animation(.easeInOut(duration: 0.5)))
+//                            .padding(.trailing, 5)
                         }
                     }
                     .onAppear() {
@@ -72,11 +83,16 @@ struct ArchitectsListView: View {
                         }
                     }
                     .navigationTitle("Architects")
+//                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
+//                        isKeyboardShowing = true
+//                    }.onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+//                        isKeyboardShowing = false
+//                    }
                 }
             }
         case .loading:
-            LoadingActivityView()
-//            MIAActivityIndicator()
+//            LoadingActivityView()
+            MIAActivityIndicator()
         case .error(let error):
             MIAErrorView(error: error)
         }

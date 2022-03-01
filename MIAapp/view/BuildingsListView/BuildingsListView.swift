@@ -43,7 +43,13 @@ struct BuildingsListView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Buildings")
                 .navigationViewStyle(StackNavigationViewStyle())
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        MIAToolBarLogo()
+                    }
+                }
             }
+
         case .loading:
             MIAActivityIndicator()
         case .error(let error):
