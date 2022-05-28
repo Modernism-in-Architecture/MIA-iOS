@@ -20,7 +20,7 @@ struct BuildingsListView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                         ForEach(searchResults) { building in
-                            NavigationLink(destination: BuildingDetailView(item: building)) {
+                            NavigationLink(destination: BuildingView(item: building)) {
                                 if searchText.isEmpty {
                                     BuildingsListCellView(item: building)
                                 } else {

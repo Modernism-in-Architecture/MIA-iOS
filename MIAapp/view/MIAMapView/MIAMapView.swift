@@ -64,7 +64,7 @@ struct MIAMapView: View {
                 }
                 .padding()
                 .background(
-                    NavigationLink(destination: BuildingDetailView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) {EmptyView()}
+                    NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) {EmptyView()}
                         .isDetailLink(false)//,
 //                                   isActive: $isActivated) {EmptyView()}
                 )
