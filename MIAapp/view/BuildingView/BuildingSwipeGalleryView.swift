@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BuildingSwipeGalleryView: View {
     
-//    @ObservedObject var detailController: BuildingDetailController
-//    @State var tabbedImage: URL
     @State var images: [URL]
     @State var selection: URL
     
@@ -18,9 +16,11 @@ struct BuildingSwipeGalleryView: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
+            Color.black
+                .ignoresSafeArea()
             TabView(selection: $selection) {
                 ForEach(images) { galleryImage in
-                    MIADetailSwipeGalleryImageView(galleryImage: galleryImage)
+                    BuildingSwipeGalleryImageView(galleryImage: galleryImage)
                         .id(galleryImage.id)
                 }
             }
@@ -28,47 +28,59 @@ struct BuildingSwipeGalleryView: View {
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             
             VStack(alignment: .trailing) {
-                Button(action: {
-                    self.presentation.wrappedValue.dismiss()
-                }) {
-                    Text("close")
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                }
-                .foregroundColor(.primary)
-                .padding([.top, .trailing])
-
+                closeButton
                 Spacer()
             }
             .padding()
         }
     }
+    
+    var closeButton: some View {
+        Button(action: close) {
+            Text("\(Image(systemName: "xmark")) close")
+                .foregroundColor(.closeButtonForeground)
+                .font(.footnote)
+                .padding(8)
+
+        }
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: .infinity))
+        .buttonStyle(.plain)
+        .padding([.top, .trailing])
+    }
+    
+    func close() {
+        self.presentation.wrappedValue.dismiss()
+    }
+    
 }
 
-struct MIADetailSwipeGalleryImageView: View {
-    
-    @State var galleryImage: URL
-    @State var currentScale: CGFloat = 1.0
-    @GestureState var scale: CGFloat = 1.0
-    
-    var body: some View {
-        Rectangle()
-            .overlay {
-                MIAAsyncImage(url: galleryImage)
-//                    .resizable()
-                    .scaledToFill()
-                    .scaleEffect(currentScale * scale)
-                    .gesture(
-                        MagnificationGesture()
-                            .updating($scale, body: { (value, scale, transaction) in
-                                scale = value.magnitude
-                            })
-                            .onEnded{ self.currentScale = max(self.currentScale * $0, 1.0) }
-                    )
-            }
-            .clipped()
-    }
-}
+//// TODO: extra File
+//struct MIADetailSwipeGalleryImageView: View {
+//
+//    @State var galleryImage: URL
+//    @State var currentScale: CGFloat = 1.0
+//    @GestureState var scale: CGFloat = 1.0
+//
+//    var body: some View {
+//        Color.background
+//            .overlay {
+//                MIAAsyncImage(url: galleryImage)
+//                    .scaledToFill()
+//                    .scaleEffect(currentScale * scale)
+//                    .gesture(
+//                        MagnificationGesture()
+//                            .updating($scale, body: { (value, scale, transaction) in
+//                                scale = value.magnitude
+//                            })
+//                            .onEnded{ self.currentScale = max(self.currentScale * $0, 0.25) }
+//                    )
+//                    .onTapGesture(count: 2) {
+//                        self.currentScale = 1.0
+//                    }
+//            }
+//            .clipped()
+//    }
+//}
 
 //struct MIADetailSwipeGalleryView_Previews: PreviewProvider {
 //    static var previews: some View {
