@@ -9,20 +9,23 @@ import SwiftUI
 
 struct MIAAsyncImage: View {
     
-    @State var url: URL
+    let url: URL
+    let background: Color
+    
+    internal init(_ url: URL, background: Color = Color.background) {
+        self.url = url
+        self.background = background
+    }
     
     var body: some View {
         AsyncImage(url: url) { phase in
             switch phase {
             case .empty:
-                Color.background
-//                ProgressView()
-//                    .scaleEffect(1.5, anchor: .center)
-//                    .tint(.secondary)
+                background
                 MIAActivityIndicator()
                     .scaleEffect(0.5)
             case .success(let image):
-                Color.background
+                background
                 image
                     .resizable()
                     .scaledToFill()
