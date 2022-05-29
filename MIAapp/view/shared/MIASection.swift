@@ -10,22 +10,26 @@ import SwiftUI
 struct MIASection <Content: View>: View {
     
     let title: String
+    let showContent: Bool
     var content: Content
     
-    init(_ title: String, @ViewBuilder content: () -> Content) {
+    init(_ title: String, ignoreIf: Bool = false, @ViewBuilder content: () -> Content) {
         self.content = content()
         self.title = title
+        self.showContent = !ignoreIf
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(title.uppercased()).font(.caption).foregroundColor(.secondary)
-            Divider()
+        if showContent {
             VStack(alignment: .leading) {
-                content
+                Text(title.uppercased()).font(.caption).foregroundColor(.secondary)
+                Divider()
+                VStack(alignment: .leading) {
+                    content
+                }
             }
+            .padding(.bottom, 20)
         }
-        .padding(.bottom, 20)
     }
 }
 
