@@ -11,7 +11,6 @@ struct ArchitectsListView: View {
     
     @EnvironmentObject var architectsController: ArchitectsController
     @State private var searchText = ""
-//    @Environment(\.isSearching) var isSearching
     @State var isKeyboardShowing = false
     
     var body: some View {
@@ -83,11 +82,6 @@ struct ArchitectsListView: View {
                         }
                     }
                     .navigationTitle("Architects")
-//                    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
-//                        isKeyboardShowing = true
-//                    }.onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
-//                        isKeyboardShowing = false
-//                    }
                 }
             }
         case .loading:

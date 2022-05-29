@@ -46,7 +46,7 @@ struct ArchitectDetailView: View {
                             LazyVGrid(columns: columns, alignment:.leading, spacing: 20) {
                                 ForEach(detail.relatedBuildings) { building in
                                     NavigationLink(destination: BuildingView(item: building)) {
-                                        BuildingsListCellView(item: building)
+                                        BuildingsListCellView(building: building, searchText: "")
                                     }
                                     .buttonStyle(.plain)
                                 }

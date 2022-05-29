@@ -23,14 +23,7 @@ struct BuildingDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                // MARK: - Image
-                Rectangle()
-                    .aspectRatio(1.3, contentMode: .fill)
-                    .overlay{
-                        MIAAsyncImage(url: item.feedImage)
-                    }
-                    .clipped()
-                
+                MIAAsyncHeaderImage(url: item.feedImage)
                 VStack (alignment: .leading, spacing: 15) {
                     MIASection("Building") {
                         buildingDetails
