@@ -89,6 +89,10 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# Mac
+
+**/DS_Store
+
 # MIA App
 
 **/Secret.swift
