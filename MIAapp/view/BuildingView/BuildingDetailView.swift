@@ -51,9 +51,7 @@ struct BuildingDetailView: View {
         .padding(.top, 10)
         .navigationTitle(item.name)
         .toolbar {
-            Button(action: shareBuilding) {
-                Image(systemName: "square.and.arrow.up")
-            }
+            MIAShareView(url: detail.absoluteURL)
         }
     }
     
@@ -82,7 +80,7 @@ struct BuildingDetailView: View {
     
     var architectsDetails: some View {
         ForEach(detail.architects) { architect in
-            NavigationLink(destination: ArchitectDetailView(id: architect.id)) {
+            NavigationLink(destination: ArchitectView(id: architect.id)) {
                 Text(architect.fullName)
                     .underline()
             }
@@ -107,18 +105,6 @@ struct BuildingDetailView: View {
                     self.tabController.mapSubviewsVisible = false
                     tabController.selection = .map
                 }
-        }
-    }
-    
-    private func shareBuilding() {
-        let sharedText = "Sent with ❤️ from your MIA App."
-        let sharedItems = [detail.absoluteURL, sharedText] as [Any]
-        let ac = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
-        
-        let allScenes = UIApplication.shared.connectedScenes
-        let scene = allScenes.first { $0.activationState == .foregroundActive }
-        if let windowScene = scene as? UIWindowScene {
-            windowScene.keyWindow?.rootViewController?.present(ac, animated: true, completion: nil)
         }
     }
 }
