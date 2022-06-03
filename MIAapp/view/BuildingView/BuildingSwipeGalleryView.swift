@@ -37,11 +37,10 @@ struct BuildingSwipeGalleryView: View {
     
     var closeButton: some View {
         Button(action: close) {
-            Text("\(Image(systemName: "xmark")) close")
+            Text("\(Image(systemName: "xmark")) Close")
                 .foregroundColor(.closeButtonForeground)
-                .font(.footnote)
+                .font(.subheadline)
                 .padding(8)
-
         }
         .background(.thinMaterial, in: RoundedRectangle(cornerRadius: .infinity))
         .buttonStyle(.plain)
@@ -53,37 +52,3 @@ struct BuildingSwipeGalleryView: View {
     }
     
 }
-
-//// TODO: extra File
-//struct MIADetailSwipeGalleryImageView: View {
-//
-//    @State var galleryImage: URL
-//    @State var currentScale: CGFloat = 1.0
-//    @GestureState var scale: CGFloat = 1.0
-//
-//    var body: some View {
-//        Color.background
-//            .overlay {
-//                MIAAsyncImage(url: galleryImage)
-//                    .scaledToFill()
-//                    .scaleEffect(currentScale * scale)
-//                    .gesture(
-//                        MagnificationGesture()
-//                            .updating($scale, body: { (value, scale, transaction) in
-//                                scale = value.magnitude
-//                            })
-//                            .onEnded{ self.currentScale = max(self.currentScale * $0, 0.25) }
-//                    )
-//                    .onTapGesture(count: 2) {
-//                        self.currentScale = 1.0
-//                    }
-//            }
-//            .clipped()
-//    }
-//}
-
-//struct MIADetailSwipeGalleryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BuildingSwipeGalleryView()
-//    }
-//}
