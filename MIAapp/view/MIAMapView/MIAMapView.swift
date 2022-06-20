@@ -34,9 +34,6 @@ struct MIAMapView: View {
                     }
                 }
                 .accentColor(Color(.systemRed))
-                .onAppear {
-                    mapController.checkLocationServiceIsEnabled()
-                }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Places")
                 VStack(alignment: .trailing) {
