@@ -15,7 +15,6 @@ extension URL: Identifiable {
 }
 
 extension String {
-
     public func fromHtmlToAttributed() -> AttributedString {
         let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let attributedString = try? NSMutableAttributedString(data: trimmed.data(using: .unicode)!,
@@ -28,7 +27,6 @@ extension String {
         attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.label], range: textRangeForFont)
         return AttributedString(attributedString)
     }
-
 }
 
 extension CLLocation {

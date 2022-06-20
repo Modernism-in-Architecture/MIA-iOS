@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BuildingSwipeGalleryView: View {
     
-//    @ObservedObject var detailController: BuildingDetailController
-//    @State var tabbedImage: URL
     @State var images: [URL]
     @State var selection: URL
     
@@ -18,9 +16,11 @@ struct BuildingSwipeGalleryView: View {
     
     var body: some View {
         ZStack(alignment: .trailing) {
+            Color.black
+                .ignoresSafeArea()
             TabView(selection: $selection) {
                 ForEach(images) { galleryImage in
-                    MIADetailSwipeGalleryImageView(galleryImage: galleryImage)
+                    BuildingSwipeGalleryImageView(galleryImage: galleryImage)
                         .id(galleryImage.id)
                 }
             }
@@ -28,50 +28,27 @@ struct BuildingSwipeGalleryView: View {
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             
             VStack(alignment: .trailing) {
-                Button(action: {
-                    self.presentation.wrappedValue.dismiss()
-                }) {
-                    Text("close")
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                }
-                .foregroundColor(.primary)
-                .padding([.top, .trailing])
-
+                closeButton
                 Spacer()
             }
             .padding()
         }
     }
-}
-
-struct MIADetailSwipeGalleryImageView: View {
     
-    @State var galleryImage: URL
-    @State var currentScale: CGFloat = 1.0
-    @GestureState var scale: CGFloat = 1.0
-    
-    var body: some View {
-        Rectangle()
-            .overlay {
-                MIAAsyncImage(url: galleryImage)
-//                    .resizable()
-                    .scaledToFill()
-                    .scaleEffect(currentScale * scale)
-                    .gesture(
-                        MagnificationGesture()
-                            .updating($scale, body: { (value, scale, transaction) in
-                                scale = value.magnitude
-                            })
-                            .onEnded{ self.currentScale = max(self.currentScale * $0, 1.0) }
-                    )
-            }
-            .clipped()
+    var closeButton: some View {
+        Button(action: close) {
+            Text("\(Image(systemName: "xmark")) Close")
+                .foregroundColor(.closeButtonForeground)
+                .font(.subheadline)
+                .padding(8)
+        }
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: .infinity))
+        .buttonStyle(.plain)
+        .padding([.top, .trailing])
     }
+    
+    func close() {
+        self.presentation.wrappedValue.dismiss()
+    }
+    
 }
-
-//struct MIADetailSwipeGalleryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BuildingSwipeGalleryView()
-//    }
-//}

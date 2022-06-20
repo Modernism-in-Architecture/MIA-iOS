@@ -18,7 +18,8 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
-        region = currentPosition()
+        checkLocationServiceIsEnabled()
+        home()
     }
     
     func checkLocationServiceIsEnabled() {
@@ -55,7 +56,7 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        _ = currentPosition()
+        home()
     }
     
     func distance() -> CLLocationDistance {
