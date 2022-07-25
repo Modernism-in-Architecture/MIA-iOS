@@ -11,6 +11,7 @@ import MapKit
 
 extension Color {
     static let shadow = Color("shadow")
+    static let bookmarkShadow = Color("bookmarkShadow")
     static let cellBackground = Color("cellBackground")
     static let closeButtonForeground = Color("closeButtonForeground")
     static let background = Color(UIColor.systemBackground)

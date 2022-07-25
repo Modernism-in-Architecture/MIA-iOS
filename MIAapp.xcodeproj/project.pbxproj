@@ -35,6 +35,9 @@
 		11907CA727B30C3F00CC5368 /* ArchitectDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA627B30C3F00CC5368 /* ArchitectDetailController.swift */; };
 		11907CA927B30CD600CC5368 /* ArchitectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA827B30CD600CC5368 /* ArchitectDetail.swift */; };
 		11A3E55427B4853800423B65 /* MIASection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A3E55327B4853800423B65 /* MIASection.swift */; };
+		11A51910286A438400312486 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A5190F286A438400312486 /* BookmarksView.swift */; };
+		11A51913286A489F00312486 /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A51912286A489F00312486 /* BookmarksController.swift */; };
+		11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A51914286A515900312486 /* BookmarkToolbarView.swift */; };
 		11A8471E2846A15C00AF68F4 /* ArchitectsListSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */; };
 		11A847202846AC2100AF68F4 /* MIASectionIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */; };
 		11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A847212846D19600AF68F4 /* MIAShareView.swift */; };
@@ -89,6 +92,9 @@
 		11907CA627B30C3F00CC5368 /* ArchitectDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectDetailController.swift; sourceTree = "<group>"; };
 		11907CA827B30CD600CC5368 /* ArchitectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectDetail.swift; sourceTree = "<group>"; };
 		11A3E55327B4853800423B65 /* MIASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASection.swift; sourceTree = "<group>"; };
+		11A5190F286A438400312486 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
+		11A51912286A489F00312486 /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
+		11A51914286A515900312486 /* BookmarkToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkToolbarView.swift; sourceTree = "<group>"; };
 		11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsListSuccessView.swift; sourceTree = "<group>"; };
 		11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASectionIndexView.swift; sourceTree = "<group>"; };
 		11A847212846D19600AF68F4 /* MIAShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAShareView.swift; sourceTree = "<group>"; };
@@ -194,6 +200,23 @@
 			path = shared;
 			sourceTree = "<group>";
 		};
+		11A5190E286A432500312486 /* BookmarksView */ = {
+			isa = PBXGroup;
+			children = (
+				11A5190F286A438400312486 /* BookmarksView.swift */,
+				11A51914286A515900312486 /* BookmarkToolbarView.swift */,
+			);
+			path = BookmarksView;
+			sourceTree = "<group>";
+		};
+		11A51911286A482B00312486 /* bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				11A51912286A489F00312486 /* BookmarksController.swift */,
+			);
+			path = bookmarks;
+			sourceTree = "<group>";
+		};
 		11A8471C2846A0CA00AF68F4 /* ArchitectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +311,7 @@
 				115724FE27B4263E0005A404 /* buildings */,
 				1157250027B426FE0005A404 /* map */,
 				118FA9CF27AF3DF2002AAD4B /* architects */,
+				11A51911286A482B00312486 /* bookmarks */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -295,11 +319,12 @@
 		11F55A18271C5B8E00BF5E8E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				11A8471C2846A0CA00AF68F4 /* ArchitectView */,
-				113BA80127AF56EE0033E0E6 /* ArchitectsListView */,
-				11B0ED8A272DDE1400CA75FF /* BuildingView */,
 				11B0ED88272DDD4600CA75FF /* BuildingsListView */,
+				11B0ED8A272DDE1400CA75FF /* BuildingView */,
 				11B0ED89272DDD6700CA75FF /* MIAMapView */,
+				113BA80127AF56EE0033E0E6 /* ArchitectsListView */,
+				11A8471C2846A0CA00AF68F4 /* ArchitectView */,
+				11A5190E286A432500312486 /* BookmarksView */,
 				11907CAA27B3296D00CC5368 /* shared */,
 			);
 			path = view;
@@ -382,6 +407,7 @@
 				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,
 				111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */,
 				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
+				11A51910286A438400312486 /* BookmarksView.swift in Sources */,
 				11907CA527B30BCD00CC5368 /* ArchitectDetailView.swift in Sources */,
 				11A8471E2846A15C00AF68F4 /* ArchitectsListSuccessView.swift in Sources */,
 				11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */,
@@ -401,6 +427,7 @@
 				112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */,
 				1163482D272439B700547A28 /* BuildingDetail.swift in Sources */,
 				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
+				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
 				11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */,
 				1103C26E27BAD7570064D1E5 /* Error.swift in Sources */,
 				11E475A22726F933001C2BE6 /* MIAAsyncImage.swift in Sources */,
@@ -411,6 +438,7 @@
 				11F55A15271C574300BF5E8E /* BuildingsController.swift in Sources */,
 				118FA9D127AF3E3A002AAD4B /* Architect.swift in Sources */,
 				113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */,
+				11A51913286A489F00312486 /* BookmarksController.swift in Sources */,
 				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
 				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
 				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
@@ -569,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp";
 				PRODUCT_NAME = MIA;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -603,7 +631,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp";
 				PRODUCT_NAME = MIA;
 				PROVISIONING_PROFILE_SPECIFIER = "";

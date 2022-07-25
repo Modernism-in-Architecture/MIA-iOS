@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct BuildingsListCellView: View {
+    
+    @EnvironmentObject var bookmarksController: BookmarksController
     let building: Building
     let searchText: String
     var body: some View {
         NavigationLink(destination: BuildingView(item: building)) {
             if searchText.isEmpty {
                 VStack(alignment: .leading, spacing: 0) {
-                    MIAAsyncHeaderImage(url: building.feedImage)
+                    ZStack(alignment: .top) {
+                        MIAAsyncHeaderImage(url: building.feedImage)
+                        bookmark
+                    }
                     caption
                     .padding()
                 }
@@ -38,6 +43,23 @@ struct BuildingsListCellView: View {
         }
     }
     
+    var bookmark: some View {
+        HStack {
+            Spacer()
+            if isBookmarked {
+                Image(systemName: "bookmark.fill")
+                    .font(.title)
+                    .foregroundColor(.red)
+                    .padding(.trailing, 20)
+                    .offset(y: -3)
+                    .shadow(color: .bookmarkShadow, radius: 2, x: 1, y: 1)
+            }
+        }
+    }
+    
+    var isBookmarked: Bool {
+        bookmarksController.bookmarks.contains(building.id)
+    }
 }
 
 //struct MIAListCellView_Previews: PreviewProvider {

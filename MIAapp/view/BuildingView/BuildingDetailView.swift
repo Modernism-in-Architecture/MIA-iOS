@@ -51,7 +51,10 @@ struct BuildingDetailView: View {
         .padding(.top, 10)
         .navigationTitle(item.name)
         .toolbar {
-            MIAShareView(url: detail.absoluteURL)
+            HStack {
+                BookmarkToolbarView(id: item.id)
+                MIAShareView(url: detail.absoluteURL)
+            }
         }
     }
     
