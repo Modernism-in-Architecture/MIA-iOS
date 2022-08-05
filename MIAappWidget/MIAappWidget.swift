@@ -34,21 +34,19 @@ struct Provider: TimelineProvider {
         }
     }
     
-    func getNextSnapshots(count: Int) async -> [SimpleEntry] {
+    func getNextSnapshots(amount: Int) async -> [SimpleEntry] {
         
         var entries: [SimpleEntry] = []
         let buildings = await getBuildings()
         let now = Date.now
 
-        guard buildings.count < count else { return [SimpleEntry.placeholder] }
-        for (index, building) in buildings.prefix(count).enumerated() {
-            print("try: \(building.name)")
+        guard buildings.count > amount else { return [SimpleEntry.placeholder] }
+        for (index, building) in buildings.prefix(amount).enumerated() {
             guard let image = await downloadImage(url: building.feedImage) else { continue }
-//            let offset = 6 * index
-//            let loadAfterDate = Calendar.current.date(byAdding: .hour, value: offset, to: now)!
-            let offset = index
-            let loadAfterDate = Calendar.current.date(byAdding: .minute, value: offset, to: now)!
-            print("apending: \(building.name)")
+            let offset = 6 * index
+            let loadAfterDate = Calendar.current.date(byAdding: .hour, value: offset, to: now)!
+//            let offset = index
+//            let loadAfterDate = Calendar.current.date(byAdding: .minute, value: offset, to: now)!
             entries.append(SimpleEntry(date: loadAfterDate, image: image, name: building.name, cityCountry: "\(building.city), \(building.country)"))
         }
         if entries.isEmpty { return [.placeholder] }
@@ -58,23 +56,19 @@ struct Provider: TimelineProvider {
     // MARK: Protokoll Methods
 
     func placeholder(in context: Context) -> SimpleEntry {
-        print("placeholder called")
         return .placeholder
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        print("getSnapshot called")
         Task {
-            let entry = await getNextSnapshots(count: 1).first!
+            let entry = await getNextSnapshots(amount: 1).first!
             completion(entry)
         }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        print("getTimeline called")
         Task {
-            let entries = await getNextSnapshots(count: 9)
-            print(entries)
+            let entries = await getNextSnapshots(amount: 9)
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
@@ -144,8 +138,6 @@ struct MIAappWidget: Widget {
 
 struct MIAappWidget_Previews: PreviewProvider {
     static var previews: some View {
-//        MIAappWidgetEntryView(entry: SimpleEntry(date: Date()))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
         MIAappWidgetEntryView(entry: .placeholder)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
         MIAappWidgetEntryView(entry: .placeholder)
