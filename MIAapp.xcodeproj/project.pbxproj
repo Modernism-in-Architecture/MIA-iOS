@@ -21,6 +21,8 @@
 		113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113478A3272B2B7700C94E69 /* MIAMapPinView.swift */; };
 		113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113BA7FF27AF4F4C0033E0E6 /* ArchitectsController.swift */; };
 		113BA80327AF57450033E0E6 /* ArchitectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113BA80227AF57450033E0E6 /* ArchitectsListView.swift */; };
+		11521950289EDDB40090F324 /* CloudKitBookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */; };
+		11521954289EECD50090F324 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11521953289EECD50090F324 /* CloudKit.framework */; };
 		1152BF7427A70D47004EBD97 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152BF7327A70D47004EBD97 /* API.swift */; };
 		1152BF7527A736A4004EBD97 /* BuildingDetailGridGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482E27245E0700547A28 /* BuildingDetailGridGalleryView.swift */; };
 		1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */; };
@@ -36,7 +38,6 @@
 		11907CA927B30CD600CC5368 /* ArchitectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA827B30CD600CC5368 /* ArchitectDetail.swift */; };
 		11A3E55427B4853800423B65 /* MIASection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A3E55327B4853800423B65 /* MIASection.swift */; };
 		11A51910286A438400312486 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A5190F286A438400312486 /* BookmarksView.swift */; };
-		11A51913286A489F00312486 /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A51912286A489F00312486 /* BookmarksController.swift */; };
 		11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A51914286A515900312486 /* BookmarkToolbarView.swift */; };
 		11A8471E2846A15C00AF68F4 /* ArchitectsListSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */; };
 		11A847202846AC2100AF68F4 /* MIASectionIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */; };
@@ -78,6 +79,9 @@
 		113478A3272B2B7700C94E69 /* MIAMapPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapPinView.swift; sourceTree = "<group>"; };
 		113BA7FF27AF4F4C0033E0E6 /* ArchitectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsController.swift; sourceTree = "<group>"; };
 		113BA80227AF57450033E0E6 /* ArchitectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsListView.swift; sourceTree = "<group>"; };
+		1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitBookmarksController.swift; sourceTree = "<group>"; };
+		11521951289EECCE0090F324 /* MIAappRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MIAappRelease.entitlements; sourceTree = "<group>"; };
+		11521953289EECD50090F324 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		1152BF7327A70D47004EBD97 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1152BF7727A7399B004EBD97 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1163482A272438FB00547A28 /* BuildingDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailController.swift; sourceTree = "<group>"; };
@@ -93,7 +97,6 @@
 		11907CA827B30CD600CC5368 /* ArchitectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectDetail.swift; sourceTree = "<group>"; };
 		11A3E55327B4853800423B65 /* MIASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASection.swift; sourceTree = "<group>"; };
 		11A5190F286A438400312486 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
-		11A51912286A489F00312486 /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
 		11A51914286A515900312486 /* BookmarkToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkToolbarView.swift; sourceTree = "<group>"; };
 		11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsListSuccessView.swift; sourceTree = "<group>"; };
 		11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASectionIndexView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		11A847232846E84A00AF68F4 /* ArchitectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectView.swift; sourceTree = "<group>"; };
 		11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAActivityIndicator.swift; sourceTree = "<group>"; };
 		11C478A027973BF7001C9D21 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		11DCCE4A289EF4DF0086418D /* MIAappDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MIAappDebug.entitlements; sourceTree = "<group>"; };
 		11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingSwipeGalleryView.swift; sourceTree = "<group>"; };
 		11E475A12726F933001C2BE6 /* MIAAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImage.swift; sourceTree = "<group>"; };
 		11E5E5682847AF3D0021D22A /* MIASearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASearchBar.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11521954289EECD50090F324 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +144,14 @@
 				11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */,
 			);
 			path = ArchitectsListView;
+			sourceTree = "<group>";
+		};
+		11521952289EECD50090F324 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11521953289EECD50090F324 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		115724FE27B4263E0005A404 /* buildings */ = {
@@ -212,7 +225,7 @@
 		11A51911286A482B00312486 /* bookmarks */ = {
 			isa = PBXGroup;
 			children = (
-				11A51912286A489F00312486 /* BookmarksController.swift */,
+				1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */,
 			);
 			path = bookmarks;
 			sourceTree = "<group>";
@@ -263,6 +276,7 @@
 			children = (
 				11F55A02271C546800BF5E8E /* MIAapp */,
 				11F55A01271C546800BF5E8E /* Products */,
+				11521952289EECD50090F324 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +291,8 @@
 		11F55A02271C546800BF5E8E /* MIAapp */ = {
 			isa = PBXGroup;
 			children = (
+				11DCCE4A289EF4DF0086418D /* MIAappDebug.entitlements */,
+				11521951289EECCE0090F324 /* MIAappRelease.entitlements */,
 				11907CA127B30B6200CC5368 /* client */,
 				11F55A11271C551400BF5E8E /* model */,
 				11F55A18271C5B8E00BF5E8E /* view */,
@@ -438,9 +454,9 @@
 				11F55A15271C574300BF5E8E /* BuildingsController.swift in Sources */,
 				118FA9D127AF3E3A002AAD4B /* Architect.swift in Sources */,
 				113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */,
-				11A51913286A489F00312486 /* BookmarksController.swift in Sources */,
 				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
 				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
+				11521950289EDDB40090F324 /* CloudKitBookmarksController.swift in Sources */,
 				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
 				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
 				11907CA727B30C3F00CC5368 /* ArchitectDetailController.swift in Sources */,
@@ -579,6 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = MIAapp/MIAappDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -613,6 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = MIAapp/MIAappRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -14,7 +14,7 @@ struct MIAappApp: App {
     @StateObject var architectsController = ArchitectsController()
     @StateObject var tabController = TabController()
     @StateObject var mapController = MIAMapController()
-    @StateObject var bookmarkController = BookmarksController()
+    @StateObject var cloudKitBookmarksController = CloudKitBookmarksController()
 
     var body: some Scene {
         WindowGroup {
@@ -23,7 +23,7 @@ struct MIAappApp: App {
                 .environmentObject(architectsController)
                 .environmentObject(mapController)
                 .environmentObject(tabController)
-                .environmentObject(bookmarkController)
+                .environmentObject(cloudKitBookmarksController)
                 .task {
                     await buildingsController.fetchData()
                     await architectsController.fetchData()

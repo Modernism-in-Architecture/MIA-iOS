@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BookmarkToolbarView: View {
     
-    @EnvironmentObject var bookmarksController: BookmarksController
-
+    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
+    
     let id: Int
     
     var body: some View {
@@ -21,15 +21,13 @@ struct BookmarkToolbarView: View {
     }
     
     var isBookmarked: Bool {
-        bookmarksController.bookmarks.contains(id)
+        cloudKitBookmarksController.contains(id: id)
     }
     
     func toggleBookmark() {
-        bookmarksController.toggle(id: id)
+        cloudKitBookmarksController.toggle(id: id)
     }
 }
-
-
 
 //struct BookmarkToolbarView_Previews: PreviewProvider {
 //    static var previews: some View {

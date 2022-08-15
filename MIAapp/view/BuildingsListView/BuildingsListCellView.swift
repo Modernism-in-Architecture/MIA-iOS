@@ -9,7 +9,8 @@ import SwiftUI
 
 struct BuildingsListCellView: View {
     
-    @EnvironmentObject var bookmarksController: BookmarksController
+//    @EnvironmentObject var bookmarksController: BookmarksController
+    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
     let building: Building
     let searchText: String
     var body: some View {
@@ -58,7 +59,7 @@ struct BuildingsListCellView: View {
     }
     
     var isBookmarked: Bool {
-        bookmarksController.bookmarks.contains(building.id)
+        cloudKitBookmarksController.contains(id: building.id)
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var tabController: TabController
+    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
     
     var body: some View {
         TabView(selection: $tabController.selection) {
@@ -25,6 +26,7 @@ struct ContentView: View {
             BookmarksView().tabItem {
                 Label("Bookmarks", systemImage: "bookmark")
             }.tag(TabController.Tab.bookmarks)
+//                .badge(cloudKitBookmarksController.bookmarks.count)
         }
     }
 }
