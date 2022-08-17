@@ -19,51 +19,32 @@ struct MIAMapView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: buildingsController.buildings) {item in
-                    MapAnnotation(
-                        coordinate: item.coordinate,
-                        anchorPoint: .center
-                    ) {
-                        //                        NavigationLink(destination: BuildingDetailView(item: item), isActive: $subviewIsActive)
-                        MIAMapPinView()
-                            .onTapGesture {
-                                selectedItem = item
-                                tabController.mapSubviewsVisible = true
-                            }
-                            .buttonStyle(.plain)
+                Map(coordinateRegion: $mapController.region,
+                    showsUserLocation: true,
+                    annotationItems: mapController.zoomLevel == 0 ? buildingsController.annotations : buildingsController.groupedBuildings) { item in
+                    MapAnnotation(coordinate: item.coordinate, anchorPoint: .center) {
+                        if mapController.zoomLevel == 0 {
+                            MIAMapPinView(color: .green)
+                                .onTapGesture {
+                                    selectedItem = item.building
+                                    tabController.mapSubviewsVisible = true
+                                }
+                                .buttonStyle(.plain)
+                        } else {
+                            MIAMapPinView(color: .red)
+                        }
+                        
                     }
                 }
                 .accentColor(Color(.systemRed))
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Places")
-                VStack(alignment: .trailing) {
-                    if mapController.distance() > 1000 {
-                        HStack {
-                            Spacer()
-                            Button (action: {
-                                withAnimation {
-                                    mapController.home()
-                                }
-                            }) {
-                                Image(systemName: "location")
-                                    .font(.title3)
-                                    .padding(8)
-                                    .background(Color.secondaryBackground)
-                                    .cornerRadius(5)
-                                    .shadow(radius: 3)
-                            }
-                            .buttonStyle(.plain)
-                        }
-                        .transition(.opacity.animation(.easeInOut(duration: 0.5)))
-                    }
-                    Spacer()
-//                    Text("\(mapController.distance())")
-                }
+                
+                homeButton
                 .padding()
                 .background(
-                    NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) {EmptyView()}
-                        .isDetailLink(false)//,
-//                                   isActive: $isActivated) {EmptyView()}
+                    NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
+                        .isDetailLink(false)
                 )
             }
             .toolbar {
@@ -74,6 +55,33 @@ struct MIAMapView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
+    
+    var homeButton: some View {
+        VStack(alignment: .trailing) {
+            if mapController.distance() > 1000 {
+                HStack {
+                    Spacer()
+                    Button (action: {
+                        withAnimation {
+                            mapController.home()
+                        }
+                    }) {
+                        Image(systemName: "location")
+                            .font(.title3)
+                            .padding(8)
+                            .background(Color.secondaryBackground)
+                            .cornerRadius(5)
+                            .shadow(radius: 3)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .transition(.opacity.animation(.easeInOut(duration: 0.5)))
+            }
+            Spacer()
+        }
+
+    }
+    
 }
 
 //struct MIAMapView_Previews: PreviewProvider {

@@ -10,11 +10,13 @@ import SwiftUI
 struct MIAMapPinView: View {
     
     let diameter: CGFloat = 36
+    let color: Color
+
     
     var body: some View {
         ZStack {
             Circle()
-                .stroke(Color.green, lineWidth: 3)
+                .stroke(color, lineWidth: 3)
             Circle()
                 .fill(.background)
             Text(Image(systemName: "building.2.fill"))
@@ -25,6 +27,6 @@ struct MIAMapPinView: View {
 
 struct MIAMapPinView_Previews: PreviewProvider {
     static var previews: some View {
-        MIAMapPinView()
+        MIAMapPinView(color: .green)
     }
 }
