@@ -13,45 +13,26 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @EnvironmentObject var tabController: TabController
 
-    @Published var region: MKCoordinateRegion = .leipzig {
-        didSet {
-            if region.span.latitudeDelta > 0.05 { zoomLevel = 1 }
-            else { zoomLevel = 0 }
-        }
-    }
+    @Published var region: MKCoordinateRegion = .leipzig { didSet { updateZoomLevel() } }
     @Published var zoomLevel = 0
     
-    var initialRun = true
-    var locationManager: CLLocationManager?
-//    var cancellables = Set<AnyCancellable>()
+    private var initialRun = true
+    private var locationManager: CLLocationManager?
     
     override init() {
         super.init()
         checkLocationServiceIsEnabled()
-//        $region
-//            .throttle(for: .seconds(1.0), scheduler: RunLoop.main, latest: true)
-//            .map{ region -> Int in
-//                if region.span.latitudeDelta > 0.12 { return 1 }
-//                return 0
-//            }
-//            .receive(on: RunLoop.main)
-//            .sink{ zoomLevel in
-//                print(zoomLevel)
-//                self.zoomLevel = zoomLevel
-//            }
-//
-//            .store(in: &cancellables)
         home()
     }
     
-    func checkLocationServiceIsEnabled() {
+    private func checkLocationServiceIsEnabled() {
         guard CLLocationManager.locationServicesEnabled() else { return }
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func currentPosition() -> MKCoordinateRegion {
+    private func currentPosition() -> MKCoordinateRegion {
         
         guard let locationManager = locationManager else { return .leipzig }
         
@@ -77,12 +58,21 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         region = currentPosition()
     }
     
+    func zoom(to location: CLLocationCoordinate2D) {
+        region = MKCoordinateRegion(center: location, span: .defaultSpan)
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         home()
     }
     
     func distance() -> CLLocationDistance {
         return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
+    }
+    
+    private func updateZoomLevel() {
+        if region.span.latitudeDelta > 0.05 { zoomLevel = 1 }
+        else { zoomLevel = 0 }
     }
     
 }

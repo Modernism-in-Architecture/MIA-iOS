@@ -31,9 +31,13 @@ struct MIAMapView: View {
                                 }
                                 .buttonStyle(.plain)
                         } else {
-                            MIAMapPinView(color: .red)
+                            MIAMapGroupPinView(value: item.count)
+                                .onTapGesture {
+                                    withAnimation {
+                                        mapController.zoom(to: item.coordinate)
+                                    }
+                                }
                         }
-                        
                     }
                 }
                 .accentColor(Color(.systemRed))
