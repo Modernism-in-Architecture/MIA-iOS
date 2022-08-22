@@ -16,6 +16,8 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region: MKCoordinateRegion = .leipzig { didSet { updateZoomLevel() } }
     @Published var zoomLevel = 0
     
+    private var zoomLevelLatitudeDeltas = [0.0, 0.1, 0.6, 2.5, 10, 30]
+    
     private var initialRun = true
     private var locationManager: CLLocationManager?
     
@@ -58,8 +60,10 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         region = currentPosition()
     }
     
-    func zoom(to location: CLLocationCoordinate2D) {
-        region = MKCoordinateRegion(center: location, span: .defaultSpan)
+    func zoom(to location: CLLocationCoordinate2D, on level: Int) {
+        let latitudeDelta = zoomLevelLatitudeDeltas[level] * 0.7
+        let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: latitudeDelta)
+        region = MKCoordinateRegion(center: location, span: span)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -71,10 +75,14 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     private func updateZoomLevel() {
-        if region.span.latitudeDelta > 0.05 { zoomLevel = 1 }
-        else { zoomLevel = 0 }
+        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
+            if region.span.latitudeDelta > delta {
+                zoomLevel = level
+                return
+            }
+        }
     }
-    
+        
 }
 
 

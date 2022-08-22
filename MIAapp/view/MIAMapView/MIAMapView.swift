@@ -16,40 +16,41 @@ struct MIAMapView: View {
     
     @State var selectedItem: Building = .empty
     
+    var mapItems: [MapItem] {
+        buildingsController.levelContent.reversed().filter { $0.level == mapController.zoomLevel }
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
+                let zoomLevel = mapController.zoomLevel
                 Map(coordinateRegion: $mapController.region,
                     showsUserLocation: true,
-                    annotationItems: mapController.zoomLevel == 0 ? buildingsController.annotations : buildingsController.groupedBuildings) { item in
-                    MapAnnotation(coordinate: item.coordinate, anchorPoint: .center) {
-                        if mapController.zoomLevel == 0 {
-                            MIAMapPinView(color: .green)
-                                .onTapGesture {
-                                    selectedItem = item.building
+                    annotationItems: mapItems) { mapItem in
+                    MapAnnotation(coordinate: mapItem.coordinate, anchorPoint: .center) {
+                        MIAMapPinView(zoomLevel: zoomLevel, mapItem: mapItem)
+                            .onTapGesture {
+                                if let building = mapItem.building {
+                                    selectedItem = building
                                     tabController.mapSubviewsVisible = true
-                                }
-                                .buttonStyle(.plain)
-                        } else {
-                            MIAMapGroupPinView(value: item.count)
-                                .onTapGesture {
+                                } else {
                                     withAnimation {
-                                        mapController.zoom(to: item.coordinate)
+                                        mapController.zoom(to: mapItem.coordinate, on: zoomLevel)
                                     }
                                 }
-                        }
+                            }
                     }
                 }
-                .accentColor(Color(.systemRed))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Places")
+                    .accentColor(Color(.systemRed))
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("Places")
                 
                 homeButton
-                .padding()
-                .background(
-                    NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
-                        .isDetailLink(false)
-                )
+                    .padding()
+                    .background(
+                        NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
+                            .isDetailLink(false)
+                    )
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -83,9 +84,7 @@ struct MIAMapView: View {
             }
             Spacer()
         }
-
     }
-    
 }
 
 //struct MIAMapView_Previews: PreviewProvider {
