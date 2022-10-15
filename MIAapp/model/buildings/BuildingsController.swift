@@ -15,7 +15,7 @@ class BuildingsController: ObservableObject {
     
     @Published var state: LoadingState = .loading
     @Published var buildings: [Building] = []
-    @Published var levelContent: [MapItem] = []
+    var levelContent: [MapItem] = []
     
     private let levelDistances = [0.0, 1000.0, 5_000.0, 40_000.0, 100_000.0, 400_000.0]
     
