@@ -34,20 +34,28 @@ struct Provider: TimelineProvider {
         }
     }
     
-    func getNextSnapshots(amount: Int) async -> [SimpleEntry] {
-        
-        var entries: [SimpleEntry] = []
+    func getLastAndRandom(lastAmount: Int = 6, randomAmount: Int = 6) async -> [Building] {
+        var selection: [Building] = []
         let buildings = await getBuildings()
+        selection.append(contentsOf: buildings.prefix(lastAmount))
+        selection.append(contentsOf: buildings[lastAmount...].shuffled().prefix(randomAmount))
+        return selection.shuffled()
+    }
+    
+    func getNextSnapshots(lastAmount: Int = 6, randomAmount: Int = 6) async -> [SimpleEntry] {
+        
+        let amount = lastAmount + randomAmount
+        var entries: [SimpleEntry] = []
+        let buildings = await getLastAndRandom(lastAmount: lastAmount, randomAmount: randomAmount)
         let now = Date.now
-
-        guard buildings.count > amount else { return [SimpleEntry.placeholder] }
+        
+        guard buildings.count > 0 else { return [SimpleEntry.placeholder] }
         for (index, building) in buildings.prefix(amount).enumerated() {
             guard let image = await downloadImage(url: building.feedImage) else { continue }
             let offset = 6 * index
             let loadAfterDate = Calendar.current.date(byAdding: .hour, value: offset, to: now)!
-//            let offset = index
-//            let loadAfterDate = Calendar.current.date(byAdding: .minute, value: offset, to: now)!
             entries.append(SimpleEntry(date: loadAfterDate, image: image, name: building.name, cityCountry: "\(building.city), \(building.country)"))
+            debugPrint(entries)
         }
         if entries.isEmpty { return [.placeholder] }
         return entries
@@ -61,14 +69,14 @@ struct Provider: TimelineProvider {
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         Task {
-            let entry = await getNextSnapshots(amount: 1).first!
+            let entry = await getNextSnapshots(lastAmount: 1, randomAmount: 0).first!
             completion(entry)
         }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         Task {
-            let entries = await getNextSnapshots(amount: 9)
+            let entries = await getNextSnapshots()
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
