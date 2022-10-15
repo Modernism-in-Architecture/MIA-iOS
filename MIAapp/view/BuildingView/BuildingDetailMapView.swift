@@ -20,7 +20,7 @@ struct BuildingDetailMapView: View {
                 coordinate: item.coordinate,
                 anchorPoint: CGPoint(x: 0.5, y: 0.5)
             ) {
-                MIAMapPinView()
+                MIAMapPinView(zoomLevel: 0, mapItem: MapItem(coordinate: item.coordinate, count: 0, level: 0, building: item))
             }
         }
     }

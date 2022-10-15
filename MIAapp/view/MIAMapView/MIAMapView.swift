@@ -16,55 +16,41 @@ struct MIAMapView: View {
     
     @State var selectedItem: Building = .empty
     
+    var mapItems: [MapItem] {
+        buildingsController.levelContent.reversed().filter { $0.level == mapController.zoomLevel }
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
-                Map(coordinateRegion: $mapController.region, showsUserLocation: true, annotationItems: buildingsController.buildings) {item in
-                    MapAnnotation(
-                        coordinate: item.coordinate,
-                        anchorPoint: .center
-                    ) {
-                        //                        NavigationLink(destination: BuildingDetailView(item: item), isActive: $subviewIsActive)
-                        MIAMapPinView()
+                let zoomLevel = mapController.zoomLevel
+                Map(coordinateRegion: $mapController.region,
+                    showsUserLocation: true,
+                    annotationItems: mapItems) { mapItem in
+                    MapAnnotation(coordinate: mapItem.coordinate, anchorPoint: .center) {
+                        MIAMapPinView(zoomLevel: zoomLevel, mapItem: mapItem)
                             .onTapGesture {
-                                selectedItem = item
-                                tabController.mapSubviewsVisible = true
-                            }
-                            .buttonStyle(.plain)
-                    }
-                }
-                .accentColor(Color(.systemRed))
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Places")
-                VStack(alignment: .trailing) {
-                    if mapController.distance() > 1000 {
-                        HStack {
-                            Spacer()
-                            Button (action: {
-                                withAnimation {
-                                    mapController.home()
+                                if let building = mapItem.building {
+                                    selectedItem = building
+                                    tabController.mapSubviewsVisible = true
+                                } else {
+                                    withAnimation {
+                                        mapController.zoom(to: mapItem.coordinate, on: zoomLevel)
+                                    }
                                 }
-                            }) {
-                                Image(systemName: "location")
-                                    .font(.title3)
-                                    .padding(8)
-                                    .background(Color.secondaryBackground)
-                                    .cornerRadius(5)
-                                    .shadow(radius: 3)
                             }
-                            .buttonStyle(.plain)
-                        }
-                        .transition(.opacity.animation(.easeInOut(duration: 0.5)))
                     }
-                    Spacer()
-//                    Text("\(mapController.distance())")
                 }
-                .padding()
-                .background(
-                    NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) {EmptyView()}
-                        .isDetailLink(false)//,
-//                                   isActive: $isActivated) {EmptyView()}
-                )
+                    .accentColor(Color(.systemRed))
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("Places")
+                
+                homeButton
+                    .padding()
+                    .background(
+                        NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
+                            .isDetailLink(false)
+                    )
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -73,6 +59,31 @@ struct MIAMapView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var homeButton: some View {
+        VStack(alignment: .trailing) {
+            if mapController.distance() > 1000 {
+                HStack {
+                    Spacer()
+                    Button (action: {
+                        withAnimation {
+                            mapController.home()
+                        }
+                    }) {
+                        Image(systemName: "location")
+                            .font(.title3)
+                            .padding(8)
+                            .background(Color.secondaryBackground)
+                            .cornerRadius(5)
+                            .shadow(radius: 3)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .transition(.opacity.animation(.easeInOut(duration: 0.5)))
+            }
+            Spacer()
+        }
     }
 }
 
