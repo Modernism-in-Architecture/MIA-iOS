@@ -13,8 +13,8 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @EnvironmentObject var tabController: TabController
 
-    @Published var region: MKCoordinateRegion = .leipzig { didSet { updateZoomLevel() } }
-    @Published var zoomLevel = 0
+    @Published var region: MKCoordinateRegion = .leipzig  { didSet { updateZoomLevel() } }
+    var zoomLevel = 0
     
     private var zoomLevelLatitudeDeltas = [0.0, 0.1, 0.6, 2.5, 10, 30]
     
