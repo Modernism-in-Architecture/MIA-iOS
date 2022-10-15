@@ -28,7 +28,6 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     private func checkLocationServiceIsEnabled() {
-        guard CLLocationManager.locationServicesEnabled() else { return }
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
