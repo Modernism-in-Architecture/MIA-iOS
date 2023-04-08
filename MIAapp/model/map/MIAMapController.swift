@@ -7,14 +7,19 @@
 
 import MapKit
 import SwiftUI
+import Combine
 
 class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    @Published var region: MKCoordinateRegion = .leipzig
     @EnvironmentObject var tabController: TabController
+
+    @Published var region: MKCoordinateRegion = .leipzig  { didSet { updateZoomLevel() } }
+    var zoomLevel = 0
     
-    var initialRun = true
-    var locationManager: CLLocationManager?
+    private var zoomLevelLatitudeDeltas = [0.0, 0.1, 0.6, 2.5, 10, 30]
+    
+    private var initialRun = true
+    private var locationManager: CLLocationManager?
     
     override init() {
         super.init()
@@ -22,14 +27,13 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         home()
     }
     
-    func checkLocationServiceIsEnabled() {
-        guard CLLocationManager.locationServicesEnabled() else { return }
+    private func checkLocationServiceIsEnabled() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func currentPosition() -> MKCoordinateRegion {
+    private func currentPosition() -> MKCoordinateRegion {
         
         guard let locationManager = locationManager else { return .leipzig }
         
@@ -46,13 +50,19 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
                 span: .defaultSpan
             )
         @unknown default:
-            break
+            return .leipzig
         }
         return .leipzig
     }
     
     func home() {
         region = currentPosition()
+    }
+    
+    func zoom(to location: CLLocationCoordinate2D, on level: Int) {
+        let latitudeDelta = zoomLevelLatitudeDeltas[level] * 0.7
+        let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: latitudeDelta)
+        region = MKCoordinateRegion(center: location, span: span)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -63,4 +73,15 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
     }
     
+    private func updateZoomLevel() {
+        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
+            if region.span.latitudeDelta > delta {
+                zoomLevel = level
+                return
+            }
+        }
+    }
+        
 }
+
+

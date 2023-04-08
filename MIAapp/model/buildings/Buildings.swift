@@ -12,7 +12,7 @@ struct Buildings: Decodable {
     var data: [Building]
 }
 
-struct Building: Decodable, Identifiable {
+struct Building: Decodable, Identifiable, Hashable {
     let id: Int
     let name: String
     let yearOfConstruction: String

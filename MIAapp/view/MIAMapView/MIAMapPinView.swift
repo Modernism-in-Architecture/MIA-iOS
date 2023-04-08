@@ -9,22 +9,26 @@ import SwiftUI
 
 struct MIAMapPinView: View {
     
-    let diameter: CGFloat = 36
+    let zoomLevel: Int
+    let mapItem: MapItem
+    
+    var diameter: CGFloat { 36 + 2 * CGFloat(zoomLevel) }
+    var fontSize: CGFloat { CGFloat(20 + zoomLevel) }
+    var strokeSize: CGFloat { CGFloat(3 + zoomLevel) }
     
     var body: some View {
         ZStack {
             Circle()
-                .stroke(Color.green, lineWidth: 3)
+                .stroke(.green, lineWidth: strokeSize)
             Circle()
                 .fill(.background)
-            Text(Image(systemName: "building.2.fill"))
+            if zoomLevel == 0 {
+                Text(Image(systemName: "building.2.fill"))
+            } else {
+                Text("\(mapItem.count)")
+                    .font(.system(size: fontSize))
+            }
         }
         .frame(width: diameter, height: diameter)
-    }
-}
-
-struct MIAMapPinView_Previews: PreviewProvider {
-    static var previews: some View {
-        MIAMapPinView()
     }
 }

@@ -49,7 +49,7 @@ struct ArchitectsListSuccessView: View {
                             }
                         }
                         if !isSearching {
-                            MIASectionIndexView(index: groupedArchitects.keys.sorted(), proxy: proxy)
+                            MIASectionIndexView(scrollViewProxy: proxy, keys: groupedArchitects.keys.sorted())
                         }
                     }
                     .onAppear() {
