@@ -16,7 +16,7 @@ struct BuildingSwipeGalleryImageView: View {
     var body: some View {
         Color.black
             .overlay {
-                MIAAsyncImage(galleryImage, background: Color.black)
+                MIAImageView(galleryImage, background: Color.black)
                     .scaledToFit()
                     .scaleEffect(currentScale * scale)
                     .gesture(

@@ -19,7 +19,7 @@ struct BuildingDetailGridGalleryView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .aspectRatio(1, contentMode: .fill)
                     .overlay {
-                        MIAAsyncImage(image)
+                        MIAImageView(image)
                     }
                     .mask(RoundedRectangle(cornerRadius: 10))
                     .shadow(color: .shadow, radius: 3, x: 2, y: 2)

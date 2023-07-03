@@ -5,19 +5,23 @@
 //  Created by Sören Kirchner on 17.10.21.
 //
 
-import Foundation
+import Combine
 import CoreLocation
+import Foundation
 import SwiftUI
 
 class BuildingsController: ObservableObject {
-    
     @EnvironmentObject var mapController: MIAMapController
     
     @Published var state: LoadingState = .loading
     @Published var buildings: [Building] = []
+    @Published var focusedBuilding: Building = .empty
+    
+    private var updateFocusedBuilding: Building = .empty
+    
     var levelContent: [MapItem] = []
     
-    private let levelDistances = [0.0, 1000.0, 5_000.0, 40_000.0, 100_000.0, 400_000.0]
+    private let levelDistances = [0.0, 1_000.0, 5_000.0, 40_000.0, 100_000.0, 400_000.0]
     
     func fetchData() async {
         let result = await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
@@ -28,7 +32,7 @@ class BuildingsController: ObservableObject {
                 self.levelContent = self.buildings.map { building in
                     MapItem(coordinate: building.coordinate, count: 0, level: 0, building: building)
                 }
-                for level in 1..<self.levelDistances.count {
+                for level in 1 ..< self.levelDistances.count {
                     self.levelContent.append(contentsOf: self.createGroups(for: level))
                 }
                 self.state = .success
@@ -40,8 +44,8 @@ class BuildingsController: ObservableObject {
     
     private func getCenter(for chunk: [Building]) -> CLLocationCoordinate2D {
         let count = Double(chunk.count)
-        let sum = chunk.reduce((0.0, 0.0)) { (sum, building) -> (Double, Double) in
-            return (sum.0 + building.coordinate.latitude, sum.1 + building.coordinate.longitude)
+        let sum = chunk.reduce((0.0, 0.0)) { sum, building -> (Double, Double) in
+            (sum.0 + building.coordinate.latitude, sum.1 + building.coordinate.longitude)
         }
         return CLLocationCoordinate2D(latitude: sum.0 / count, longitude: sum.1 / count)
     }

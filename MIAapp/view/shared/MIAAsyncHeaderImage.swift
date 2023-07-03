@@ -15,7 +15,7 @@ struct MIAAsyncHeaderImage: View {
         Rectangle()
             .aspectRatio(1.3, contentMode: .fill)
             .overlay{
-                MIAAsyncImage(url)
+                MIAImageView(url)
             }
             .clipped()
     }

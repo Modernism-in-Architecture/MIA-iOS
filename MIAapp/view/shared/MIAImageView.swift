@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MIAAsyncImage: View {
+struct MIAImageView: View {
     
     let url: URL
     let background: Color

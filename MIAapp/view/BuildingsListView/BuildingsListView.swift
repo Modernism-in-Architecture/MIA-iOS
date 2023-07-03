@@ -14,7 +14,7 @@ struct BuildingsListView: View {
     var body: some View {
         switch buildingsController.state {
         case .success:
-            BuildingsListSuccessView(buildings: buildingsController.buildings)
+            BuildingsListSuccessView()
         case .loading:
             MIAActivityIndicator()
         case .error(let error):
