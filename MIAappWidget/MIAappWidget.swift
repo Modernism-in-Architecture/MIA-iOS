@@ -11,7 +11,8 @@ import SwiftUI
 struct Provider: TimelineProvider {
     
     func getBuildings() async -> [Building] {
-        let result =  await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
+        // TODO: use of new fetchData
+        let result = await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
         switch result {
         case .success(let data):
             return data.data

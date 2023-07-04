@@ -58,7 +58,12 @@ extension Angle {
 
 struct MIAActivityIndicator_Previews: PreviewProvider {
     static var previews: some View {
-        MIAActivityIndicator()
-            .scaleEffect(1)
+        VStack {
+            MIAActivityIndicator()
+                .scaleEffect(0.5)
+            MIAActivityIndicator()
+                .scaleEffect(1)
+        }
+
     }
 }
