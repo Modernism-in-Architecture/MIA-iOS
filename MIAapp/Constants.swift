@@ -5,7 +5,6 @@
 //  Created by Sören Kirchner on 17.10.21.
 //
 
-import Foundation
 import SwiftUI
 import MapKit
 
