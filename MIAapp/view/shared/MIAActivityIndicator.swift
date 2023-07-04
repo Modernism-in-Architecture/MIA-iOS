@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct MIAActivityIndicator: View {
-    
     @State private var endPoint = 0.0
-    
+
     var body: some View {
         return ZStack {
-            Ring (endPoint: endPoint)
+            Ring(endPoint: endPoint)
                 .stroke(Color.green, lineWidth: 4)
                 .rotationEffect(Angle(degrees: 90))
                 .task {
@@ -31,15 +30,14 @@ struct MIAActivityIndicator: View {
 }
 
 struct Ring: Shape {
-    
     var endPoint: Double
     var delayPoint = 0.5
-    
+
     var animatableData: Double {
         get { return endPoint }
         set { endPoint = newValue }
     }
-    
+
     func path(in rect: CGRect) -> Path {
         return Path { path in
             let startPoint = (endPoint > delayPoint) ? (2 * endPoint) : 0
@@ -66,5 +64,6 @@ struct MIAActivityIndicator_Previews: PreviewProvider {
             MIAActivityIndicator()
                 .scaleEffect(1)
         }
+
     }
 }
