@@ -9,9 +9,8 @@ import Foundation
 import SwiftUI
 
 class MIAClient {
-    
     private static let session = URLSession.shared
-    
+
     private static func fetch(request: URLRequest) async -> Result<ClientResult, ClientError> {
         do {
             let (data, response) = try await session.data(for: request, delegate: nil)
@@ -32,7 +31,7 @@ class MIAClient {
             return .failure(.InternalError(GenericError(message: error.localizedDescription)))
         }
     }
-    
+
     // TODO: Replace by mothod above
     public static func fetchData<Value>(for request: URLRequest, of type: Value.Type) async -> (Result<Value, MiaClientError>) where Value: Decodable {
         do {
@@ -47,9 +46,11 @@ class MIAClient {
             return .failure(.UnknownError)
         }
     }
-    
+
     static func downloadImage(from url: URL) async -> Result<UIImage, ClientError> {
-        if let image = ImageCacheManager.instance.get(url: url) { return .success(image) }
+        if let image = ImageCacheManager.instance.get(url: url) {
+            return .success(image)
+        }
         let result = await fetch(request: URLRequest(url: url))
         switch result {
         case .success(let clientResult):

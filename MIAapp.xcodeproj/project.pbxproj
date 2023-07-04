@@ -58,7 +58,6 @@
 		11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */; };
 		11C478A127973BF7001C9D21 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C478A027973BF7001C9D21 /* Secret.swift */; };
 		11C478A227974794001C9D21 /* BuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118E2ED52722053C001B5F50 /* BuildingView.swift */; };
-		11E475A22726F933001C2BE6 /* MIAAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E475A12726F933001C2BE6 /* MIAAsyncImage.swift */; };
 		11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E5E5682847AF3D0021D22A /* MIASearchBar.swift */; };
 		11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E5E56A2847C1310021D22A /* MIASearchButton.swift */; };
 		11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A03271C546800BF5E8E /* MIAappApp.swift */; };
@@ -72,6 +71,8 @@
 		11F55A1C271CAD2A00BF5E8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A1B271CAD2A00BF5E8E /* Constants.swift */; };
 		11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */; };
 		11FAA9B72725F3D200692DA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FAA9B62725F3D200692DA3 /* Media.xcassets */; };
+		DB20763B2A54A53600106FC0 /* MIAAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20763A2A54A53600106FC0 /* MIAAsyncImageView.swift */; };
+		DB20763D2A54A54800106FC0 /* MIAAsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20763C2A54A54800106FC0 /* MIAAsyncImageViewModel.swift */; };
 		DBE79A4B2A54811D00E322A3 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */; };
 		DBE79A4C2A54812C00E322A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A1B271CAD2A00BF5E8E /* Constants.swift */; };
 		DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */; };
@@ -149,7 +150,6 @@
 		11C478A027973BF7001C9D21 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		11DCCE4A289EF4DF0086418D /* MIAappDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MIAappDebug.entitlements; sourceTree = "<group>"; };
 		11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingSwipeGalleryView.swift; sourceTree = "<group>"; };
-		11E475A12726F933001C2BE6 /* MIAAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImage.swift; sourceTree = "<group>"; };
 		11E5E5682847AF3D0021D22A /* MIASearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASearchBar.swift; sourceTree = "<group>"; };
 		11E5E56A2847C1310021D22A /* MIASearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASearchButton.swift; sourceTree = "<group>"; };
 		11F55A00271C546800BF5E8E /* MIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +164,8 @@
 		11F55A1B271CAD2A00BF5E8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailMapView.swift; sourceTree = "<group>"; };
 		11FAA9B62725F3D200692DA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		DB20763A2A54A53600106FC0 /* MIAAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImageView.swift; sourceTree = "<group>"; };
+		DB20763C2A54A54800106FC0 /* MIAAsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImageViewModel.swift; sourceTree = "<group>"; };
 		DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,7 +251,6 @@
 		11907CAA27B3296D00CC5368 /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				11E475A12726F933001C2BE6 /* MIAAsyncImage.swift */,
 				111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */,
 				11A3E55327B4853800423B65 /* MIASection.swift */,
 				118680D927B5B0360008C589 /* MIAFoldableText.swift */,
@@ -333,8 +334,8 @@
 			children = (
 				118E2ED52722053C001B5F50 /* BuildingView.swift */,
 				111BB26D2842754000FF72F1 /* BuildingDetailView.swift */,
-				11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */,
 				1163482E27245E0700547A28 /* BuildingDetailGridGalleryView.swift */,
+				11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */,
 				11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */,
 				1110E32C2843E2240037F65C /* BuildingSwipeGalleryImageView.swift */,
 			);
@@ -378,8 +379,8 @@
 				11FAA9B62725F3D200692DA3 /* Media.xcassets */,
 				11907CA127B30B6200CC5368 /* client */,
 				11F55A11271C551400BF5E8E /* model */,
-				11F55A09271C546C00BF5E8E /* Preview Content */,
 				11F55A18271C5B8E00BF5E8E /* view */,
+				11F55A09271C546C00BF5E8E /* Preview Content */,
 			);
 			path = MIAapp;
 			sourceTree = "<group>";
@@ -417,10 +418,28 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		DB2076382A54A3B800106FC0 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DB2076392A54A4DE00106FC0 /* Components */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		DB2076392A54A4DE00106FC0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DB20763A2A54A53600106FC0 /* MIAAsyncImageView.swift */,
+				DB20763C2A54A54800106FC0 /* MIAAsyncImageViewModel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DBEAD8222A5366A0009A9E9B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				DBEAD8232A5366B3009A9E9B /* Manager */,
+				DB2076382A54A3B800106FC0 /* SwiftUI */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -554,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */,
+				DB20763B2A54A53600106FC0 /* MIAAsyncImageView.swift in Sources */,
 				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,
 				111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */,
 				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
@@ -566,6 +586,7 @@
 				111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */,
 				11F55A17271C5A6400BF5E8E /* BuildingsListView.swift in Sources */,
 				1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */,
+				DB20763D2A54A54800106FC0 /* MIAAsyncImageViewModel.swift in Sources */,
 				11F55A13271C56EC00BF5E8E /* Buildings.swift in Sources */,
 				118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */,
 				DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */,
@@ -581,7 +602,6 @@
 				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
 				11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */,
 				1103C26E27BAD7570064D1E5 /* Error.swift in Sources */,
-				11E475A22726F933001C2BE6 /* MIAAsyncImage.swift in Sources */,
 				11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */,
 				11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */,
 				1163482B272438FB00547A28 /* BuildingDetailController.swift in Sources */,
