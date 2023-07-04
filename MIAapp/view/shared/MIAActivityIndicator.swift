@@ -18,7 +18,7 @@ struct MIAActivityIndicator: View {
                 .rotationEffect(Angle(degrees: 90))
                 .task {
                     withAnimation(.easeInOut(duration: 1.0).repeatForever(autoreverses: false)) {
-                        self.endPoint = 1.0
+                        self.endPoint = 0.99
                     }
                 }
             Image("mia")
@@ -58,9 +58,13 @@ extension Angle {
     }
 }
 
-//struct MIAActivityIndicator_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MIAActivityIndicator()
-//            .scaleEffect(0.5)
-//    }
-//}
+struct MIAActivityIndicator_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            MIAActivityIndicator()
+                .scaleEffect(0.5)
+            MIAActivityIndicator()
+                .scaleEffect(1)
+        }
+    }
+}
