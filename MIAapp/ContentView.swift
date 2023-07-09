@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+// MARK: - ContentView
+
 struct ContentView: View {
-    
+
     @EnvironmentObject var tabController: TabController
     @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
-    
+
     var body: some View {
         TabView(selection: $tabController.selection) {
             BuildingsListView().tabItem {
@@ -30,6 +32,8 @@ struct ContentView: View {
         }
     }
 }
+
+// MARK: - ContentView_Previews
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

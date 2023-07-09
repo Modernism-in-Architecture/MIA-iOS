@@ -5,13 +5,15 @@
 //  Created by Sören Kirchner on 14.02.22.
 //
 
-import Foundation
 import SwiftUI
 
+// MARK: - MIAClient
+
 class MIAClient {
+
     private static let session = URLSession.shared
 
-    private static func fetch(request: URLRequest) async -> Result<ClientResult, ClientError> {
+    static func fetch(_ request: URLRequest) async -> Result<ClientResult, ClientError> {
         do {
             let (data, response) = try await session.data(for: request, delegate: nil)
             guard let response = response as? HTTPURLResponse else {
@@ -42,16 +44,20 @@ class MIAClient {
             let result = try JSONDecoder().decode(type, from: data)
             return .success(result)
         } catch {
-            print(error)
             return .failure(.UnknownError)
         }
     }
+}
+
+// MARK: - MIAClient + Image Download
+
+extension MIAClient {
 
     static func downloadImage(from url: URL) async -> Result<UIImage, ClientError> {
         if let image = ImageCacheManager.instance.get(url: url) {
             return .success(image)
         }
-        let result = await fetch(request: URLRequest(url: url))
+        let result = await fetch(URLRequest(url: url))
         switch result {
         case .success(let clientResult):
             guard let newImage = UIImage(data: clientResult.data) else { return .failure(.InternalError(GenericError(message: "Image data corrupted"))) }
@@ -63,7 +69,7 @@ class MIAClient {
         }
     }
 
-    public static func getExpireDate(response: HTTPURLResponse) -> Date {
+    static func getExpireDate(response: HTTPURLResponse) -> Date {
         let defaultDate = Date(timeIntervalSinceNow: MIADefaults.ImageCache.maxAge)
         guard
             let cacheControl = response.value(forHTTPHeaderField: "Cache-Control"),
@@ -78,10 +84,14 @@ class MIAClient {
     }
 }
 
+// MARK: - ClientResult
+
 struct ClientResult {
     let data: Data
     let respone: HTTPURLResponse
 }
+
+// MARK: - ClientError
 
 enum ClientError: Error {
     case HTTPClientError(HTTPURLResponse)
@@ -89,6 +99,8 @@ enum ClientError: Error {
     case DecodingError(DecodingError)
     case InternalError(GenericError)
 }
+
+// MARK: - GenericError
 
 struct GenericError: Error {
     let message: String

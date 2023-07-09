@@ -6,23 +6,28 @@
 //
 
 import Foundation
-import UIKit
-import SwiftUI
 import MapKit
+import SwiftUI
+import UIKit
+
+// MARK: - URL + Identifiable
 
 extension URL: Identifiable {
     public var id: Self { self }
 }
 
-extension String {
-    public func fromHtmlToAttributed() -> AttributedString {
+public extension String {
+    func fromHtmlToAttributed() -> AttributedString {
         let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let attributedString = try? NSMutableAttributedString(data: trimmed.data(using: .unicode)!,
-                                                             options: [.documentType: NSAttributedString.DocumentType.html],
-                                                             documentAttributes: nil)
-        else { print("ERROR"); return AttributedString("ERROR") }
+                                                                    options: [.documentType: NSAttributedString.DocumentType.html],
+                                                                    documentAttributes: nil)
+        else {
+            return AttributedString("ERROR")
+        }
+        
         let font = UIFont.preferredFont(forTextStyle: .body)
-        let textRangeForFont : NSRange = NSMakeRange(0, attributedString.length)
+        let textRangeForFont: NSRange = NSMakeRange(0, attributedString.length)
         attributedString.addAttributes([NSAttributedString.Key.font: font], range: textRangeForFont)
         attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.label], range: textRangeForFont)
         return AttributedString(attributedString)
@@ -30,7 +35,7 @@ extension String {
 }
 
 extension CLLocation {
-    convenience init (_ location: CLLocationCoordinate2D) {
+    convenience init(_ location: CLLocationCoordinate2D) {
         self.init(latitude: location.latitude, longitude: location.longitude)
     }
 }

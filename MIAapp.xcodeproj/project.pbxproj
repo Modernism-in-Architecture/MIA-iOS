@@ -28,7 +28,6 @@
 		1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */; };
 		1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152BF7727A7399B004EBD97 /* Extensions.swift */; };
 		1163482B272438FB00547A28 /* BuildingDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482A272438FB00547A28 /* BuildingDetailController.swift */; };
-		1163482D272439B700547A28 /* BuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482C272439B700547A28 /* BuildingDetail.swift */; };
 		1168107027C1378100A62DD8 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1168106F27C1378100A62DD8 /* TabController.swift */; };
 		118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118680D927B5B0360008C589 /* MIAFoldableText.swift */; };
 		118878EE2899B8EB0054C7DF /* MIAClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103C26F27BAD82A0064D1E5 /* MIAClient.swift */; };
@@ -73,6 +72,18 @@
 		11FAA9B72725F3D200692DA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FAA9B62725F3D200692DA3 /* Media.xcassets */; };
 		DB20763B2A54A53600106FC0 /* MIAAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20763A2A54A53600106FC0 /* MIAAsyncImageView.swift */; };
 		DB20763D2A54A54800106FC0 /* MIAAsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB20763C2A54A54800106FC0 /* MIAAsyncImageViewModel.swift */; };
+		DB71E6882A58A34200315D11 /* BuildingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6872A58A34200315D11 /* BuildingsManager.swift */; };
+		DB71E6892A58A34200315D11 /* BuildingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6872A58A34200315D11 /* BuildingsManager.swift */; };
+		DB71E68E2A597F4300315D11 /* APIBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E68D2A597F4300315D11 /* APIBuilding.swift */; };
+		DB71E6912A5980CB00315D11 /* BuildingsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */; };
+		DB71E6922A5983C500315D11 /* BuildingsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */; };
+		DB71E6932A5987AC00315D11 /* APIBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E68D2A597F4300315D11 /* APIBuilding.swift */; };
+		DB71E6952A5ADC3100315D11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152BF7727A7399B004EBD97 /* Extensions.swift */; };
+		DB71E6972A5B44F100315D11 /* APIBuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */; };
+		DB71E6982A5B44F300315D11 /* APIBuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */; };
+		DB71E69A2A5B459E00315D11 /* BuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6992A5B459E00315D11 /* BuildingDetail.swift */; };
+		DB71E69B2A5B460200315D11 /* BuildingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB71E6992A5B459E00315D11 /* BuildingDetail.swift */; };
+		DB71E69C2A5B685100315D11 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA227B30B8800CC5368 /* LoadingState.swift */; };
 		DBE79A4B2A54811D00E322A3 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */; };
 		DBE79A4C2A54812C00E322A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F55A1B271CAD2A00BF5E8E /* Constants.swift */; };
 		DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */; };
@@ -166,6 +177,11 @@
 		11FAA9B62725F3D200692DA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		DB20763A2A54A53600106FC0 /* MIAAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImageView.swift; sourceTree = "<group>"; };
 		DB20763C2A54A54800106FC0 /* MIAAsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncImageViewModel.swift; sourceTree = "<group>"; };
+		DB71E6872A58A34200315D11 /* BuildingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsManager.swift; sourceTree = "<group>"; };
+		DB71E68D2A597F4300315D11 /* APIBuilding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBuilding.swift; sourceTree = "<group>"; };
+		DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsMapper.swift; sourceTree = "<group>"; };
+		DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBuildingDetail.swift; sourceTree = "<group>"; };
+		DB71E6992A5B459E00315D11 /* BuildingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetail.swift; sourceTree = "<group>"; };
 		DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -435,10 +451,46 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		DB71E68A2A597EE100315D11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB71E68B2A597EF300315D11 /* API */,
+				DB71E68C2A597EFC00315D11 /* Business */,
+				DB71E68F2A59808500315D11 /* Mapper */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB71E68B2A597EF300315D11 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DB71E68D2A597F4300315D11 /* APIBuilding.swift */,
+				DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DB71E68C2A597EFC00315D11 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				DB71E6992A5B459E00315D11 /* BuildingDetail.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		DB71E68F2A59808500315D11 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		DBEAD8222A5366A0009A9E9B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				DBEAD8232A5366B3009A9E9B /* Manager */,
+				DB71E68A2A597EE100315D11 /* Model */,
 				DB2076382A54A3B800106FC0 /* SwiftUI */,
 			);
 			path = Shared;
@@ -448,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */,
+				DB71E6872A58A34200315D11 /* BuildingsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -556,15 +609,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB71E69B2A5B460200315D11 /* BuildingDetail.swift in Sources */,
+				DB71E6932A5987AC00315D11 /* APIBuilding.swift in Sources */,
 				11AFF156288F5C5500BD2ADC /* MIAToolBarLogo.swift in Sources */,
 				118878F32899C54D0054C7DF /* Secret.swift in Sources */,
 				118878F02899B93C0054C7DF /* Buildings.swift in Sources */,
+				DB71E6892A58A34200315D11 /* BuildingsManager.swift in Sources */,
 				118878EE2899B8EB0054C7DF /* MIAClient.swift in Sources */,
 				DBE79A4B2A54811D00E322A3 /* ImageCacheManager.swift in Sources */,
+				DB71E6982A5B44F300315D11 /* APIBuildingDetail.swift in Sources */,
 				118878EF2899B92D0054C7DF /* API.swift in Sources */,
+				DB71E6922A5983C500315D11 /* BuildingsMapper.swift in Sources */,
 				118878F22899C5450054C7DF /* Error.swift in Sources */,
+				DB71E69C2A5B685100315D11 /* LoadingState.swift in Sources */,
 				11AFF147288F40D200BD2ADC /* MIAappWidget.swift in Sources */,
 				DBE79A4C2A54812C00E322A3 /* Constants.swift in Sources */,
+				DB71E6952A5ADC3100315D11 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,11 +653,12 @@
 				11907CA927B30CD600CC5368 /* ArchitectDetail.swift in Sources */,
 				1110E32D2843E2240037F65C /* BuildingSwipeGalleryImageView.swift in Sources */,
 				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
+				DB71E6912A5980CB00315D11 /* BuildingsMapper.swift in Sources */,
 				1168107027C1378100A62DD8 /* TabController.swift in Sources */,
 				1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */,
+				DB71E69A2A5B459E00315D11 /* BuildingDetail.swift in Sources */,
 				11A847202846AC2100AF68F4 /* MIASectionIndexView.swift in Sources */,
 				112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */,
-				1163482D272439B700547A28 /* BuildingDetail.swift in Sources */,
 				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
 				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
 				11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */,
@@ -608,9 +669,11 @@
 				1120DC62272990CA007E9806 /* MIAMapController.swift in Sources */,
 				11F55A15271C574300BF5E8E /* BuildingsController.swift in Sources */,
 				118FA9D127AF3E3A002AAD4B /* Architect.swift in Sources */,
+				DB71E68E2A597F4300315D11 /* APIBuilding.swift in Sources */,
 				113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */,
 				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
 				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
+				DB71E6972A5B44F100315D11 /* APIBuildingDetail.swift in Sources */,
 				11521950289EDDB40090F324 /* CloudKitBookmarksController.swift in Sources */,
 				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
 				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
@@ -619,6 +682,7 @@
 				1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */,
 				113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */,
 				113BA80327AF57450033E0E6 /* ArchitectsListView.swift in Sources */,
+				DB71E6882A58A34200315D11 /* BuildingsManager.swift in Sources */,
 				1152BF7527A736A4004EBD97 /* BuildingDetailGridGalleryView.swift in Sources */,
 				11F55A1C271CAD2A00BF5E8E /* Constants.swift in Sources */,
 				11C478A227974794001C9D21 /* BuildingView.swift in Sources */,

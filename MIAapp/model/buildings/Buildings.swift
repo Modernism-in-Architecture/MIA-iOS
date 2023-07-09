@@ -8,9 +8,9 @@
 import Foundation
 import MapKit
 
-struct Buildings: Decodable {
-    var data: [Building]
-}
+//struct Buildings: Decodable {
+//    var data: [Building]
+//}
 
 struct Building: Decodable, Identifiable, Hashable {
     let id: Int

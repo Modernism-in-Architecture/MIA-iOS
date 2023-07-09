@@ -9,31 +9,32 @@ import Foundation
 
 class BuildingDetailController: ObservableObject {
     
-    @Published var detail: LoadingStateWithContent<BuildingDetail.Detail> = .loading
+    @Published var detail: LoadingStateWithContent<BuildingDetail> = .loading
+    
+    private var buildingsMangager = BuildingsManager()
+}
+
+// MARK: - Load BuildingDetail
+
+@MainActor
+extension BuildingDetailController {
     
     func fetchData(for id: Int) async {
-        let result = await MIAClient.fetchData(for: API.request(for: API.building(for: id)), of: BuildingDetail.self)
-        DispatchQueue.main.async {
-            switch result {
-            case .success(let data):
-                self.detail = .success(data.data)
-            case .failure(let error):
-                self.detail = .error(error)
-            }
+        do {
+            let detail = try await buildingsMangager.getBuildingDetail(for: id)
+            handle(detail: detail)
+        } catch let error as ManagerError {
+            handleLoadError(error: error)
+        } catch {
+            handleLoadError(error: .unknownError)
         }
     }
-//        print(id)
-////        var request = URLRequest(url: url, timeoutInterval: API.timeoout)
-////        request.addValue("Token \(Secret.token)", forHTTPHeaderField: "Authorization")
-//        do {
-//            let (data, _) = try await URLSession.shared.data(for: API.request(for: API.building(for: id)))
-//            let result = try JSONDecoder().decode(BuildingDetail.self, from: data)
-//            DispatchQueue.main.async {
-//                self.detail = .success(result.data)
-//            }
-//        } catch {
-//            print(error)
-//        }
-//    }
     
+    private func handle(detail: BuildingDetail) {
+        self.detail = .success(detail)
+    }
+    
+    private func handleLoadError(error: ManagerError) {
+        self.detail = .error(error)
+    }
 }

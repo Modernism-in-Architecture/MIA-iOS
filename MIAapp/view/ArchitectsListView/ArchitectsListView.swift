@@ -18,7 +18,8 @@ struct ArchitectsListView: View {
         case .loading:
             MIAActivityIndicator()
         case .error(let error):
-            MIAErrorView(error: error)
+            // TODO: pass real error if changed to ManagerError
+            MIAErrorView(error: .notImplementedError)
         }
     }
 }

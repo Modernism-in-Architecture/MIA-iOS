@@ -5,9 +5,10 @@
 //  Created by Sören Kirchner on 17.10.21.
 //
 
-import Foundation
 import CoreLocation
 import SwiftUI
+
+// MARK: - BuildingsController
 
 class BuildingsController: ObservableObject {
     
@@ -15,40 +16,59 @@ class BuildingsController: ObservableObject {
     
     @Published var state: LoadingState = .loading
     @Published var buildings: [Building] = []
+    
+    private var buildingsMangager = BuildingsManager()
+    
     var levelContent: [MapItem] = []
     
-    private let levelDistances = [0.0, 1000.0, 5_000.0, 40_000.0, 100_000.0, 400_000.0]
+    private let levelDistances = [0.0, 1_000.0, 5_000.0, 40_000.0, 100_000.0, 400_000.0]
+}
+
+// MARK: - Load Buildings
+
+@MainActor
+extension BuildingsController {
     
     func fetchData() async {
-        let result = await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
-        DispatchQueue.main.async {
-            switch result {
-            case .success(let data):
-                self.buildings = data.data
-                self.levelContent = self.buildings.map { building in
-                    MapItem(coordinate: building.coordinate, count: 0, level: 0, building: building)
-                }
-                for level in 1..<self.levelDistances.count {
-                    self.levelContent.append(contentsOf: self.createGroups(for: level))
-                }
-                self.state = .success
-            case .failure(let error):
-                self.state = .error(error)
-            }
+        do {
+            let buildings = try await buildingsMangager.getBuildings()
+            self.handle(buildings: buildings)
+        } catch {
+            self.handleLoadError(error: error)
         }
     }
     
-    private func getCenter(for chunk: [Building]) -> CLLocationCoordinate2D {
+    private func handle(buildings: [Building]) {
+        self.buildings = buildings
+        self.levelContent = self.buildings.map { building in
+            MapItem(coordinate: building.coordinate, count: 0, level: 0, building: building)
+        }
+        for level in 1 ..< self.levelDistances.count {
+            self.levelContent.append(contentsOf: self.createGroups(for: level))
+        }
+        self.state = .success
+    }
+    
+    private func handleLoadError(error: Error) {
+        self.state = .error(.NetworkError)
+    }
+}
+
+// MARK: - Private Extensions
+    
+private extension BuildingsController {
+
+    func getCenter(for chunk: [Building]) -> CLLocationCoordinate2D {
         let count = Double(chunk.count)
-        let sum = chunk.reduce((0.0, 0.0)) { (sum, building) -> (Double, Double) in
-            return (sum.0 + building.coordinate.latitude, sum.1 + building.coordinate.longitude)
+        let sum = chunk.reduce((0.0, 0.0)) { sum, building -> (Double, Double) in
+            (sum.0 + building.coordinate.latitude, sum.1 + building.coordinate.longitude)
         }
         return CLLocationCoordinate2D(latitude: sum.0 / count, longitude: sum.1 / count)
     }
     
-    private func createGroups(for level: Int) -> [MapItem] {
+    func createGroups(for level: Int) -> [MapItem] {
         var groupedBuildings: [MapItem] = []
-        var buildingsCopy = buildings
+        var buildingsCopy = self.buildings
         while let building = buildingsCopy.first {
             var chunk: [Building] = []
             buildingsCopy.removeAll { targetBuilding in
@@ -56,11 +76,13 @@ class BuildingsController: ObservableObject {
                 chunk.append(targetBuilding)
                 return true
             }
-            groupedBuildings.append(MapItem(coordinate: getCenter(for: chunk), count: chunk.count, level: level, building: nil))
+            groupedBuildings.append(MapItem(coordinate: self.getCenter(for: chunk), count: chunk.count, level: level, building: nil))
         }
         return groupedBuildings
     }
 }
+
+// MARK: - MapItem
 
 struct MapItem: Identifiable {
     let id = UUID()

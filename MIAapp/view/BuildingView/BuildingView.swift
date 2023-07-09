@@ -22,7 +22,8 @@ struct BuildingView: View {
                     await detailController.fetchData(for: item.id)
                 }
         case .error(let error):
-            MIAErrorView(error: error)
+            // TODO: pass real error if changed to ManagerError
+            MIAErrorView(error: .notImplementedError)
         }
     }
 }

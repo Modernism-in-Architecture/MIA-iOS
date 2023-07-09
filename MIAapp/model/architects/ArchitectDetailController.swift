@@ -18,7 +18,9 @@ class ArchitectDetailController: ObservableObject {
             case .success(let data):
                 self.architectDetail = .success(data.data)
             case .failure(let error):
-                self.architectDetail = .error(error)
+                // TODO: pass real error if changed to ManagerError
+
+                self.architectDetail = .error(.notImplementedError)
             }
         }
 //        do {

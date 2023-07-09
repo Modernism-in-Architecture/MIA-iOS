@@ -15,7 +15,7 @@ struct BuildingDetailView: View {
     @EnvironmentObject var tabController: TabController
     
     @State var item: Building
-    @State var detail: BuildingDetail.Detail
+    @State var detail: BuildingDetail
     
     @State var showShareSheet = false
     @State var sharedItems = []
