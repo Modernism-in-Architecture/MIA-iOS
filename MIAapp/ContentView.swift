@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
 
     @EnvironmentObject var tabController: TabController
-    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
+    @EnvironmentObject var cloudKitBookmarksController: BookmarksViewModel
 
     var body: some View {
         TabView(selection: $tabController.selection) {

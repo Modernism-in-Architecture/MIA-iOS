@@ -1,5 +1,5 @@
 //
-//  CloudKitBookmarksController.swift
+//  BookmarksViewModel.swift
 //  MIAapp
 //
 //  Created by Sören Kirchner on 06.08.22.
@@ -13,7 +13,7 @@ struct BookmarkEntry: Hashable {
     let bookmarkID: Int
 }
 
-class CloudKitBookmarksController: ObservableObject {
+class BookmarksViewModel: ObservableObject {
     
     @Published private(set) var bookmarks: Set<BookmarkEntry> = []
     

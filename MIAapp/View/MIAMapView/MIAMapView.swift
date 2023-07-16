@@ -12,7 +12,7 @@ struct MIAMapView: View {
 
     @EnvironmentObject var buildingsController: BuildingsListViewModel
     @EnvironmentObject var tabController: TabController
-    @EnvironmentObject var mapController: MIAMapController
+    @EnvironmentObject var mapController: MIAMapViewModel
     
     @State var selectedItem: Building = .empty
     

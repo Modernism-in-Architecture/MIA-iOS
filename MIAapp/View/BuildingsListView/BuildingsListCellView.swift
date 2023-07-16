@@ -10,7 +10,7 @@ import SwiftUI
 struct BuildingsListCellView: View {
     
 //    @EnvironmentObject var bookmarksController: BookmarksController
-    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
+    @EnvironmentObject var cloudKitBookmarksController: BookmarksViewModel
     let building: Building
     let searchText: String
     var body: some View {

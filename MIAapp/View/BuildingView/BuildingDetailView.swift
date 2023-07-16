@@ -11,7 +11,7 @@ import MapKit
 
 struct BuildingDetailView: View {
     
-    @EnvironmentObject var mapController: MIAMapController
+    @EnvironmentObject var mapController: MIAMapViewModel
     @EnvironmentObject var tabController: TabController
     
     @State var item: Building

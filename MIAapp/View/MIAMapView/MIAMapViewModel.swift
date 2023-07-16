@@ -1,5 +1,5 @@
 //
-//  MIAMapController.swift
+//  MIAMapViewModel.swift
 //  MIAapp
 //
 //  Created by Sören Kirchner on 27.10.21.
@@ -7,9 +7,8 @@
 
 import MapKit
 import SwiftUI
-import Combine
 
-class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
+class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @EnvironmentObject var tabController: TabController
 
@@ -81,7 +80,4 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
     }
-        
 }
-
-
