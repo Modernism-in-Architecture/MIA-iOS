@@ -5,17 +5,17 @@
 //  Created by Sören Kirchner (privat) on 08.07.23.
 //
 
-import Foundation
+import MapKit
 
 // MARK: - BuildingsMapper
 
 class BuildingsMapper {
-
+    
     func map(_ model: APIBuildings) -> [Building] {
         model.data.map(map)
     }
 
-    func map(_ model: APIBuilding) -> Building {
+    func map(_ model: APIBuildings.APIBuilding) -> Building {
         Building(
             id: model.id,
             name: model.name,
@@ -24,7 +24,9 @@ class BuildingsMapper {
             country: model.country,
             latitude: model.latitude,
             longitude: model.longitude,
-            feedImage: model.feedImage)
+            feedImage: model.feedImage,
+            coordinate: CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
+        )
     }
 }
 
@@ -60,7 +62,7 @@ extension BuildingsMapper {
         )
     }
     
-    func map(_ model: APIArchitect) -> BuildingDetail.Architect {
+    func map(_ model: APIBuildingDetail.APIArchitect) -> BuildingDetail.Architect {
         return BuildingDetail.Architect (
             id: model.id,
             lastName: model.lastName,

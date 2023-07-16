@@ -16,6 +16,7 @@ class BuildingsManager {
     func getBuildings() async throws -> [Building] {
 
         let result = await MIAClient.fetch(API.request(for: API.buildings))
+        
         switch result {
         case .success(let data):
             do {
@@ -31,14 +32,16 @@ class BuildingsManager {
     }
     
     func getBuildingDetail(for id: Int) async throws -> BuildingDetail {
+        
         let result = await MIAClient.fetch(API.request(for: API.building(for: id)))
+        
         switch result {
         case .success(let data):
             do {
                 let jsonData = try JSONDecoder().decode(APIBuildingDetail.self, from: data.data)
-                let mappedData = mapper.map(jsonData)
-                return mappedData
-//                return mapper.map(jsonData)
+//                let mappedData = mapper.map(jsonData)
+//                return mappedData
+                return mapper.map(jsonData)
             } catch {
                 throw ManagerError.unknownError
             }

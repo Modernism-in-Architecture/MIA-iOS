@@ -9,32 +9,30 @@ import Foundation
 
 class ArchitectDetailController: ObservableObject {
     
-    @Published var architectDetail: LoadingStateWithContent<ArchitectDetail.Details> = .loading
+    @Published var architectDetail: LoadingStateWithContent<ArchitectDetail> = .loading
+    
+    private var architectsManager = ArchitectsManager()
+}
+    
+@MainActor
+extension ArchitectDetailController {
     
     func fetchData(for id: Int) async {
-        let result = await MIAClient.fetchData(for: API.request(for: API.architect(for: id)), of: ArchitectDetail.self)
-        DispatchQueue.main.async {
-            switch result {
-            case .success(let data):
-                self.architectDetail = .success(data.data)
-            case .failure(let error):
-                // TODO: pass real error if changed to ManagerError
-
-                self.architectDetail = .error(.notImplementedError)
-            }
+        do {
+            let detail = try await architectsManager.getArchitectDetail(for: id)
+            handle(detail: detail)
+        } catch let error as ManagerError {
+            handleLoadError(error: error)
+        } catch {
+            handleLoadError(error: .unknownError)
         }
-//        do {
-//            let (data, response) = try await URLSession.shared.data(for: API.request(for: API.architect(for: id)))
-//            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//                architectDetail = .error(.NetworkError)
-//                return
-//            }
-//            let result = try JSONDecoder().decode(ArchitectDetail.self, from: data)
-//            DispatchQueue.main.async {
-//                self.architectDetail = .success(result.data)
-//            }
-//        } catch {
-//            self.architectDetail = .error(.UnknownError)
-//        }
+    }
+    
+    private func handle(detail: ArchitectDetail) {
+        self.architectDetail = .success(detail)
+    }
+    
+    private func handleLoadError(error: ManagerError) {
+        self.architectDetail = .error(error)
     }
 }

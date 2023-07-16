@@ -8,9 +8,9 @@
 import CoreLocation
 import SwiftUI
 
-// MARK: - BuildingsController
+// MARK: - BuildingsListViewModel
 
-class BuildingsController: ObservableObject {
+class BuildingsListViewModel: ObservableObject {
     
     @EnvironmentObject var mapController: MIAMapController
     
@@ -27,7 +27,7 @@ class BuildingsController: ObservableObject {
 // MARK: - Load Buildings
 
 @MainActor
-extension BuildingsController {
+extension BuildingsListViewModel {
     
     func fetchData() async {
         do {
@@ -50,13 +50,14 @@ extension BuildingsController {
     }
     
     private func handleLoadError(error: Error) {
+        // TODO: Handle correct Manager error
         self.state = .error(.NetworkError)
     }
 }
 
 // MARK: - Private Extensions
     
-private extension BuildingsController {
+private extension BuildingsListViewModel {
 
     func getCenter(for chunk: [Building]) -> CLLocationCoordinate2D {
         let count = Double(chunk.count)

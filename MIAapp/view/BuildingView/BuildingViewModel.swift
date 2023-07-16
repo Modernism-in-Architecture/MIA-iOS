@@ -1,5 +1,5 @@
 //
-//  BuildingDetailController.swift
+//  BuildingViewModel.swift
 //  MIAapp
 //
 //  Created by Sören Kirchner on 23.10.21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BuildingDetailController: ObservableObject {
+class BuildingViewModel: ObservableObject {
     
     @Published var detail: LoadingStateWithContent<BuildingDetail> = .loading
     
@@ -17,7 +17,7 @@ class BuildingDetailController: ObservableObject {
 // MARK: - Load BuildingDetail
 
 @MainActor
-extension BuildingDetailController {
+extension BuildingViewModel {
     
     func fetchData(for id: Int) async {
         do {

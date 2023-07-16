@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BuildingView: View {
 
-    @StateObject var detailController = BuildingDetailController()
+    @StateObject var detailController = BuildingViewModel()
     @State var item: Building
         
     var body: some View {

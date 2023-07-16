@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct BuildingDetail: Decodable{
+struct BuildingDetail: Decodable {
     
     let id: Int
     let name: String

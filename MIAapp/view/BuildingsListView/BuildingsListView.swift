@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BuildingsListView: View {
     
-    @EnvironmentObject var buildingsController: BuildingsController
+    @EnvironmentObject var buildingsController: BuildingsListViewModel
 
     var body: some View {
         switch buildingsController.state {
@@ -26,7 +26,7 @@ struct BuildingsListView: View {
 
 //struct MIAListView_Previews: PreviewProvider {
 //
-//    @ObservedObject var mia: BuildingsController
+//    @ObservedObject var mia: BuildingsListViewModel
 //
 //    static var previews: some View {
 //        MIAListView(mia: mia)

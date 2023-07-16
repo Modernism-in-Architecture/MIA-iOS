@@ -10,7 +10,7 @@ import MapKit
 
 struct MIAMapView: View {
 
-    @EnvironmentObject var buildingsController: BuildingsController
+    @EnvironmentObject var buildingsController: BuildingsListViewModel
     @EnvironmentObject var tabController: TabController
     @EnvironmentObject var mapController: MIAMapController
     
@@ -89,6 +89,6 @@ struct MIAMapView: View {
 
 //struct MIAMapView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        MIAMapView(mia: <#T##BuildingsController#>)
+//        MIAMapView(mia: <#T##BuildingsListViewModel#>)
 //    }
 //}
