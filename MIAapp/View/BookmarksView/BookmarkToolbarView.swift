@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookmarkToolbarView: View {
     
-    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
+    @EnvironmentObject var cloudKitBookmarksController: BookmarksViewModel
     
     let id: Int
     

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchitectsListView: View {
     
-    @EnvironmentObject var architectsController: ArchitectsController
+    @EnvironmentObject var architectsController: ArchitectsListViewModel
     
     var body: some View {
         switch architectsController.state {

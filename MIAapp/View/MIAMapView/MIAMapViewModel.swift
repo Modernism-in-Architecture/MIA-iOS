@@ -1,5 +1,5 @@
 //
-//  MIAMapController.swift
+//  MIAMapViewModel.swift
 //  MIAapp
 //
 //  Created by Sören Kirchner on 27.10.21.
@@ -7,12 +7,11 @@
 
 import MapKit
 import SwiftUI
-import Combine
 
-class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
+class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @EnvironmentObject var tabController: TabController
-
+    
     @Published var region: MKCoordinateRegion = .leipzig  { didSet { updateZoomLevel() } }
     var zoomLevel = 0
     
@@ -26,14 +25,19 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkLocationServiceIsEnabled()
         home()
     }
+}
+
+// MARK: - Private Methods
+
+private extension MIAMapViewModel {
     
-    private func checkLocationServiceIsEnabled() {
+    func checkLocationServiceIsEnabled() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    private func currentPosition() -> MKCoordinateRegion {
+    func currentPosition() -> MKCoordinateRegion {
         
         guard let locationManager = locationManager else { return .leipzig }
         
@@ -55,6 +59,20 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
         return .leipzig
     }
     
+    func updateZoomLevel() {
+        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
+            if region.span.latitudeDelta > delta {
+                zoomLevel = level
+                return
+            }
+        }
+    }
+}
+
+// MARK: - Public Methods
+
+extension MIAMapViewModel {
+    
     func home() {
         region = currentPosition()
     }
@@ -72,16 +90,4 @@ class MIAMapController: NSObject, ObservableObject, CLLocationManagerDelegate {
     func distance() -> CLLocationDistance {
         return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
     }
-    
-    private func updateZoomLevel() {
-        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
-            if region.span.latitudeDelta > delta {
-                zoomLevel = level
-                return
-            }
-        }
-    }
-        
 }
-
-

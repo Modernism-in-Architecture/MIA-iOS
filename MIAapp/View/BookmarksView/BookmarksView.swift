@@ -10,7 +10,7 @@ import SwiftUI
 struct BookmarksView: View {
     
     @EnvironmentObject var buildingsController: BuildingsListViewModel
-    @EnvironmentObject var cloudKitBookmarksController: CloudKitBookmarksController
+    @EnvironmentObject var cloudKitBookmarksController: BookmarksViewModel
     
     var body: some View {
         NavigationView {

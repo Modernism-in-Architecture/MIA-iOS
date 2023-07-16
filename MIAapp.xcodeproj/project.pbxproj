@@ -14,14 +14,14 @@
 		111BB26E2842754000FF72F1 /* BuildingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB26D2842754000FF72F1 /* BuildingDetailView.swift */; };
 		111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */; };
 		111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */; };
-		1120DC62272990CA007E9806 /* MIAMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120DC61272990CA007E9806 /* MIAMapController.swift */; };
+		1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120DC61272990CA007E9806 /* MIAMapViewModel.swift */; };
 		112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */; };
 		1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */; };
 		1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C910271DE67F00DE3FAA /* MIAMapView.swift */; };
 		113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113478A3272B2B7700C94E69 /* MIAMapPinView.swift */; };
-		113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113BA7FF27AF4F4C0033E0E6 /* ArchitectsController.swift */; };
+		113BA80027AF4F4C0033E0E6 /* ArchitectsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113BA7FF27AF4F4C0033E0E6 /* ArchitectsListViewModel.swift */; };
 		113BA80327AF57450033E0E6 /* ArchitectsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113BA80227AF57450033E0E6 /* ArchitectsListView.swift */; };
-		11521950289EDDB40090F324 /* CloudKitBookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */; };
+		11521950289EDDB40090F324 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152194F289EDDB40090F324 /* BookmarksViewModel.swift */; };
 		11521954289EECD50090F324 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11521953289EECD50090F324 /* CloudKit.framework */; };
 		1152BF7427A70D47004EBD97 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152BF7327A70D47004EBD97 /* API.swift */; };
 		1152BF7527A736A4004EBD97 /* BuildingDetailGridGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163482E27245E0700547A28 /* BuildingDetailGridGalleryView.swift */; };
@@ -32,7 +32,7 @@
 		118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118680D927B5B0360008C589 /* MIAFoldableText.swift */; };
 		11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA227B30B8800CC5368 /* LoadingState.swift */; };
 		11907CA527B30BCD00CC5368 /* ArchitectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA427B30BCD00CC5368 /* ArchitectDetailView.swift */; };
-		11907CA727B30C3F00CC5368 /* ArchitectDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA627B30C3F00CC5368 /* ArchitectDetailController.swift */; };
+		11907CA727B30C3F00CC5368 /* ArchitectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11907CA627B30C3F00CC5368 /* ArchitectViewModel.swift */; };
 		11A3E55427B4853800423B65 /* MIASection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A3E55327B4853800423B65 /* MIASection.swift */; };
 		11A51910286A438400312486 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A5190F286A438400312486 /* BookmarksView.swift */; };
 		11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A51914286A515900312486 /* BookmarkToolbarView.swift */; };
@@ -125,14 +125,14 @@
 		111BB26D2842754000FF72F1 /* BuildingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailView.swift; sourceTree = "<group>"; };
 		111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsListSuccessView.swift; sourceTree = "<group>"; };
 		111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncHeaderImage.swift; sourceTree = "<group>"; };
-		1120DC61272990CA007E9806 /* MIAMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapController.swift; sourceTree = "<group>"; };
+		1120DC61272990CA007E9806 /* MIAMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapViewModel.swift; sourceTree = "<group>"; };
 		112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAToolBarLogo.swift; sourceTree = "<group>"; };
 		1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsListCellView.swift; sourceTree = "<group>"; };
 		1131C910271DE67F00DE3FAA /* MIAMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapView.swift; sourceTree = "<group>"; };
 		113478A3272B2B7700C94E69 /* MIAMapPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapPinView.swift; sourceTree = "<group>"; };
-		113BA7FF27AF4F4C0033E0E6 /* ArchitectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsController.swift; sourceTree = "<group>"; };
+		113BA7FF27AF4F4C0033E0E6 /* ArchitectsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsListViewModel.swift; sourceTree = "<group>"; };
 		113BA80227AF57450033E0E6 /* ArchitectsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectsListView.swift; sourceTree = "<group>"; };
-		1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitBookmarksController.swift; sourceTree = "<group>"; };
+		1152194F289EDDB40090F324 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
 		11521951289EECCE0090F324 /* MIAappRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MIAappRelease.entitlements; sourceTree = "<group>"; };
 		11521953289EECD50090F324 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		1152BF7327A70D47004EBD97 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		118E2ED52722053C001B5F50 /* BuildingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingView.swift; sourceTree = "<group>"; };
 		11907CA227B30B8800CC5368 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		11907CA427B30BCD00CC5368 /* ArchitectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectDetailView.swift; sourceTree = "<group>"; };
-		11907CA627B30C3F00CC5368 /* ArchitectDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectDetailController.swift; sourceTree = "<group>"; };
+		11907CA627B30C3F00CC5368 /* ArchitectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectViewModel.swift; sourceTree = "<group>"; };
 		11A3E55327B4853800423B65 /* MIASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIASection.swift; sourceTree = "<group>"; };
 		11A5190F286A438400312486 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		11A51914286A515900312486 /* BookmarkToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkToolbarView.swift; sourceTree = "<group>"; };
@@ -217,6 +217,7 @@
 		113BA80127AF56EE0033E0E6 /* ArchitectsListView */ = {
 			isa = PBXGroup;
 			children = (
+				113BA7FF27AF4F4C0033E0E6 /* ArchitectsListViewModel.swift */,
 				113BA80227AF57450033E0E6 /* ArchitectsListView.swift */,
 				11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */,
 			);
@@ -229,23 +230,6 @@
 				11521953289EECD50090F324 /* CloudKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1157250027B426FE0005A404 /* map */ = {
-			isa = PBXGroup;
-			children = (
-				1120DC61272990CA007E9806 /* MIAMapController.swift */,
-			);
-			path = map;
-			sourceTree = "<group>";
-		};
-		118FA9CF27AF3DF2002AAD4B /* architects */ = {
-			isa = PBXGroup;
-			children = (
-				113BA7FF27AF4F4C0033E0E6 /* ArchitectsController.swift */,
-				11907CA627B30C3F00CC5368 /* ArchitectDetailController.swift */,
-			);
-			path = architects;
 			sourceTree = "<group>";
 		};
 		11907CA127B30B6200CC5368 /* Client */ = {
@@ -279,23 +263,17 @@
 		11A5190E286A432500312486 /* BookmarksView */ = {
 			isa = PBXGroup;
 			children = (
+				1152194F289EDDB40090F324 /* BookmarksViewModel.swift */,
 				11A5190F286A438400312486 /* BookmarksView.swift */,
 				11A51914286A515900312486 /* BookmarkToolbarView.swift */,
 			);
 			path = BookmarksView;
 			sourceTree = "<group>";
 		};
-		11A51911286A482B00312486 /* bookmarks */ = {
-			isa = PBXGroup;
-			children = (
-				1152194F289EDDB40090F324 /* CloudKitBookmarksController.swift */,
-			);
-			path = bookmarks;
-			sourceTree = "<group>";
-		};
 		11A8471C2846A0CA00AF68F4 /* ArchitectView */ = {
 			isa = PBXGroup;
 			children = (
+				11907CA627B30C3F00CC5368 /* ArchitectViewModel.swift */,
 				11907CA427B30BCD00CC5368 /* ArchitectDetailView.swift */,
 				11A847232846E84A00AF68F4 /* ArchitectView.swift */,
 			);
@@ -335,6 +313,7 @@
 		11B0ED89272DDD6700CA75FF /* MIAMapView */ = {
 			isa = PBXGroup;
 			children = (
+				1120DC61272990CA007E9806 /* MIAMapViewModel.swift */,
 				1131C910271DE67F00DE3FAA /* MIAMapView.swift */,
 				113478A3272B2B7700C94E69 /* MIAMapPinView.swift */,
 			);
@@ -390,8 +369,7 @@
 				11F55A07271C546C00BF5E8E /* Assets.xcassets */,
 				11F55A19271CACC800BF5E8E /* Colors.xcassets */,
 				11FAA9B62725F3D200692DA3 /* Media.xcassets */,
-				11F55A11271C551400BF5E8E /* model */,
-				11F55A18271C5B8E00BF5E8E /* view */,
+				11F55A18271C5B8E00BF5E8E /* View */,
 				11F55A09271C546C00BF5E8E /* Preview Content */,
 			);
 			path = MIAapp;
@@ -405,17 +383,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		11F55A11271C551400BF5E8E /* model */ = {
-			isa = PBXGroup;
-			children = (
-				1157250027B426FE0005A404 /* map */,
-				118FA9CF27AF3DF2002AAD4B /* architects */,
-				11A51911286A482B00312486 /* bookmarks */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		11F55A18271C5B8E00BF5E8E /* view */ = {
+		11F55A18271C5B8E00BF5E8E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				113BA80127AF56EE0033E0E6 /* ArchitectsListView */,
@@ -426,7 +394,7 @@
 				11B0ED89272DDD6700CA75FF /* MIAMapView */,
 				11907CAA27B3296D00CC5368 /* shared */,
 			);
-			path = view;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB2076382A54A3B800106FC0 /* SwiftUI */ = {
@@ -678,19 +646,19 @@
 				11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */,
 				11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */,
 				1163482B272438FB00547A28 /* BuildingViewModel.swift in Sources */,
-				1120DC62272990CA007E9806 /* MIAMapController.swift in Sources */,
+				1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */,
 				DB71E6A52A5C80EC00315D11 /* Architect.swift in Sources */,
 				11F55A15271C574300BF5E8E /* BuildingsListViewModel.swift in Sources */,
 				DB71E68E2A597F4300315D11 /* APIBuilding.swift in Sources */,
-				113BA80027AF4F4C0033E0E6 /* ArchitectsController.swift in Sources */,
+				113BA80027AF4F4C0033E0E6 /* ArchitectsListViewModel.swift in Sources */,
 				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
 				DB71E69F2A5C7A2A00315D11 /* APIArchitect.swift in Sources */,
 				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
 				DB71E6972A5B44F100315D11 /* APIBuildingDetail.swift in Sources */,
-				11521950289EDDB40090F324 /* CloudKitBookmarksController.swift in Sources */,
+				11521950289EDDB40090F324 /* BookmarksViewModel.swift in Sources */,
 				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
 				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
-				11907CA727B30C3F00CC5368 /* ArchitectDetailController.swift in Sources */,
+				11907CA727B30C3F00CC5368 /* ArchitectViewModel.swift in Sources */,
 				1103C27027BAD82A0064D1E5 /* MIAClient.swift in Sources */,
 				DB71E6A32A5C809F00315D11 /* ArchitectsMapper.swift in Sources */,
 				1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */,

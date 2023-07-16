@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchitectView: View {
 
-    @StateObject var architectDetailController = ArchitectDetailController()
+    @StateObject var architectDetailController = ArchitectViewModel()
     @State var id: Int
 
     var body: some View {

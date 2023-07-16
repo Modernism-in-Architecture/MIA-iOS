@@ -11,10 +11,10 @@ import SwiftUI
 struct MIAappApp: App {
     
     @StateObject var buildingsController = BuildingsListViewModel()
-    @StateObject var architectsController = ArchitectsController()
+    @StateObject var architectsController = ArchitectsListViewModel()
     @StateObject var tabController = TabController()
-    @StateObject var mapController = MIAMapController()
-    @StateObject var cloudKitBookmarksController = CloudKitBookmarksController()
+    @StateObject var mapController = MIAMapViewModel()
+    @StateObject var cloudKitBookmarksController = BookmarksViewModel()
 
     var body: some Scene {
         WindowGroup {

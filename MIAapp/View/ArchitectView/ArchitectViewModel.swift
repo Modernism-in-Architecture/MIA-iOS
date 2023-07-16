@@ -1,5 +1,5 @@
 //
-//  ArchitectDetailController.swift
+//  ArchitectViewModel.swift
 //  MIAapp
 //
 //  Created by Sören Kirchner on 08.02.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ArchitectDetailController: ObservableObject {
+class ArchitectViewModel: ObservableObject {
     
     @Published var architectDetail: LoadingStateWithContent<ArchitectDetail> = .loading
     
@@ -15,7 +15,7 @@ class ArchitectDetailController: ObservableObject {
 }
     
 @MainActor
-extension ArchitectDetailController {
+extension ArchitectViewModel {
     
     func fetchData(for id: Int) async {
         do {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchitectsListSuccessView: View {
     
-    @EnvironmentObject var architectsController: ArchitectsController
+    @EnvironmentObject var architectsController: ArchitectsListViewModel
     @State private var searchText = ""
     @State private var isSearching = false
     @State var isKeyboardShowing = false
