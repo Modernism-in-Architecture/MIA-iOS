@@ -11,7 +11,7 @@ enum LoadingStateWithContent<Value> {
 //    case idle
     case loading
     case success(Value)
-    case error(MiaClientError)
+    case error(ManagerError)
 }
 
 enum LoadingState {

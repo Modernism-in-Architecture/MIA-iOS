@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArchitectDetailView: View {
     
-    let detail: ArchitectDetail.Details
+    let detail: ArchitectDetail
     let columns = [GridItem(.adaptive(minimum: 300, maximum: 400))]
     
     var body: some View {

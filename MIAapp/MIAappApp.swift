@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MIAappApp: App {
     
-    @StateObject var buildingsController = BuildingsController()
+    @StateObject var buildingsController = BuildingsListViewModel()
     @StateObject var architectsController = ArchitectsController()
     @StateObject var tabController = TabController()
     @StateObject var mapController = MIAMapController()

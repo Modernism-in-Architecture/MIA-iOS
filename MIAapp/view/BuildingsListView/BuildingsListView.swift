@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BuildingsListView: View {
     
-    @EnvironmentObject var buildingsController: BuildingsController
+    @EnvironmentObject var buildingsController: BuildingsListViewModel
 
     var body: some View {
         switch buildingsController.state {
@@ -18,14 +18,15 @@ struct BuildingsListView: View {
         case .loading:
             MIAActivityIndicator()
         case .error(let error):
-            MIAErrorView(error: error)
+            // TODO: pass real error if changed to ManagerError
+            MIAErrorView(error: .notImplementedError)
         }
     }
 }
 
 //struct MIAListView_Previews: PreviewProvider {
 //
-//    @ObservedObject var mia: BuildingsController
+//    @ObservedObject var mia: BuildingsListViewModel
 //
 //    static var previews: some View {
 //        MIAListView(mia: mia)

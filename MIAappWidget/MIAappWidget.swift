@@ -10,17 +10,25 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     
+    let manager = BuildingsManager()
+    
     func getBuildings() async -> [Building] {
         // TODO: use of new fetchData
-        let result = await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
-        switch result {
-        case .success(let data):
-            return data.data
-        default:
+//        let result = await MIAClient.fetchData(for: API.request(for: API.buildings), of: Buildings.self)
+//        switch result {
+//        case .success(let data):
+//            return data.data
+//        default:
+//            return []
+//        }
+        do {
+            return try await manager.getBuildings()
+        } catch {
             return []
         }
     }
     
+    // TODO: use downloadImage from Client
     func downloadImage(url: URL) async -> UIImage? {
         do {
             let (data, response) = try await URLSession.shared.data(from: url)

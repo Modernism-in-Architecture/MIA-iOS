@@ -11,19 +11,45 @@ class ArchitectsController: ObservableObject {
     
     @Published var architects: [Architect] = []
     @Published var state: LoadingState = .loading
-  
+    
+    private var architectsManager = ArchitectsManager()
+    
+//    func fetchData() async {
+//        let result = await MIAClient.fetchData(for: API.request(for: API.architect))
+//        DispatchQueue.main.async {
+//            switch result {
+//            case .success(let data):
+//                self.architects = data.data
+//                self.state = .success
+//            case .failure(let error):
+//                self.state = .error(error)
+//            }
+//        }
+//    }
+}
+
+@MainActor
+extension ArchitectsController {
+    
     func fetchData() async {
-        let result = await MIAClient.fetchData(for: API.request(for: API.architects), of: Architects.self)
-        DispatchQueue.main.async {
-            switch result {
-            case .success(let data):
-                self.architects = data.data
-                self.state = .success
-            case .failure(let error):
-                self.state = .error(error)
-            }
+        do {
+            let architects = try await architectsManager.getArchitects()
+            handle(architects: architects)
+        } catch {
+            handleLoadError(error: error)
         }
     }
+    
+    private func handle(architects: [Architect]) {
+        self.architects = architects
+        self.state = .success
+    }
+    
+    private func handleLoadError(error: Error) {
+        // TODO: Handle correct Manager error
+        self.state = .error(.NetworkError)
+    }
+}
     
 //    func fetchData() async {
 //        do {
@@ -41,4 +67,4 @@ class ArchitectsController: ObservableObject {
 //            state = .error(.UnknownError)
 //        }
 //    }
-}
+

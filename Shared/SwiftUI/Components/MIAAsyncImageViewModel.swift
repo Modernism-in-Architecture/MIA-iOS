@@ -14,7 +14,7 @@ class MIAAsyncImageViewModel: ObservableObject {
     func fetchImage(from url: URL?) async {
         guard let url = url else {
             await MainActor.run { [weak self] in
-                self?.loadingState = .error(MiaClientError.UnknownError)
+                self?.loadingState = .error(.unknownError)
             }
             return
         }
@@ -26,7 +26,7 @@ class MIAAsyncImageViewModel: ObservableObject {
                     self?.loadingState = .success(image)
                 }
             case .failure:
-                self?.loadingState = .error(MiaClientError.UnknownError)
+                self?.loadingState = .error(.unknownError)
             }
         }
     }
