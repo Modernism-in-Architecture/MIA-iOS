@@ -11,7 +11,7 @@ import SwiftUI
 class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @EnvironmentObject var tabController: TabController
-
+    
     @Published var region: MKCoordinateRegion = .leipzig  { didSet { updateZoomLevel() } }
     var zoomLevel = 0
     
@@ -25,14 +25,19 @@ class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkLocationServiceIsEnabled()
         home()
     }
+}
+
+// MARK: - Private Methods
+
+private extension MIAMapViewModel {
     
-    private func checkLocationServiceIsEnabled() {
+    func checkLocationServiceIsEnabled() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    private func currentPosition() -> MKCoordinateRegion {
+    func currentPosition() -> MKCoordinateRegion {
         
         guard let locationManager = locationManager else { return .leipzig }
         
@@ -54,6 +59,20 @@ class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         return .leipzig
     }
     
+    func updateZoomLevel() {
+        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
+            if region.span.latitudeDelta > delta {
+                zoomLevel = level
+                return
+            }
+        }
+    }
+}
+
+// MARK: - Public Methods
+
+extension MIAMapViewModel {
+    
     func home() {
         region = currentPosition()
     }
@@ -70,14 +89,5 @@ class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func distance() -> CLLocationDistance {
         return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
-    }
-    
-    private func updateZoomLevel() {
-        for (level, delta) in zoomLevelLatitudeDeltas.enumerated().reversed() {
-            if region.span.latitudeDelta > delta {
-                zoomLevel = level
-                return
-            }
-        }
     }
 }
