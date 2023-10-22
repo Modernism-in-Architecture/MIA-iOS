@@ -43,7 +43,7 @@
 		11AFF142288F40D200BD2ADC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AFF141288F40D200BD2ADC /* WidgetKit.framework */; };
 		11AFF144288F40D200BD2ADC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AFF143288F40D200BD2ADC /* SwiftUI.framework */; };
 		11AFF149288F40D400BD2ADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11AFF148288F40D400BD2ADC /* Assets.xcassets */; };
-		11AFF14D288F40D400BD2ADC /* MIAappWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11AFF13F288F40D200BD2ADC /* MIAappWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11AFF14D288F40D400BD2ADC /* MIAappWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 11AFF13F288F40D200BD2ADC /* MIAappWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11AFF158288F5CE700BD2ADC /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11FAA9B62725F3D200692DA3 /* Media.xcassets */; };
 		11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */; };
 		11C478A127973BF7001C9D21 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C478A027973BF7001C9D21 /* Secret.swift */; };
@@ -104,15 +104,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		11AFF14E288F40D400BD2ADC /* Embed App Extensions */ = {
+		11AFF14E288F40D400BD2ADC /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				11AFF14D288F40D400BD2ADC /* MIAappWidgetExtension.appex in Embed App Extensions */,
+				11AFF14D288F40D400BD2ADC /* MIAappWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -520,8 +520,7 @@
 				11F559FC271C546800BF5E8E /* Sources */,
 				11F559FD271C546800BF5E8E /* Frameworks */,
 				11F559FE271C546800BF5E8E /* Resources */,
-				11AFF14E288F40D400BD2ADC /* Embed App Extensions */,
-				DB1A58A52AE570F7007104E3 /* Run Sort XCode Project */,
+				11AFF14E288F40D400BD2ADC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -541,7 +540,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					11AFF13E288F40D200BD2ADC = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -592,28 +591,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		DB1A58A52AE570F7007104E3 /* Run Sort XCode Project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Sort XCode Project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# perl \"${PROJECT_DIR}\"/scripts/sort-Xcode-project-file.pl \"${PROJECT_DIR}\"/\"${TARGET_NAME}\".xcodeproj\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11AFF13B288F40D200BD2ADC /* Sources */ = {
@@ -810,6 +787,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -871,6 +849,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
