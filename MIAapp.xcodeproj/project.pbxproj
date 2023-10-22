@@ -217,9 +217,9 @@
 		113BA80127AF56EE0033E0E6 /* ArchitectsListView */ = {
 			isa = PBXGroup;
 			children = (
-				113BA7FF27AF4F4C0033E0E6 /* ArchitectsListViewModel.swift */,
-				113BA80227AF57450033E0E6 /* ArchitectsListView.swift */,
 				11A8471D2846A15C00AF68F4 /* ArchitectsListSuccessView.swift */,
+				113BA80227AF57450033E0E6 /* ArchitectsListView.swift */,
+				113BA7FF27AF4F4C0033E0E6 /* ArchitectsListViewModel.swift */,
 			);
 			path = ArchitectsListView;
 			sourceTree = "<group>";
@@ -235,9 +235,9 @@
 		11907CA127B30B6200CC5368 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				11907CA227B30B8800CC5368 /* LoadingState.swift */,
 				1152BF7327A70D47004EBD97 /* API.swift */,
 				1103C26D27BAD7570064D1E5 /* Error.swift */,
+				11907CA227B30B8800CC5368 /* LoadingState.swift */,
 				1103C26F27BAD82A0064D1E5 /* MIAClient.swift */,
 			);
 			path = Client;
@@ -246,16 +246,16 @@
 		11907CAA27B3296D00CC5368 /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */,
-				11A3E55327B4853800423B65 /* MIASection.swift */,
-				118680D927B5B0360008C589 /* MIAFoldableText.swift */,
 				11C2032327B9C6A700C3D328 /* MIAActivityIndicator.swift */,
+				111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */,
 				1103C27127BAE41B0064D1E5 /* MIAErrorView.swift */,
-				112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */,
-				11A847212846D19600AF68F4 /* MIAShareView.swift */,
-				11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */,
+				118680D927B5B0360008C589 /* MIAFoldableText.swift */,
 				11E5E5682847AF3D0021D22A /* MIASearchBar.swift */,
 				11E5E56A2847C1310021D22A /* MIASearchButton.swift */,
+				11A3E55327B4853800423B65 /* MIASection.swift */,
+				11A8471F2846AC2100AF68F4 /* MIASectionIndexView.swift */,
+				11A847212846D19600AF68F4 /* MIAShareView.swift */,
+				112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 		11A5190E286A432500312486 /* BookmarksView */ = {
 			isa = PBXGroup;
 			children = (
-				1152194F289EDDB40090F324 /* BookmarksViewModel.swift */,
 				11A5190F286A438400312486 /* BookmarksView.swift */,
+				1152194F289EDDB40090F324 /* BookmarksViewModel.swift */,
 				11A51914286A515900312486 /* BookmarkToolbarView.swift */,
 			);
 			path = BookmarksView;
@@ -273,9 +273,9 @@
 		11A8471C2846A0CA00AF68F4 /* ArchitectView */ = {
 			isa = PBXGroup;
 			children = (
-				11907CA627B30C3F00CC5368 /* ArchitectViewModel.swift */,
 				11907CA427B30BCD00CC5368 /* ArchitectDetailView.swift */,
 				11A847232846E84A00AF68F4 /* ArchitectView.swift */,
+				11907CA627B30C3F00CC5368 /* ArchitectViewModel.swift */,
 			);
 			path = ArchitectView;
 			sourceTree = "<group>";
@@ -283,8 +283,8 @@
 		11AFF140288F40D200BD2ADC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11AFF141288F40D200BD2ADC /* WidgetKit.framework */,
 				11AFF143288F40D200BD2ADC /* SwiftUI.framework */,
+				11AFF141288F40D200BD2ADC /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -292,9 +292,9 @@
 		11AFF145288F40D200BD2ADC /* MIAappWidget */ = {
 			isa = PBXGroup;
 			children = (
-				11AFF146288F40D200BD2ADC /* MIAappWidget.swift */,
 				11AFF148288F40D400BD2ADC /* Assets.xcassets */,
 				11AFF14A288F40D400BD2ADC /* Info.plist */,
+				11AFF146288F40D200BD2ADC /* MIAappWidget.swift */,
 			);
 			path = MIAappWidget;
 			sourceTree = "<group>";
@@ -302,10 +302,10 @@
 		11B0ED88272DDD4600CA75FF /* BuildingsListView */ = {
 			isa = PBXGroup;
 			children = (
-				11F55A14271C574300BF5E8E /* BuildingsListViewModel.swift */,
-				11F55A16271C5A6400BF5E8E /* BuildingsListView.swift */,
-				111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */,
 				1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */,
+				111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */,
+				11F55A16271C5A6400BF5E8E /* BuildingsListView.swift */,
+				11F55A14271C574300BF5E8E /* BuildingsListViewModel.swift */,
 			);
 			path = BuildingsListView;
 			sourceTree = "<group>";
@@ -313,9 +313,9 @@
 		11B0ED89272DDD6700CA75FF /* MIAMapView */ = {
 			isa = PBXGroup;
 			children = (
-				1120DC61272990CA007E9806 /* MIAMapViewModel.swift */,
-				1131C910271DE67F00DE3FAA /* MIAMapView.swift */,
 				113478A3272B2B7700C94E69 /* MIAMapPinView.swift */,
+				1131C910271DE67F00DE3FAA /* MIAMapView.swift */,
+				1120DC61272990CA007E9806 /* MIAMapViewModel.swift */,
 			);
 			path = MIAMapView;
 			sourceTree = "<group>";
@@ -323,13 +323,13 @@
 		11B0ED8A272DDE1400CA75FF /* BuildingView */ = {
 			isa = PBXGroup;
 			children = (
-				1163482A272438FB00547A28 /* BuildingViewModel.swift */,
-				118E2ED52722053C001B5F50 /* BuildingView.swift */,
-				111BB26D2842754000FF72F1 /* BuildingDetailView.swift */,
 				1163482E27245E0700547A28 /* BuildingDetailGridGalleryView.swift */,
 				11FAA9B42725DC8600692DA3 /* BuildingDetailMapView.swift */,
-				11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */,
+				111BB26D2842754000FF72F1 /* BuildingDetailView.swift */,
 				1110E32C2843E2240037F65C /* BuildingSwipeGalleryImageView.swift */,
+				11E197BA27405DF800D1DADA /* BuildingSwipeGalleryView.swift */,
+				118E2ED52722053C001B5F50 /* BuildingView.swift */,
+				1163482A272438FB00547A28 /* BuildingViewModel.swift */,
 			);
 			path = BuildingView;
 			sourceTree = "<group>";
@@ -358,19 +358,17 @@
 		11F55A02271C546800BF5E8E /* MIAapp */ = {
 			isa = PBXGroup;
 			children = (
-				11DCCE4A289EF4DF0086418D /* MIAappDebug.entitlements */,
-				11521951289EECCE0090F324 /* MIAappRelease.entitlements */,
+				DB1A58A22AE483DD007104E3 /* Assets */,
+				11F55A09271C546C00BF5E8E /* Preview Content */,
+				11F55A18271C5B8E00BF5E8E /* View */,
 				11F55A1B271CAD2A00BF5E8E /* Constants.swift */,
 				11F55A05271C546800BF5E8E /* ContentView.swift */,
 				1152BF7727A7399B004EBD97 /* Extensions.swift */,
 				11F55A03271C546800BF5E8E /* MIAappApp.swift */,
+				11DCCE4A289EF4DF0086418D /* MIAappDebug.entitlements */,
+				11521951289EECCE0090F324 /* MIAappRelease.entitlements */,
 				11C478A027973BF7001C9D21 /* Secret.swift */,
 				1168106F27C1378100A62DD8 /* TabController.swift */,
-				11F55A07271C546C00BF5E8E /* Assets.xcassets */,
-				11F55A19271CACC800BF5E8E /* Colors.xcassets */,
-				11FAA9B62725F3D200692DA3 /* Media.xcassets */,
-				11F55A18271C5B8E00BF5E8E /* View */,
-				11F55A09271C546C00BF5E8E /* Preview Content */,
 			);
 			path = MIAapp;
 			sourceTree = "<group>";
@@ -395,6 +393,16 @@
 				11907CAA27B3296D00CC5368 /* shared */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DB1A58A22AE483DD007104E3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				11F55A07271C546C00BF5E8E /* Assets.xcassets */,
+				11F55A19271CACC800BF5E8E /* Colors.xcassets */,
+				11FAA9B62725F3D200692DA3 /* Media.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		DB2076382A54A3B800106FC0 /* SwiftUI */ = {
@@ -427,10 +435,10 @@
 		DB71E68B2A597EF300315D11 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				DB71E68D2A597F4300315D11 /* APIBuilding.swift */,
-				DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */,
 				DB71E69E2A5C7A2A00315D11 /* APIArchitect.swift */,
 				DB71E6A02A5C7D1400315D11 /* APIArchitectDetail.swift */,
+				DB71E68D2A597F4300315D11 /* APIBuilding.swift */,
+				DB71E6962A5B44F100315D11 /* APIBuildingDetail.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -438,10 +446,10 @@
 		DB71E68C2A597EFC00315D11 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				11F55A12271C56EC00BF5E8E /* Building.swift */,
-				DB71E6992A5B459E00315D11 /* BuildingDetail.swift */,
 				DB71E6A42A5C80EC00315D11 /* Architect.swift */,
 				DB71E6A62A5C841300315D11 /* ArchitectDetail.swift */,
+				11F55A12271C56EC00BF5E8E /* Building.swift */,
+				DB71E6992A5B459E00315D11 /* BuildingDetail.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -449,8 +457,8 @@
 		DB71E68F2A59808500315D11 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
-				DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */,
 				DB71E6A22A5C809F00315D11 /* ArchitectsMapper.swift */,
+				DB71E6902A5980CB00315D11 /* BuildingsMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -478,9 +486,9 @@
 		DBEAD8232A5366B3009A9E9B /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */,
-				DB71E6872A58A34200315D11 /* BuildingsManager.swift */,
 				DB71E6AB2A63F1BB00315D11 /* ArchitectsManager.swift */,
+				DB71E6872A58A34200315D11 /* BuildingsManager.swift */,
+				DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -513,6 +521,7 @@
 				11F559FD271C546800BF5E8E /* Frameworks */,
 				11F559FE271C546800BF5E8E /* Resources */,
 				11AFF14E288F40D400BD2ADC /* Embed App Extensions */,
+				DB1A58A52AE570F7007104E3 /* Run Sort XCode Project */,
 			);
 			buildRules = (
 			);
@@ -566,8 +575,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AFF158288F5CE700BD2ADC /* Media.xcassets in Resources */,
 				11AFF149288F40D400BD2ADC /* Assets.xcassets in Resources */,
+				11AFF158288F5CE700BD2ADC /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,35 +584,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11FAA9B72725F3D200692DA3 /* Media.xcassets in Resources */,
-				11F55A1A271CACC900BF5E8E /* Colors.xcassets in Resources */,
-				11F55A0B271C546C00BF5E8E /* Preview Assets.xcassets in Resources */,
 				11F55A08271C546C00BF5E8E /* Assets.xcassets in Resources */,
+				11F55A1A271CACC900BF5E8E /* Colors.xcassets in Resources */,
+				11FAA9B72725F3D200692DA3 /* Media.xcassets in Resources */,
+				11F55A0B271C546C00BF5E8E /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DB1A58A52AE570F7007104E3 /* Run Sort XCode Project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Sort XCode Project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# perl \"${PROJECT_DIR}\"/scripts/sort-Xcode-project-file.pl \"${PROJECT_DIR}\"/\"${TARGET_NAME}\".xcodeproj\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11AFF13B288F40D200BD2ADC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB71E6F12A641EBF00315D11 /* APIBuilding.swift in Sources */,
-				DB71E6F42A641F6F00315D11 /* Secret.swift in Sources */,
-				DB71E6F92A6420CC00315D11 /* ImageCacheManager.swift in Sources */,
-				DB71E6F02A641EA800315D11 /* BuildingDetail.swift in Sources */,
-				DB71E6F52A641FA500315D11 /* Error.swift in Sources */,
-				DB71E6E72A641C7C00315D11 /* Building.swift in Sources */,
-				DB71E6F22A641EEB00315D11 /* APIBuildingDetail.swift in Sources */,
-				DB71E6EC2A641E3600315D11 /* BuildingsManager.swift in Sources */,
-				DB71E6F32A641F2900315D11 /* MIAToolBarLogo.swift in Sources */,
-				DB71E6EB2A641DEA00315D11 /* MIAappWidget.swift in Sources */,
-				DB71E6EA2A641DA700315D11 /* Constants.swift in Sources */,
-				DB71E6F82A64201C00315D11 /* String+fromHtmlToAttributed.swift in Sources */,
-				DB71E6EE2A641E7100315D11 /* MIAClient.swift in Sources */,
-				DB71E6ED2A641E4700315D11 /* BuildingsMapper.swift in Sources */,
 				DB71E6EF2A641E8400315D11 /* API.swift in Sources */,
+				DB71E6F12A641EBF00315D11 /* APIBuilding.swift in Sources */,
+				DB71E6F22A641EEB00315D11 /* APIBuildingDetail.swift in Sources */,
+				DB71E6E72A641C7C00315D11 /* Building.swift in Sources */,
+				DB71E6F02A641EA800315D11 /* BuildingDetail.swift in Sources */,
+				DB71E6EC2A641E3600315D11 /* BuildingsManager.swift in Sources */,
+				DB71E6ED2A641E4700315D11 /* BuildingsMapper.swift in Sources */,
+				DB71E6EA2A641DA700315D11 /* Constants.swift in Sources */,
+				DB71E6F52A641FA500315D11 /* Error.swift in Sources */,
+				DB71E6F92A6420CC00315D11 /* ImageCacheManager.swift in Sources */,
+				DB71E6EB2A641DEA00315D11 /* MIAappWidget.swift in Sources */,
+				DB71E6EE2A641E7100315D11 /* MIAClient.swift in Sources */,
+				DB71E6F32A641F2900315D11 /* MIAToolBarLogo.swift in Sources */,
+				DB71E6F42A641F6F00315D11 /* Secret.swift in Sources */,
+				DB71E6F82A64201C00315D11 /* String+fromHtmlToAttributed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,65 +642,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */,
-				DB20763B2A54A53600106FC0 /* MIAAsyncImageView.swift in Sources */,
-				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,
-				111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */,
-				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
-				11A51910286A438400312486 /* BookmarksView.swift in Sources */,
+				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
+				DB71E69F2A5C7A2A00315D11 /* APIArchitect.swift in Sources */,
+				DB71E6A12A5C7D1400315D11 /* APIArchitectDetail.swift in Sources */,
+				DB71E68E2A597F4300315D11 /* APIBuilding.swift in Sources */,
+				DB71E6972A5B44F100315D11 /* APIBuildingDetail.swift in Sources */,
+				DB71E6A52A5C80EC00315D11 /* Architect.swift in Sources */,
+				DB71E6A72A5C841300315D11 /* ArchitectDetail.swift in Sources */,
 				11907CA527B30BCD00CC5368 /* ArchitectDetailView.swift in Sources */,
 				11A8471E2846A15C00AF68F4 /* ArchitectsListSuccessView.swift in Sources */,
-				11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */,
-				11F55A06271C546800BF5E8E /* ContentView.swift in Sources */,
-				111BB26E2842754000FF72F1 /* BuildingDetailView.swift in Sources */,
-				DB71E6F72A64201C00315D11 /* String+fromHtmlToAttributed.swift in Sources */,
-				DB71E6AC2A63F1BB00315D11 /* ArchitectsManager.swift in Sources */,
-				111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */,
-				11F55A17271C5A6400BF5E8E /* BuildingsListView.swift in Sources */,
-				1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */,
-				DB20763D2A54A54800106FC0 /* MIAAsyncImageViewModel.swift in Sources */,
-				11F55A13271C56EC00BF5E8E /* Building.swift in Sources */,
-				118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */,
-				DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */,
-				1110E32D2843E2240037F65C /* BuildingSwipeGalleryImageView.swift in Sources */,
-				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
-				DB71E6912A5980CB00315D11 /* BuildingsMapper.swift in Sources */,
-				1168107027C1378100A62DD8 /* TabController.swift in Sources */,
-				1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */,
-				DB71E69A2A5B459E00315D11 /* BuildingDetail.swift in Sources */,
-				11A847202846AC2100AF68F4 /* MIASectionIndexView.swift in Sources */,
-				112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */,
-				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
-				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
-				11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */,
-				1103C26E27BAD7570064D1E5 /* Error.swift in Sources */,
-				11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */,
-				11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */,
-				1163482B272438FB00547A28 /* BuildingViewModel.swift in Sources */,
-				1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */,
-				DB71E6A52A5C80EC00315D11 /* Architect.swift in Sources */,
-				11F55A15271C574300BF5E8E /* BuildingsListViewModel.swift in Sources */,
-				DB71E68E2A597F4300315D11 /* APIBuilding.swift in Sources */,
-				113BA80027AF4F4C0033E0E6 /* ArchitectsListViewModel.swift in Sources */,
-				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
-				DB71E69F2A5C7A2A00315D11 /* APIArchitect.swift in Sources */,
-				1152BF7427A70D47004EBD97 /* API.swift in Sources */,
-				DB71E6972A5B44F100315D11 /* APIBuildingDetail.swift in Sources */,
-				11521950289EDDB40090F324 /* BookmarksViewModel.swift in Sources */,
-				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
-				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
-				11907CA727B30C3F00CC5368 /* ArchitectViewModel.swift in Sources */,
-				1103C27027BAD82A0064D1E5 /* MIAClient.swift in Sources */,
-				DB71E6A32A5C809F00315D11 /* ArchitectsMapper.swift in Sources */,
-				1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */,
-				113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */,
-				DB71E6A72A5C841300315D11 /* ArchitectDetail.swift in Sources */,
 				113BA80327AF57450033E0E6 /* ArchitectsListView.swift in Sources */,
-				DB71E6882A58A34200315D11 /* BuildingsManager.swift in Sources */,
+				113BA80027AF4F4C0033E0E6 /* ArchitectsListViewModel.swift in Sources */,
+				DB71E6AC2A63F1BB00315D11 /* ArchitectsManager.swift in Sources */,
+				DB71E6A32A5C809F00315D11 /* ArchitectsMapper.swift in Sources */,
+				11A847242846E84A00AF68F4 /* ArchitectView.swift in Sources */,
+				11907CA727B30C3F00CC5368 /* ArchitectViewModel.swift in Sources */,
+				11A51910286A438400312486 /* BookmarksView.swift in Sources */,
+				11521950289EDDB40090F324 /* BookmarksViewModel.swift in Sources */,
+				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
+				11F55A13271C56EC00BF5E8E /* Building.swift in Sources */,
+				DB71E69A2A5B459E00315D11 /* BuildingDetail.swift in Sources */,
 				1152BF7527A736A4004EBD97 /* BuildingDetailGridGalleryView.swift in Sources */,
-				11F55A1C271CAD2A00BF5E8E /* Constants.swift in Sources */,
+				11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */,
+				111BB26E2842754000FF72F1 /* BuildingDetailView.swift in Sources */,
+				1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */,
+				111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */,
+				11F55A17271C5A6400BF5E8E /* BuildingsListView.swift in Sources */,
+				11F55A15271C574300BF5E8E /* BuildingsListViewModel.swift in Sources */,
+				DB71E6882A58A34200315D11 /* BuildingsManager.swift in Sources */,
+				DB71E6912A5980CB00315D11 /* BuildingsMapper.swift in Sources */,
+				1110E32D2843E2240037F65C /* BuildingSwipeGalleryImageView.swift in Sources */,
+				1152BF7627A737C4004EBD97 /* BuildingSwipeGalleryView.swift in Sources */,
 				11C478A227974794001C9D21 /* BuildingView.swift in Sources */,
-				DB71E6A12A5C7D1400315D11 /* APIArchitectDetail.swift in Sources */,
+				1163482B272438FB00547A28 /* BuildingViewModel.swift in Sources */,
+				11F55A1C271CAD2A00BF5E8E /* Constants.swift in Sources */,
+				11F55A06271C546800BF5E8E /* ContentView.swift in Sources */,
+				1103C26E27BAD7570064D1E5 /* Error.swift in Sources */,
+				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
+				DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */,
+				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
+				11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */,
+				11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */,
+				111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */,
+				DB20763B2A54A53600106FC0 /* MIAAsyncImageView.swift in Sources */,
+				DB20763D2A54A54800106FC0 /* MIAAsyncImageViewModel.swift in Sources */,
+				1103C27027BAD82A0064D1E5 /* MIAClient.swift in Sources */,
+				1103C27227BAE41B0064D1E5 /* MIAErrorView.swift in Sources */,
+				118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */,
+				113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */,
+				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
+				1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */,
+				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
+				11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */,
+				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,
+				11A847202846AC2100AF68F4 /* MIASectionIndexView.swift in Sources */,
+				11A847222846D19600AF68F4 /* MIAShareView.swift in Sources */,
+				112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */,
+				11C478A127973BF7001C9D21 /* Secret.swift in Sources */,
+				DB71E6F72A64201C00315D11 /* String+fromHtmlToAttributed.swift in Sources */,
+				1168107027C1378100A62DD8 /* TabController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,13 +728,13 @@
 				INFOPLIST_FILE = MIAappWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MIAappWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp.MIAappWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -726,13 +757,13 @@
 				INFOPLIST_FILE = MIAappWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MIAappWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp.MIAappWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
