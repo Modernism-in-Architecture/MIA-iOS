@@ -619,7 +619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ~/.zshrc\nenv\n# \"${PROJECT_DIR}\"/scripts/create-token.sh \n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ~/.zshrc\nenvsubst < \"${PROJECT_DIR}\"/MIAapp/Templates/Secret.swift > \"${PROJECT_DIR}\"/MIAapp/Secret.swift\nenv\n# \"${PROJECT_DIR}\"/scripts/create-token.sh \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
