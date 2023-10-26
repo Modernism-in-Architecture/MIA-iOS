@@ -510,6 +510,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11AFF151288F40D400BD2ADC /* Build configuration list for PBXNativeTarget "MIAappWidgetExtension" */;
 			buildPhases = (
+				DB09DB182AE7194000CD8310 /* ShellScript */,
 				11AFF13B288F40D200BD2ADC /* Sources */,
 				11AFF13C288F40D200BD2ADC /* Frameworks */,
 				11AFF13D288F40D200BD2ADC /* Resources */,
@@ -604,6 +605,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		DB09DB182AE7194000CD8310 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ~/.zshrc\nrm \"${PROJECT_DIR}\"/MIAapp/Secret.swift\ncp \"${PROJECT_DIR}\"/Templates/Secret.swift \"${PROJECT_DIR}\"/MIAapp/Secret.swift\nsed -i '' s/\\$\\{MIA_TOKEN\\}/\"$MIA_TOKEN\"/ \"${PROJECT_DIR}\"/MIAapp/Secret.swift\n";
+		};
 		DB1A58AA2AE5D267007104E3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -619,7 +638,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ~/.zshrc\nenvsubst < \"${PROJECT_DIR}\"/MIAapp/Templates/Secret.swift > \"${PROJECT_DIR}\"/MIAapp/Secret.swift\nenv\n# \"${PROJECT_DIR}\"/scripts/create-token.sh \n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ~/.zshrc\nrm \"${PROJECT_DIR}\"/MIAapp/Secret.swift\ncp \"${PROJECT_DIR}\"/Templates/Secret.swift \"${PROJECT_DIR}\"/MIAapp/Secret.swift\nsed -i '' s/\\$\\{MIA_TOKEN\\}/\"$MIA_TOKEN\"/ \"${PROJECT_DIR}\"/MIAapp/Secret.swift\n# envsubst < \"${PROJECT_DIR}\"/MIAapp/Templates/Secret.swift > \"${PROJECT_DIR}\"/MIAapp/Secret.swift\n# env\n# \"${PROJECT_DIR}\"/scripts/create-token.sh \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -732,6 +751,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T4C95573CH;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MIAappWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MIAappWidget;
@@ -761,6 +781,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T4C95573CH;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MIAappWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MIAappWidget;
