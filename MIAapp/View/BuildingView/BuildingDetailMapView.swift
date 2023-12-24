@@ -15,12 +15,12 @@ struct BuildingDetailMapView: View {
     
     var body: some View {
         
-        Map(coordinateRegion: $region, annotationItems: [item]) {_ in
-            MapAnnotation(
-                coordinate: item.coordinate,
-                anchorPoint: CGPoint(x: 0.5, y: 0.5)
+        Map {
+            Annotation(
+                item.name,
+                coordinate: item.coordinate
             ) {
-                MIAMapPinView(zoomLevel: 0, mapItem: MapItem(coordinate: item.coordinate, count: 0, level: 0, building: item))
+                MIAMapPinView(building: item)
             }
         }
     }
