@@ -74,8 +74,12 @@ struct ImageErrorView: View {
 
 
 #Preview {
+    
     VStack {
+        
+//        MIAAsyncImageView(.image1MockUrl)
         MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360")!)
+        
         MIAAsyncImageView(URL(string: "noimage")!)
 
         MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360")!)

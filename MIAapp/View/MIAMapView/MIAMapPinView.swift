@@ -13,18 +13,21 @@ struct MIAMapPinView: View {
     
     var diameter: CGFloat = 36
     var fontSize: CGFloat = 20
-    var strokeSize: CGFloat = 3
+    var strokeSize: CGFloat = 1
     
     var body: some View {
         
         ZStack {
             
-            Circle()
-                .stroke(.green, lineWidth: strokeSize)
-            Circle()
-                .fill(.background)
-            Text(Image(systemName: "building.2.fill"))
+            MIAAsyncImageView(building.feedImage)
+                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                .overlay(Circle().stroke(Color(.imageCircle), lineWidth: strokeSize))
+                .shadow(radius: 3)
         }
         .frame(width: diameter, height: diameter)
     }
+}
+
+#Preview {
+    MIAMapPinView(building: .schunck)
 }

@@ -10,16 +10,16 @@ import SwiftUI
 struct BuildingView: View {
 
     @StateObject var detailController = BuildingViewModel()
-    @State var item: Building
+    @State var building: Building
         
     var body: some View {
         switch detailController.detail {
         case .success(let detail):
-            BuildingDetailView(item: item, detail: detail)
+            BuildingDetailView(building: building, buildingDetail: detail)
         case .loading:
             MIAActivityIndicator()
                 .task {
-                    await detailController.fetchData(for: item.id)
+                    await detailController.fetchData(for: building.id)
                 }
         case .error(let error):
             // TODO: pass real error if changed to ManagerError

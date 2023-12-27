@@ -19,24 +19,25 @@ struct MIAMapView: View {
     var tabController: TabController
     
     @EnvironmentObject 
-    var mapController: MIAMapViewModel
+    var mapViewModel: MIAMapViewModel
     
-    @State var selectedItem: Building = .empty
+    @State 
+    var selectedItem: Building = .empty
     
     var body: some View {
+        
         NavigationView {
+            
             ZStack {
                 
                 map
-                
-                homeButton
-                    .padding()
                     .background(
-                        NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
+                        NavigationLink(destination: BuildingView(building: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
                             .isDetailLink(false)
                     )
             }
             .toolbar {
+                
                 ToolbarItem(placement: .navigationBarLeading) {
                     MIAToolBarLogo()
                 }
@@ -47,7 +48,7 @@ struct MIAMapView: View {
     
     var map: some View {
 
-        return Map {
+        return Map(position: $mapViewModel.cameraPosition) {
             
             ForEach(buildingsViewModel.buildings) { building in
                 
@@ -56,6 +57,7 @@ struct MIAMapView: View {
                     MIAMapPinView(building: building)
                     
                         .onTapGesture {
+                            print("### Tapped")
                             selectedItem = building
                             tabController.mapSubviewsVisible = true
                         }
@@ -67,67 +69,16 @@ struct MIAMapView: View {
             MapPitchToggle()
             MapUserLocationButton()
             MapCompass()
-//            MapScaleView()
+            MapScaleView()
         }
         .accentColor(Color(.systemRed))
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Places")
     }
-    
-    //    var oldmap: some View {
-    //
-    //        let zoomLevel = mapController.zoomLevel
-    //        return Map(coordinateRegion: $mapController.region,
-    //            showsUserLocation: true,
-    //            annotationItems: mapItems) { mapItem in
-    //            MapAnnotation(coordinate: mapItem.coordinate, anchorPoint: .center) {
-    //                MIAMapPinView(zoomLevel: zoomLevel, mapItem: mapItem)
-    //                    .onTapGesture {
-    //                        if let building = mapItem.building {
-    //                            selectedItem = building
-    //                            tabController.mapSubviewsVisible = true
-    //                        } else {
-    //                            withAnimation {
-    //                                mapController.zoom(to: mapItem.coordinate, on: zoomLevel)
-    //                            }
-    //                        }
-    //                    }
-    //            }
-    //        }
-    //            .accentColor(Color(.systemRed))
-    //            .navigationBarTitleDisplayMode(.inline)
-    //            .navigationTitle("Places")
-    //    }
-    
-    var homeButton: some View {
-        
-        VStack(alignment: .trailing) {
-            
-            if mapController.distance() > 1000 {
-                
-                HStack {
-                    
-                    Spacer()
-                    Button(action: {
-                        withAnimation {
-                            mapController.home()
-                        }
-                    }) {
-                        Image(systemName: "location")
-                            .font(.title3)
-                            .padding(8)
-                            .background(Color.secondaryBackground)
-                            .cornerRadius(5)
-                            .shadow(radius: 3)
-                    }
-                    .buttonStyle(.plain)
-                }
-                .transition(.opacity.animation(.easeInOut(duration: 0.5)))
-            }
-            Spacer()
-        }
-    }
 }
+
+
+
 // struct MIAMapView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MIAMapView(mia: <#T##BuildingsListViewModel#>)

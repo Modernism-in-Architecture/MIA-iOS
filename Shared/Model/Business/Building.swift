@@ -33,6 +33,6 @@ extension Building {
         latitude: 0.0,
         longitude: 0.0,
         feedImage: URL(string: "https://modernism-in-architecture.org")!,
-        coordinate: .leipzig
+        coordinate: CLLocation.leipzig.coordinate
     )
 }

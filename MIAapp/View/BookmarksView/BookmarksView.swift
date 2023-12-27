@@ -19,7 +19,7 @@ struct BookmarksView: View {
 //                Text("ck: \(String(cloudKitBookmarksController.isSignedIn))")
                 List {
                     ForEach(bookmarkedBuildings) { building in
-                        NavigationLink(destination: BuildingView(item: building)) {
+                        NavigationLink(destination: BuildingView(building: building)) {
                             VStack(alignment: .leading) {
                                 Text(building.name)
                                     .lineLimit(1)

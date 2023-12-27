@@ -13,14 +13,29 @@ class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @EnvironmentObject 
     var tabController: TabController
     
-    @Published 
-    var region: MKCoordinateRegion = .leipzig
+//    @Published 
+//    var region: MKCoordinateRegion = .leipzig {
+//        didSet {
+//            self.cameraPosition = .region(region)
+//        }
+//    }
+    
+    @Published
+    var cameraPosition: MapCameraPosition = .leipzig
+    
+    var location: CLLocation = .leipzig {
+        
+        didSet {
+            self.cameraPosition = .camera(.init(centerCoordinate: location.coordinate, distance: 50))
+        }
+    }
     
     private var initialRun = true
     private var locationManager: CLLocationManager?
     
     override init() {
         super.init()
+        
         checkLocationServiceIsEnabled()
         home()
     }
@@ -36,7 +51,7 @@ private extension MIAMapViewModel {
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    func currentPosition() -> MKCoordinateRegion {
+    func currentPosition() -> CLLocation {
         
         guard let locationManager = locationManager else { return .leipzig }
         
@@ -51,10 +66,11 @@ private extension MIAMapViewModel {
             print("denied. Change Settings")
             
         case .authorizedAlways, .authorizedWhenInUse:
-            return MKCoordinateRegion(
-                center: locationManager.location?.coordinate ?? .leipzig,
-                span: .defaultSpan
-            )
+            return locationManager.location ?? .leipzig
+//            return MKCoordinateRegion(
+//                center: locationManager.location?.coordinate ?? .leipzig,
+//                span: .defaultSpan
+//            )
             
         @unknown default:
             return .leipzig
@@ -69,14 +85,17 @@ private extension MIAMapViewModel {
 extension MIAMapViewModel {
     
     func home() {
-        region = currentPosition()
+        location = currentPosition()
+//        cameraPosition = .region(region)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         home()
     }
     
-    func distance() -> CLLocationDistance {
-        return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
-    }
+//    func distance() -> CLLocationDistance {
+//        return location.distance(from: <#T##CLLocation#>)
+//        
+//        return CLLocation(region.center).distance(from: CLLocation(currentPosition().center))
+//    }
 }

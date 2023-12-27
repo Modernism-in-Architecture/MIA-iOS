@@ -18,7 +18,6 @@ class TabController: ObservableObject {
     }
     
     @Published var selection: Tab = .buildings
-    @Published var region: MKCoordinateRegion = .leipzig
+    @Published var location: CLLocation = .leipzig
     @Published var mapSubviewsVisible: Bool = false
-    
 }

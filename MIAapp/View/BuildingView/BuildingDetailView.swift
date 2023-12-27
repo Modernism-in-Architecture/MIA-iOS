@@ -14,8 +14,8 @@ struct BuildingDetailView: View {
     @EnvironmentObject var mapController: MIAMapViewModel
     @EnvironmentObject var tabController: TabController
     
-    @State var item: Building
-    @State var detail: BuildingDetail
+    @State var building: Building
+    @State var buildingDetail: BuildingDetail
     
     @State var showShareSheet = false
     @State var sharedItems = []
@@ -23,25 +23,25 @@ struct BuildingDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                MIAAsyncHeaderImage(url: item.feedImage)
+                MIAAsyncHeaderImage(url: building.feedImage)
                 VStack (alignment: .leading, spacing: 15) {
                     MIASection("Building") {
                         buildingDetails
                     }
-                    MIASection("Architects", ignoreIf: detail.architects.isEmpty) {
+                    MIASection("Architects", ignoreIf: buildingDetail.architects.isEmpty) {
                         architectsDetails
                     }
-                    MIASection("Description", ignoreIf: detail.description.isEmpty) {
-                        MIAFoldableText(text: detail.attributedDescription)
+                    MIASection("Description", ignoreIf: buildingDetail.description.isEmpty) {
+                        MIAFoldableText(text: buildingDetail.attributedDescription)
                     }
-                    MIASection("History", ignoreIf: detail.description.isEmpty) {
-                        MIAFoldableText(text: detail.attributedHistory)
+                    MIASection("History", ignoreIf: buildingDetail.description.isEmpty) {
+                        MIAFoldableText(text: buildingDetail.attributedHistory)
                     }
                     MIASection("Location") {
                         locationDetail
                     }
-                    MIASection("Impressions", ignoreIf: detail.galleryImages.isEmpty) {
-                        BuildingDetailGridGalleryView(images: detail.galleryImages)
+                    MIASection("Impressions", ignoreIf: buildingDetail.galleryImages.isEmpty) {
+                        BuildingDetailGridGalleryView(images: buildingDetail.galleryImages)
                             .padding(.top, 5)
                     }
                 }
@@ -49,32 +49,32 @@ struct BuildingDetailView: View {
             }
         }
         .padding(.top, 10)
-        .navigationTitle(item.name)
+        .navigationTitle(building.name)
         .toolbar {
             HStack {
-                BookmarkToolbarView(id: item.id)
-                MIAShareView(url: detail.absoluteURL)
+                BookmarkToolbarView(id: building.id)
+                MIAShareView(url: buildingDetail.absoluteURL)
             }
         }
     }
     
     var buildingDetails: some View {
         VStack(alignment: .leading) {
-            Text(detail.name)
+            Text(buildingDetail.name)
                 .font(.headline)
                 .padding(.bottom, 5)
-            if !detail.buildingType.isEmpty {
-                Text(detail.buildingType)
+            if !buildingDetail.buildingType.isEmpty {
+                Text(buildingDetail.buildingType)
                     .padding(.bottom, 5)
             }
-            Text(detail.address)
-            Text(detail.cityCountry)
+            Text(buildingDetail.address)
+            Text(buildingDetail.cityCountry)
             VStack(alignment: .leading) {
-                if !detail.todaysUse.isEmpty {
-                    Text("Today's Use: \(detail.todaysUse)")
+                if !buildingDetail.todaysUse.isEmpty {
+                    Text("Today's Use: \(buildingDetail.todaysUse)")
                 }
-                if !detail.yearOfConstruction.isEmpty {
-                    Text("Year of Construction: \(detail.yearOfConstruction)")
+                if !buildingDetail.yearOfConstruction.isEmpty {
+                    Text("Year of Construction: \(buildingDetail.yearOfConstruction)")
                 }
             }
             .padding(.top, 5)
@@ -82,7 +82,7 @@ struct BuildingDetailView: View {
     }
     
     var architectsDetails: some View {
-        ForEach(detail.architects) { architect in
+        ForEach(buildingDetail.architects) { architect in
             NavigationLink(destination: ArchitectView(id: architect.id)) {
                 Text(architect.fullName)
                     .underline()
@@ -93,9 +93,7 @@ struct BuildingDetailView: View {
     
     var locationDetail: some View {
         ZStack {
-            BuildingDetailMapView(item: item, region: MKCoordinateRegion(
-                center: item.coordinate, span: .defaultSpan
-            ))
+            BuildingDetailMapView(building: building)
             .frame(height: 250)
             .mask(RoundedRectangle(cornerRadius: 10))
             .padding(.top, 5)
@@ -103,8 +101,7 @@ struct BuildingDetailView: View {
             Color.clear
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    let region = MKCoordinateRegion(center: item.coordinate, span: .defaultSpan)
-                    mapController.region = region
+                    mapController.location = CLLocation(building.coordinate)
                     self.tabController.mapSubviewsVisible = false
                     tabController.selection = .map
                 }

@@ -9,12 +9,14 @@ import SwiftUI
 
 struct BuildingsListCellView: View {
     
-//    @EnvironmentObject var bookmarksController: BookmarksController
-    @EnvironmentObject var cloudKitBookmarksController: BookmarksViewModel
+    @EnvironmentObject 
+    var cloudKitBookmarksController: BookmarksViewModel
+    
     let building: Building
     let searchText: String
+    
     var body: some View {
-        NavigationLink(destination: BuildingView(item: building)) {
+        NavigationLink(destination: BuildingView(building: building)) {
             if searchText.isEmpty {
                 VStack(alignment: .leading, spacing: 0) {
                     ZStack(alignment: .top) {
