@@ -34,5 +34,5 @@ struct BuildingDetailMapView: View {
 //}
 
 #Preview {
-    BuildingDetailMapView(building: .schunck)
+    BuildingDetailMapView(building: .schunckMock)
 }

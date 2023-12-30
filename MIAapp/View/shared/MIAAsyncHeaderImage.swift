@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MIAAsyncHeaderImage: View {
     
-    let url: URL
+    let url: URL?
     
     var body: some View {
         Rectangle()

@@ -68,7 +68,8 @@ extension ArchitectsMapper {
             latitude: model.latitude,
             longitude: model.longitude,
             // TODO replace exclamation mark
-            feedImage: URL(string: model.feedImage)!,
+            feedImage: URL(string: model.feedImage),
+            previewImage: URL(string: model.feedImage),
             coordinate: CLLocationCoordinate2D(latitude: model.longitude, longitude: model.latitude))
     }
 }
@@ -76,12 +77,14 @@ extension ArchitectsMapper {
 private extension ArchitectsMapper {
     
     func dateAndPlace(date: String, place: String, country: String) -> String {
+        
         let location = [place, country].filter{ !$0.isEmpty }.joined(separator: ", ")
         guard !(location.isEmpty && date.isEmpty) else{ return "" }
         return "\(date) \(location.isEmpty ? "" : " in \(location)")"
     }
 
     func formatDate(_ dateString: String) -> String {
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yy-MM-dd"
         formatter.locale = Locale(identifier: "en_US")

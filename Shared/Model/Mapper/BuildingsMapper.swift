@@ -16,6 +16,7 @@ class BuildingsMapper {
     }
 
     func map(_ model: APIBuildings.APIBuilding) -> Building {
+        
         Building(
             id: model.id,
             name: model.name,
@@ -25,6 +26,7 @@ class BuildingsMapper {
             latitude: model.latitude,
             longitude: model.longitude,
             feedImage: model.feedImage,
+            previewImage: model.previewImage,
             coordinate: CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
         )
     }
@@ -63,6 +65,7 @@ extension BuildingsMapper {
     }
     
     func map(_ model: APIBuildingDetail.APIArchitect) -> BuildingDetail.Architect {
+        
         return BuildingDetail.Architect (
             id: model.id,
             lastName: model.lastName,

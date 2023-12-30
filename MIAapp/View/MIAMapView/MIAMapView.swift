@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+import OSLog
 
 // MARK: - MIAMapView
 
@@ -24,6 +25,12 @@ struct MIAMapView: View {
     @State 
     var selectedItem: Building = .empty
     
+    @State
+    var showPinShadow = true
+    
+    @Namespace
+    var mapScope
+    
     var body: some View {
         
         NavigationView {
@@ -36,6 +43,7 @@ struct MIAMapView: View {
                             .isDetailLink(false)
                     )
             }
+            .mapScope(mapScope)
             .toolbar {
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -48,39 +56,51 @@ struct MIAMapView: View {
     
     var map: some View {
 
-        return Map(position: $mapViewModel.cameraPosition) {
+        return Map(
+            position: $mapViewModel.cameraPosition,
+            bounds: MapCameraBounds(minimumDistance: 1000),
+            scope: mapScope)
+        {
             
+            UserAnnotation()
             ForEach(buildingsViewModel.buildings) { building in
                 
                 Annotation(building.name, coordinate: building.coordinate) {
                     
-                    MIAMapPinView(building: building)
+                    MIAMapPinView(building: building, showShadow: showPinShadow)
                     
                         .onTapGesture {
-                            print("### Tapped")
+                            
+                            Logger.map.debug("Building \(building.id) selected.")
                             selectedItem = building
                             tabController.mapSubviewsVisible = true
                         }
                 }
             }
         }
-        .mapStyle(.hybrid(elevation: .realistic))
+        .mapStyle(.standard(elevation: .realistic))
         .mapControls {
+            
             MapPitchToggle()
             MapUserLocationButton()
             MapCompass()
             MapScaleView()
         }
-        .accentColor(Color(.systemRed))
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Places")
+        .onMapCameraChange(frequency: .continuous) { context in
+            
+            self.showPinShadow = context.camera.distance < 5_000
+            Logger.map.debug("Update Map \(context.camera.distance)")
+        }
     }
 }
 
-
-
-// struct MIAMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MIAMapView(mia: <#T##BuildingsListViewModel#>)
-//    }
-// }
+ struct MIAMapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MIAMapView()
+            .environmentObject(BuildingsListViewModel())
+            .environmentObject(TabController())
+            .environmentObject(MIAMapViewModel())
+    }
+ }

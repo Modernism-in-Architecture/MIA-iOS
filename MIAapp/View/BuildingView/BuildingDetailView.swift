@@ -21,6 +21,7 @@ struct BuildingDetailView: View {
     @State var sharedItems = []
     
     var body: some View {
+        
         ScrollView {
             VStack(alignment: .leading) {
                 MIAAsyncHeaderImage(url: building.feedImage)
@@ -101,7 +102,7 @@ struct BuildingDetailView: View {
             Color.clear
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    mapController.location = CLLocation(building.coordinate)
+                    mapController.setLocation(to: building.coordinate)
                     self.tabController.mapSubviewsVisible = false
                     tabController.selection = .map
                 }
@@ -109,8 +110,6 @@ struct BuildingDetailView: View {
     }
 }
 
-//struct BuildingDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BuildingDetailView()
-//    }
-//}
+#Preview {
+    BuildingDetailView(building: .schunckMock, buildingDetail: .schunckMock)
+}

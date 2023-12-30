@@ -15,7 +15,7 @@ struct Provider {
     let manager = BuildingsManager()
 }
 
-// MARK: - Protokoll Methods
+// MARK: - Protocol Methods
 
 extension Provider: TimelineProvider {
     

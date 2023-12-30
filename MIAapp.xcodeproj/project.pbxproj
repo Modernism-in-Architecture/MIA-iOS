@@ -93,6 +93,8 @@
 		DBA2CA832B38A4CE003BF743 /* Building+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2CA822B38A4CE003BF743 /* Building+Mock.swift */; };
 		DBA2CA882B39B9ED003BF743 /* URL+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2CA872B39B9ED003BF743 /* URL+Mock.swift */; };
 		DBA2CA8C2B39BAFE003BF743 /* Schunck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBA2CA8B2B39BAFE003BF743 /* Schunck.jpg */; };
+		DBA2CA8E2B3DEDC2003BF743 /* BuildingDetail+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2CA8D2B3DEDC2003BF743 /* BuildingDetail+Mock.swift */; };
+		DBA2CA902B3E0E2C003BF743 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2CA8F2B3E0E2C003BF743 /* Logger.swift */; };
 		DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +199,8 @@
 		DBA2CA822B38A4CE003BF743 /* Building+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Building+Mock.swift"; sourceTree = "<group>"; };
 		DBA2CA872B39B9ED003BF743 /* URL+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Mock.swift"; sourceTree = "<group>"; };
 		DBA2CA8B2B39BAFE003BF743 /* Schunck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Schunck.jpg; sourceTree = "<group>"; };
+		DBA2CA8D2B3DEDC2003BF743 /* BuildingDetail+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuildingDetail+Mock.swift"; sourceTree = "<group>"; };
+		DBA2CA8F2B3E0E2C003BF743 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DBEAD8242A5366DA009A9E9B /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -482,6 +486,7 @@
 		DB71E6E92A641CD500315D11 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DBA2CA8F2B3E0E2C003BF743 /* Logger.swift */,
 				DB71E6F62A64201C00315D11 /* String+fromHtmlToAttributed.swift */,
 			);
 			path = Extensions;
@@ -491,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				DBA2CA822B38A4CE003BF743 /* Building+Mock.swift */,
+				DBA2CA8D2B3DEDC2003BF743 /* BuildingDetail+Mock.swift */,
 				DBA2CA872B39B9ED003BF743 /* URL+Mock.swift */,
 			);
 			path = Mocks;
@@ -715,6 +721,7 @@
 				11A51915286A515900312486 /* BookmarkToolbarView.swift in Sources */,
 				DBA2CA832B38A4CE003BF743 /* Building+Mock.swift in Sources */,
 				11F55A13271C56EC00BF5E8E /* Building.swift in Sources */,
+				DBA2CA8E2B3DEDC2003BF743 /* BuildingDetail+Mock.swift in Sources */,
 				DB71E69A2A5B459E00315D11 /* BuildingDetail.swift in Sources */,
 				1152BF7527A736A4004EBD97 /* BuildingDetailGridGalleryView.swift in Sources */,
 				11FAA9B52725DC8600692DA3 /* BuildingDetailMapView.swift in Sources */,
@@ -735,6 +742,7 @@
 				1152BF7827A7399B004EBD97 /* Extensions.swift in Sources */,
 				DBEAD8252A5366DA009A9E9B /* ImageCacheManager.swift in Sources */,
 				11907CA327B30B8800CC5368 /* LoadingState.swift in Sources */,
+				DBA2CA902B3E0E2C003BF743 /* Logger.swift in Sources */,
 				11C2032427B9C6A700C3D328 /* MIAActivityIndicator.swift in Sources */,
 				11F55A04271C546800BF5E8E /* MIAappApp.swift in Sources */,
 				111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */,
@@ -790,7 +798,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp.MIAappWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -820,7 +828,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp.MIAappWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -975,7 +983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp";
 				PRODUCT_NAME = MIA;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1012,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.modernism-in-architecture.MIAapp";
 				PRODUCT_NAME = MIA;
 				PROVISIONING_PROFILE_SPECIFIER = "";

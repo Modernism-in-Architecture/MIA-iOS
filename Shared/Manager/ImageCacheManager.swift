@@ -13,6 +13,7 @@ public class ImageCacheManager {
     private init() {}
 
     private var cache: NSCache<NSString, WrappedImage> = {
+        
         var cache = NSCache<NSString, WrappedImage>()
         cache.countLimit = MIADefaults.ImageCache.countLimit
         cache.totalCostLimit = MIADefaults.ImageCache.totalCostLimit
@@ -20,14 +21,20 @@ public class ImageCacheManager {
     }()
 
     func add(image: UIImage, for url: URL, until expirationDate: Date) {
+        
         let cacheObject = WrappedImage(image: image, expirationDate: expirationDate)
         let key = NSString(string: url.absoluteString)
         cache.setObject(cacheObject, forKey: key)
     }
 
     func get(url: URL) -> UIImage? {
+        
         let key = NSString(string: url.absoluteString)
-        guard let wrappedImage = cache.object(forKey: key) else { return nil }
+        
+        guard let wrappedImage = cache.object(forKey: key) else {
+            return nil
+        }
+        
         if wrappedImage.expirationDate < Date.now {
             cache.removeObject(forKey: key)
             return nil
@@ -37,10 +44,12 @@ public class ImageCacheManager {
 }
 
 class WrappedImage {
+    
     let image: UIImage
     let expirationDate: Date
 
     init(image: UIImage, expirationDate: Date) {
+        
         self.image = image
         self.expirationDate = expirationDate
     }

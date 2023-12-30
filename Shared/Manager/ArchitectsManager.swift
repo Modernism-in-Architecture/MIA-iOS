@@ -18,6 +18,7 @@ class ArchitectsManager {
         switch result {
         case let .success(data):
             do {
+                
                 let jsonData = try JSONDecoder().decode(APIArchitects.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
@@ -36,9 +37,8 @@ class ArchitectsManager {
         switch result {
         case .success(let data):
             do {
+                
                 let jsonData = try JSONDecoder().decode(APIArchitectDetail.self, from: data.data)
-//                let mappedData = mapper.map(jsonData)
-//                return mappedData
                 return mapper.map(jsonData)
             } catch {
                 throw ManagerError.unknownError

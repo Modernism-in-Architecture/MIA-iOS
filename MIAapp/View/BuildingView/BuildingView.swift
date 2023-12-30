@@ -13,15 +13,18 @@ struct BuildingView: View {
     @State var building: Building
         
     var body: some View {
+        
         switch detailController.detail {
         case .success(let detail):
             BuildingDetailView(building: building, buildingDetail: detail)
+            
         case .loading:
             MIAActivityIndicator()
                 .task {
                     await detailController.fetchData(for: building.id)
                 }
-        case .error(let error):
+            
+        case .error(_):
             // TODO: pass real error if changed to ManagerError
             MIAErrorView(error: .notImplementedError)
         }

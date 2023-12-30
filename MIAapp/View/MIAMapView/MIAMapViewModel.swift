@@ -21,75 +21,81 @@ class MIAMapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
 //    }
     
     @Published
-    var cameraPosition: MapCameraPosition = .leipzig
+    var cameraPosition: MapCameraPosition = .userLocation(fallback: .leipzig)
     
-    var location: CLLocation = .leipzig {
-        
-        didSet {
-            self.cameraPosition = .camera(.init(centerCoordinate: location.coordinate, distance: 50))
-        }
-    }
+//    var location: CLLocation = .leipzig {
+//
+//        didSet {
+//            self.cameraPosition = .camera(.init(centerCoordinate: location.coordinate, distance: 50))
+//        }
+//    }
     
     private var initialRun = true
     private var locationManager: CLLocationManager?
     
     override init() {
         super.init()
-        
-        checkLocationServiceIsEnabled()
-        home()
+//        checkLocationServiceIsEnabled()
+//        home()
     }
 }
 
-// MARK: - Private Methods
-
-private extension MIAMapViewModel {
-    
-    func checkLocationServiceIsEnabled() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-    }
-    
-    func currentPosition() -> CLLocation {
-        
-        guard let locationManager = locationManager else { return .leipzig }
-        
-        switch locationManager.authorizationStatus {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            
-        case .restricted:
-            print("restricted")
-            
-        case .denied:
-            print("denied. Change Settings")
-            
-        case .authorizedAlways, .authorizedWhenInUse:
-            return locationManager.location ?? .leipzig
-//            return MKCoordinateRegion(
-//                center: locationManager.location?.coordinate ?? .leipzig,
-//                span: .defaultSpan
-//            )
-            
-        @unknown default:
-            return .leipzig
-        }
-        return .leipzig
-    }
-
-}
+//// MARK: - Private Methods
+//
+//private extension MIAMapViewModel {
+//    
+//    func checkLocationServiceIsEnabled() {
+//        locationManager = CLLocationManager()
+//        locationManager?.delegate = self
+//        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+//    }
+//    
+//    func currentPosition() -> CLLocation {
+//        
+//        guard let locationManager = locationManager else { return .leipzig }
+//        
+//        switch locationManager.authorizationStatus {
+//        case .notDetermined:
+//            locationManager.requestWhenInUseAuthorization()
+//            
+//        case .restricted:
+//            print("restricted")
+//            
+//        case .denied:
+//            print("denied. Change Settings")
+//            
+//        case .authorizedAlways, .authorizedWhenInUse:
+//            return locationManager.location ?? .leipzig
+////            return MKCoordinateRegion(
+////                center: locationManager.location?.coordinate ?? .leipzig,
+////                span: .defaultSpan
+////            )
+//            
+//        @unknown default:
+//            return .leipzig
+//        }
+//        return .leipzig
+//    }
+//
+//
+//}
 
 // MARK: - Public Methods
 
 extension MIAMapViewModel {
     
+    func setLocation(to coordinate: CLLocationCoordinate2D) {
+        
+        cameraPosition = .camera(.init(centerCoordinate: coordinate, distance: 150))
+    }
+    
     func home() {
-        location = currentPosition()
+//        location = currentPosition()
 //        cameraPosition = .region(region)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        debugPrint("### \(#function) called.")
         home()
     }
     
