@@ -17,6 +17,7 @@ extension APIArchitectDetail {
     // MARK: - APIArchitect
     
     struct APIArchitect: Decodable {
+        
         let id: Int
         let lastName: String
         let firstName: String
@@ -27,8 +28,6 @@ extension APIArchitectDetail {
         let deathPlace: String
         let deathCountry: String
         let description: String
-//        let sourceUrls: [Any?]
-//        let sourceBooks: [Any?]
         let relatedBuildings: [APIRelatedBuilding]
         let absoluteURL: String
     }
@@ -36,6 +35,7 @@ extension APIArchitectDetail {
     // MARK: - APIRelatedBuilding
     
     struct APIRelatedBuilding: Decodable {
+        
         let id: Int
         let name: String
         let yearOfConstruction: String

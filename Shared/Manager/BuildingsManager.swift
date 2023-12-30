@@ -19,7 +19,10 @@ class BuildingsManager {
         
         switch result {
         case .success(let data):
+            
             do {
+                
+                debugPrint(data.data)
                 let jsonData = try JSONDecoder().decode(APIBuildings.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
@@ -37,10 +40,10 @@ class BuildingsManager {
         
         switch result {
         case .success(let data):
+            
             do {
+                
                 let jsonData = try JSONDecoder().decode(APIBuildingDetail.self, from: data.data)
-//                let mappedData = mapper.map(jsonData)
-//                return mappedData
                 return mapper.map(jsonData)
             } catch {
                 throw ManagerError.unknownError
@@ -61,11 +64,13 @@ enum ManagerError: Error {
     case notImplementedError
 
     init(clientError: ClientError) {
+        
         switch clientError {
 
         case .HTTPClientError(_),
              .HTTPServerError:
             self = .networkError
+            
         case .DecodingError(_),
              .InternalError:
             self = .unknownError

@@ -8,13 +8,14 @@
 import Foundation
 
 enum LoadingStateWithContent<Value> {
-//    case idle
+
     case loading
     case success(Value)
     case error(ManagerError)
 }
 
 enum LoadingState {
+
     case loading
     case success
     case error(MiaClientError)

@@ -18,6 +18,7 @@ extension APIBuildingDetail {
     // MARK: - APIData
     
     struct APIData: Decodable {
+        
         let id: Int
         let name: String
         let yearOfConstruction: String
@@ -44,6 +45,7 @@ extension APIBuildingDetail {
     // MARK: - APIArchitect
     
     struct APIArchitect: Decodable {
+        
         let id: Int
         let lastName: String
         let firstName: String
@@ -52,6 +54,7 @@ extension APIBuildingDetail {
     // MARK: - APISourceURL
     
     struct APISourceURL: Decodable {
+        
         let id: Int
         let title: String
         let url: String

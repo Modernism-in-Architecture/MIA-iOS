@@ -14,33 +14,41 @@ struct MIASection <Content: View>: View {
     var content: Content
     
     init(_ title: String, ignoreIf: Bool = false, @ViewBuilder content: () -> Content) {
+        
         self.content = content()
         self.title = title
         self.showContent = !ignoreIf
     }
     
     var body: some View {
+        
         if showContent {
+            
+            bodyContent
+                .padding(.bottom, 20)
+        }
+    }
+    
+    var bodyContent: some View {
+        
+        VStack(alignment: .leading) {
+            
+            Text(title.uppercased()).font(.caption).foregroundColor(.secondary)
+            Divider()
             VStack(alignment: .leading) {
-                Text(title.uppercased()).font(.caption).foregroundColor(.secondary)
-                Divider()
-                VStack(alignment: .leading) {
-                    content
-                }
+                content
             }
-            .padding(.bottom, 20)
         }
     }
 }
 
-//struct MIASection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            MIASection("Hallo") {
-//                Text("Das ist mein ")
-//            }
-//            .padding()
-//        }
-//    }
-//}
+// MARK: - Preview
+
+#Preview {
+    
+    MIASection("Section Title", ignoreIf: false) {
+        Text("Section Content")
+    }
+    .padding()
+}
 

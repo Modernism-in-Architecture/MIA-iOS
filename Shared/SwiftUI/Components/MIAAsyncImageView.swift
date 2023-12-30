@@ -10,10 +10,11 @@ import SwiftUI
 struct MIAAsyncImageView: View {
     
     @StateObject private var imageViewModel = MIAAsyncImageViewModel()
-    let url: URL
+    let url: URL?
     let background: Color
 
-    init(_ url: URL, background: Color = Color.background) {
+    init(_ url: URL?, background: Color = Color.background) {
+        
         self.url = url
         self.background = background
     }
@@ -28,7 +29,6 @@ struct MIAAsyncImageView: View {
                     
                     MIAActivityIndicator()
                         .scaleEffect(0.5)
-                    
                     
                 case .error(_):
                     ImageErrorView(height: 80)
@@ -55,7 +55,9 @@ struct ImageErrorView: View {
     var fontSize: CGFloat { height / 8 }
 
     var body: some View {
+        
         VStack(alignment: .center) {
+            
             Spacer()
             Image(systemName: "photo")
                 .resizable()
@@ -74,10 +76,15 @@ struct ImageErrorView: View {
 
 
 #Preview {
+    
     VStack {
-        MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360")!)
-        MIAAsyncImageView(URL(string: "noimage")!)
+        
+//        MIAAsyncImageView(.image1MockUrl)
+        
+        MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360"))
+        
+        MIAAsyncImageView(URL(string: "noimage"))
 
-        MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360")!)
+        MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360"))
     }
 }

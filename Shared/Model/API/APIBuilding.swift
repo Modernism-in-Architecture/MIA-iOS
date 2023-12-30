@@ -14,6 +14,7 @@ struct APIBuildings: Decodable {
 extension APIBuildings {
     
     struct APIBuilding: Decodable, Identifiable, Hashable {
+        
         let id: Int
         let name: String
         let yearOfConstruction: String
@@ -22,5 +23,6 @@ extension APIBuildings {
         let latitude: Double
         let longitude: Double
         let feedImage: URL
+        let previewImage: URL
     }
 }

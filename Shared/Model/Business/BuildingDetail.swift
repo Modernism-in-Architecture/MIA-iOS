@@ -33,6 +33,7 @@ struct BuildingDetail: Decodable {
     let attributedHistory: AttributedString
     
     struct Architect: Decodable, Identifiable {
+        
         let id: Int
         let lastName: String
         let firstName: String

@@ -8,6 +8,7 @@
 import Foundation
 
 struct API {
+    
     static let buildings = URL(string: "https://modernism-in-architecture.org/api/v1/buildings/")!
     static let architects = URL(string: "https://modernism-in-architecture.org/api/v1/architects/")!
     
@@ -22,6 +23,7 @@ struct API {
     }
     
     static func request(for url: URL) -> URLRequest {
+        
         var request = URLRequest(url: url, timeoutInterval: API.timeoout)
         request.addValue("Token \(Secret.token)", forHTTPHeaderField: "Authorization")
         return request

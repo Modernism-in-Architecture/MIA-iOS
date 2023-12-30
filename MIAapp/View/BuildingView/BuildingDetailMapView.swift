@@ -10,24 +10,29 @@ import MapKit
 
 struct BuildingDetailMapView: View {
     
-    @State var item: Building
-    @State var region: MKCoordinateRegion
+    @State var building: Building
     
     var body: some View {
         
-        Map(coordinateRegion: $region, annotationItems: [item]) {_ in
-            MapAnnotation(
-                coordinate: item.coordinate,
-                anchorPoint: CGPoint(x: 0.5, y: 0.5)
+        Map(initialPosition: .camera(MapCamera(centerCoordinate: building.coordinate, distance: 1000))) {
+            
+            Annotation(
+                building.name,
+                coordinate: building.coordinate
             ) {
-                MIAMapPinView(zoomLevel: 0, mapItem: MapItem(coordinate: item.coordinate, count: 0, level: 0, building: item))
+                MIAMapPinView(building: building)
             }
         }
     }
 }
 
-//struct MIADetailMapView_Previews: PreviewProvider {
+//struct BuildingDetailMapView_Previews: PreviewProvider {
+//    
 //    static var previews: some View {
-//        MIADetailMapView()
+//        BuildingDetailMapView(building: .schunck)
 //    }
 //}
+
+#Preview {
+    BuildingDetailMapView(building: .schunckMock)
+}

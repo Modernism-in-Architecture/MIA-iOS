@@ -5,54 +5,47 @@
 //  Created by Sören Kirchner on 18.10.21.
 //
 
-import SwiftUI
 import MapKit
+import SwiftUI
+import OSLog
+
+// MARK: - MIAMapView
 
 struct MIAMapView: View {
-
-    @EnvironmentObject var buildingsController: BuildingsListViewModel
-    @EnvironmentObject var tabController: TabController
-    @EnvironmentObject var mapController: MIAMapViewModel
     
-    @State var selectedItem: Building = .empty
+    @EnvironmentObject
+    var buildingsViewModel: BuildingsListViewModel
     
-    var mapItems: [MapItem] {
-        buildingsController.levelContent.reversed().filter { $0.level == mapController.zoomLevel }
-    }
+    @EnvironmentObject 
+    var tabController: TabController
+    
+    @EnvironmentObject 
+    var mapViewModel: MIAMapViewModel
+    
+    @State 
+    var selectedItem: Building = .empty
+    
+    @State
+    var showPinShadow = true
+    
+    @Namespace
+    var mapScope
     
     var body: some View {
+        
         NavigationView {
+            
             ZStack {
-                let zoomLevel = mapController.zoomLevel
-                Map(coordinateRegion: $mapController.region,
-                    showsUserLocation: true,
-                    annotationItems: mapItems) { mapItem in
-                    MapAnnotation(coordinate: mapItem.coordinate, anchorPoint: .center) {
-                        MIAMapPinView(zoomLevel: zoomLevel, mapItem: mapItem)
-                            .onTapGesture {
-                                if let building = mapItem.building {
-                                    selectedItem = building
-                                    tabController.mapSubviewsVisible = true
-                                } else {
-                                    withAnimation {
-                                        mapController.zoom(to: mapItem.coordinate, on: zoomLevel)
-                                    }
-                                }
-                            }
-                    }
-                }
-                    .accentColor(Color(.systemRed))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .navigationTitle("Places")
                 
-                homeButton
-                    .padding()
+                map
                     .background(
-                        NavigationLink(destination: BuildingView(item: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
+                        NavigationLink(destination: BuildingView(building: selectedItem), isActive: $tabController.mapSubviewsVisible) { EmptyView() }
                             .isDetailLink(false)
                     )
             }
+            .mapScope(mapScope)
             .toolbar {
+                
                 ToolbarItem(placement: .navigationBarLeading) {
                     MIAToolBarLogo()
                 }
@@ -61,34 +54,52 @@ struct MIAMapView: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
     
-    var homeButton: some View {
-        VStack(alignment: .trailing) {
-            if mapController.distance() > 1000 {
-                HStack {
-                    Spacer()
-                    Button (action: {
-                        withAnimation {
-                            mapController.home()
+    var map: some View {
+
+        return Map(
+            position: $mapViewModel.cameraPosition,
+            bounds: MapCameraBounds(minimumDistance: .defaultCameraDistance),
+            scope: mapScope
+        ) {
+            
+            UserAnnotation()
+            ForEach(buildingsViewModel.buildings) { building in
+                
+                Annotation(building.name, coordinate: building.coordinate) {
+                    
+                    MIAMapPinView(building: building, showShadow: showPinShadow)
+                    
+                        .onTapGesture {
+                            
+                            Logger.map.debug("Building \(building.id) selected.")
+                            selectedItem = building
+                            tabController.mapSubviewsVisible = true
                         }
-                    }) {
-                        Image(systemName: "location")
-                            .font(.title3)
-                            .padding(8)
-                            .background(Color.secondaryBackground)
-                            .cornerRadius(5)
-                            .shadow(radius: 3)
-                    }
-                    .buttonStyle(.plain)
                 }
-                .transition(.opacity.animation(.easeInOut(duration: 0.5)))
             }
-            Spacer()
+        }
+        .mapStyle(.standard(elevation: .realistic))
+        .mapControls {
+            
+            MapPitchToggle()
+            MapUserLocationButton()
+            MapCompass()
+            MapScaleView()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Places")
+        .onMapCameraChange(frequency: .continuous) { context in
+            
+            self.showPinShadow = context.camera.distance < .shadowDistanceLimit
+            Logger.map.debug("Update Map \(context.camera.distance)")
         }
     }
 }
 
-//struct MIAMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MIAMapView(mia: <#T##BuildingsListViewModel#>)
-//    }
-//}
+#Preview {
+    
+    MIAMapView()
+        .environmentObject(BuildingsListViewModel())
+        .environmentObject(TabController())
+        .environmentObject(MIAMapViewModel())
+}

@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 
 struct Building: Identifiable {
+    
     let id: Int
     let name: String
     let yearOfConstruction: String
@@ -16,7 +17,8 @@ struct Building: Identifiable {
     let country: String
     let latitude: Double
     let longitude: Double
-    let feedImage: URL
+    let feedImage: URL?
+    let previewImage: URL?
     let coordinate: CLLocationCoordinate2D
 }
 
@@ -32,7 +34,8 @@ extension Building {
         country: "",
         latitude: 0.0,
         longitude: 0.0,
-        feedImage: URL(string: "https://modernism-in-architecture.org")!,
-        coordinate: .leipzig
+        feedImage: URL(string: "https://modernism-in-architecture.org"),
+        previewImage: URL(string: "https://modernism-in-architecture.org"),
+        coordinate: CLLocation.leipzig.coordinate
     )
 }

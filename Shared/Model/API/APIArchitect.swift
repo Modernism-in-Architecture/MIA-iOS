@@ -18,6 +18,7 @@ extension APIArchitects {
     // MARK: - APIArchitect
     
     struct APIArchitect: Decodable {
+        
         let id: Int
         let lastName: String
         let firstName: String
