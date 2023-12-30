@@ -19,26 +19,23 @@ extension Color {
     static let tertiaryBackground = Color(UIColor.tertiarySystemBackground)
 }
 
-extension CLLocation {
+extension Double {
     
+    static let defaultCameraDistance = 1_000.0
+    static let shadowDistanceLimit = 5_000.0
+}
+
+extension CLLocation {
     static let leipzig = CLLocation(latitude: 51.378277, longitude: 12.362067)
 }
 
 extension MapCameraPosition {
-    
-    static let leipzig = MapCameraPosition.camera(.init(centerCoordinate: .leipzig, distance: 200))
+    static let leipzig = MapCameraPosition.camera(.init(centerCoordinate: .leipzig, distance: .defaultCameraDistance))
 }
 
 extension CLLocationCoordinate2D {
-    
     static let leipzig = CLLocation.leipzig.coordinate
 }
-//
-
-// TODO: - Remove
-//extension MKCoordinateSpan {
-//    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-//}
 
 extension CGPoint {
     static let center = CGPoint(x: 0.5, y: 0.5)

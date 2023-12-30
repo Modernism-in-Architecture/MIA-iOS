@@ -58,9 +58,9 @@ struct MIAMapView: View {
 
         return Map(
             position: $mapViewModel.cameraPosition,
-            bounds: MapCameraBounds(minimumDistance: 1000),
-            scope: mapScope)
-        {
+            bounds: MapCameraBounds(minimumDistance: .defaultCameraDistance),
+            scope: mapScope
+        ) {
             
             UserAnnotation()
             ForEach(buildingsViewModel.buildings) { building in
@@ -90,17 +90,16 @@ struct MIAMapView: View {
         .navigationTitle("Places")
         .onMapCameraChange(frequency: .continuous) { context in
             
-            self.showPinShadow = context.camera.distance < 5_000
+            self.showPinShadow = context.camera.distance < .shadowDistanceLimit
             Logger.map.debug("Update Map \(context.camera.distance)")
         }
     }
 }
 
- struct MIAMapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MIAMapView()
-            .environmentObject(BuildingsListViewModel())
-            .environmentObject(TabController())
-            .environmentObject(MIAMapViewModel())
-    }
- }
+#Preview {
+    
+    MIAMapView()
+        .environmentObject(BuildingsListViewModel())
+        .environmentObject(TabController())
+        .environmentObject(MIAMapViewModel())
+}
