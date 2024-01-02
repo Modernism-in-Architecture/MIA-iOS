@@ -13,23 +13,22 @@ import OSLog
 
 struct MIAMapView: View {
     
+    // MARK: - Properties
+    
     @EnvironmentObject
-    var buildingsViewModel: BuildingsListViewModel
+    private var buildingsViewModel: BuildingsListViewModel
     
     @EnvironmentObject 
-    var tabController: TabController
-    
-    @EnvironmentObject 
-    var mapViewModel: MIAMapViewModel
+    private var tabController: TabController
     
     @State 
-    var selectedItem: Building = .empty
+    private var selectedItem: Building = .empty
     
     @State
-    var showPinShadow = true
+    private var showPinShadow = true
     
     @Namespace
-    var mapScope
+    private var mapScope
     
     var body: some View {
         
@@ -57,7 +56,7 @@ struct MIAMapView: View {
     var map: some View {
 
         return Map(
-            position: $mapViewModel.cameraPosition,
+            position: $tabController.cameraPosition,
             bounds: MapCameraBounds(minimumDistance: .defaultCameraDistance),
             scope: mapScope
         ) {
@@ -101,5 +100,4 @@ struct MIAMapView: View {
     MIAMapView()
         .environmentObject(BuildingsListViewModel())
         .environmentObject(TabController())
-        .environmentObject(MIAMapViewModel())
 }

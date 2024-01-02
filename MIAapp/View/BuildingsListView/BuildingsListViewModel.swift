@@ -12,7 +12,7 @@ import SwiftUI
 
 class BuildingsListViewModel: ObservableObject {
     
-    @EnvironmentObject var mapController: MIAMapViewModel
+//    @EnvironmentObject var mapController: MIAMapViewModel
     
     @Published var state: LoadingState = .loading
     @Published var buildings: [Building] = []

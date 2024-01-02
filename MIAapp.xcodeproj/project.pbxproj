@@ -14,7 +14,6 @@
 		111BB26E2842754000FF72F1 /* BuildingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB26D2842754000FF72F1 /* BuildingDetailView.swift */; };
 		111BB2702842AD5200FF72F1 /* BuildingsListSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */; };
 		111BB2722842B79F00FF72F1 /* MIAAsyncHeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */; };
-		1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1120DC61272990CA007E9806 /* MIAMapViewModel.swift */; };
 		112CED0A27CE99E5007BE46B /* MIAToolBarLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */; };
 		1131C90F271DC2B300DE3FAA /* BuildingsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */; };
 		1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1131C910271DE67F00DE3FAA /* MIAMapView.swift */; };
@@ -130,7 +129,6 @@
 		111BB26D2842754000FF72F1 /* BuildingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingDetailView.swift; sourceTree = "<group>"; };
 		111BB26F2842AD5200FF72F1 /* BuildingsListSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsListSuccessView.swift; sourceTree = "<group>"; };
 		111BB2712842B79F00FF72F1 /* MIAAsyncHeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAAsyncHeaderImage.swift; sourceTree = "<group>"; };
-		1120DC61272990CA007E9806 /* MIAMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapViewModel.swift; sourceTree = "<group>"; };
 		112CED0927CE99E5007BE46B /* MIAToolBarLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAToolBarLogo.swift; sourceTree = "<group>"; };
 		1131C90E271DC2B300DE3FAA /* BuildingsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsListCellView.swift; sourceTree = "<group>"; };
 		1131C910271DE67F00DE3FAA /* MIAMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIAMapView.swift; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 			children = (
 				113478A3272B2B7700C94E69 /* MIAMapPinView.swift */,
 				1131C910271DE67F00DE3FAA /* MIAMapView.swift */,
-				1120DC61272990CA007E9806 /* MIAMapViewModel.swift */,
 			);
 			path = MIAMapView;
 			sourceTree = "<group>";
@@ -753,7 +750,6 @@
 				118680DA27B5B0360008C589 /* MIAFoldableText.swift in Sources */,
 				113478A4272B2B7700C94E69 /* MIAMapPinView.swift in Sources */,
 				1131C911271DE67F00DE3FAA /* MIAMapView.swift in Sources */,
-				1120DC62272990CA007E9806 /* MIAMapViewModel.swift in Sources */,
 				11E5E5692847AF3D0021D22A /* MIASearchBar.swift in Sources */,
 				11E5E56B2847C1310021D22A /* MIASearchButton.swift in Sources */,
 				11A3E55427B4853800423B65 /* MIASection.swift in Sources */,

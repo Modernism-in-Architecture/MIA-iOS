@@ -26,12 +26,7 @@ struct BuildingDetailMapView: View {
     }
 }
 
-//struct BuildingDetailMapView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        BuildingDetailMapView(building: .schunck)
-//    }
-//}
+// MARK: - Preview
 
 #Preview {
     BuildingDetailMapView(building: .schunckMock)
