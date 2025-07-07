@@ -1,5 +1,9 @@
 #!/bin/sh
 
+echo "--- Environment Variables ---"
+printenv
+echo "---------------------------"
+
 echo "Running ci_post_clone.sh"
 
 CONFIG_FILE="${CI_WORKSPACE}/Config.xcconfig"
