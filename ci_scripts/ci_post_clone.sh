@@ -1,12 +1,8 @@
 #!/bin/sh
 
-echo "--- Environment Variables ---"
-printenv
-echo "---------------------------"
-
 echo "Running ci_post_clone.sh"
 
-CONFIG_FILE="${CI_WORKSPACE}/Config.xcconfig"
+CONFIG_FILE="${CI_PRIMARY_REPOSITORY_PATH}/Config.xcconfig"
 
 if [ -z "$MIA_TOKEN" ]; then
   echo "Error: MIA_TOKEN environment variable is not set. Cannot generate Config.xcconfig."
