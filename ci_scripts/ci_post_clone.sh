@@ -10,5 +10,10 @@ if [ -z "$MIA_TOKEN" ]; then
 else
   echo "Generating Config.xcconfig..."
   echo "API_TOKEN = $MIA_TOKEN" > "$CONFIG_FILE"
-  echo "Config.xcconfig generated successfully."
+  if [ -f "$CONFIG_FILE" ]; then
+    echo "Successfully created Config.xcconfig at ${CONFIG_FILE}"
+  else
+    echo "Error: Failed to create Config.xcconfig at ${CONFIG_FILE}"
+    exit 1
+  fi
 fi
