@@ -11,6 +11,9 @@ import SwiftUI
 struct MIAappApp: App {
     
     @StateObject
+    var tabController = TabController()
+    
+    @StateObject
     var router = MIARouter()
     
     @StateObject
@@ -30,6 +33,7 @@ struct MIAappApp: App {
         WindowGroup {
             
             ContentView()
+                .environmentObject(tabController)
                 .environmentObject(router)
                 .environmentObject(buildingsListViewModel)
                 .environmentObject(mapViewModel)
@@ -41,6 +45,7 @@ struct MIAappApp: App {
                     architectsListViewModel.fetch()
                 }
                 .onOpenURL { url in
+                    
                     router.deepLinkTarget = url
                     router.checkDeepLinkTarget()
                 }
