@@ -21,6 +21,9 @@ class MIARouter: ObservableObject {
     @Published
     var selectedTab: MainScreen = .buildings
     
+    @Published
+    var buildingId: Int? = .none
+    
     var deepLinkTarget: URL? = .none
     
     @Published
@@ -79,12 +82,7 @@ class MIARouter: ObservableObject {
 extension MIARouter {
     
     var deepLinkBuildingId: Int? {
-        
-        defer {
-            self.deepLinkTarget = .none
-        }
-        
-        return (self.deepLinkTarget?.lastPathComponent).flatMap { Int($0) }
+        (deepLinkTarget?.lastPathComponent).flatMap { Int($0) }
     }
 }
 
@@ -133,10 +131,7 @@ extension MIARouter {
     }
     
     func checkDeepLinkTarget() {
-        
-        if let id = deepLinkBuildingId {
-            showBuildingDetail(id: id)
-        }
+        buildingId = deepLinkBuildingId
     }
 }
 

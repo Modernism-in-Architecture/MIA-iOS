@@ -26,6 +26,14 @@ struct ContentView: View {
                     .tabItem { tab.label }
             }
         }
+        .onChange(of: router.buildingId, { _, deeplinkBuildingId in
+            
+            guard let deeplinkBuildingId else {
+                return
+            }
+            
+            router.showBuildingDetail(id: deeplinkBuildingId)
+        })
     }
 }
 

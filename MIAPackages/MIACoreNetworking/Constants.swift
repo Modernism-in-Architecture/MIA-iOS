@@ -17,7 +17,8 @@ enum MIADefaults {
     }
 }
 
-enum Secrets {
+public enum Secrets {
     
     static let api_token = Bundle.main.infoDictionary?["API_TOKEN"] as? String ?? ""
 }
+
