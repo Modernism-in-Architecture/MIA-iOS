@@ -79,7 +79,7 @@ public enum ManagerError: Error {
     case unknownError
     case notImplementedError
 
-    init(clientError: ClientError) {
+    public init(clientError: ClientError) {
         
         switch clientError {
 

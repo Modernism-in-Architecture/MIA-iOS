@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MIACoreNetworking
 import MIACoreUI
 
 struct ArchitectsListView: View {
@@ -16,6 +17,7 @@ struct ArchitectsListView: View {
     var body: some View {
         
         switch architectsController.state {
+            
         case .success:
             ArchitectsListSuccessView()
             
@@ -24,7 +26,7 @@ struct ArchitectsListView: View {
             
         case let .error(error):
             // TODO: pass real error if changed to ManagerError
-            MIAErrorView(error: .notImplementedError)
+            MIAErrorView(error: error)
         }
     }
 }

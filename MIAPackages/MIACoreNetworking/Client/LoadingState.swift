@@ -18,5 +18,5 @@ public enum LoadingState {
 
     case loading
     case success
-    case error(MiaClientError)
+    case error(ManagerError)
 }

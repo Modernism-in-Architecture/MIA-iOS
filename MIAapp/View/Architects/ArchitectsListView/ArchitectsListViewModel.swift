@@ -63,6 +63,6 @@ private extension ArchitectsListViewModel {
     private func handleLoadError(error: Error) {
         
         // TODO: Handle correct Manager error
-        self.state = .error(.NetworkError)
+        self.state = .error(.networkError)
     }
 }
