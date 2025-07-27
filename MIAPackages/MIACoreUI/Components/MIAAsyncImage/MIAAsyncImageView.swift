@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MIACore
 
 // MARK: - MIAAsyncImageView
 
@@ -32,6 +33,15 @@ public struct MIAAsyncImageView: View {
             .task {
                 await imageViewModel.fetchImage(from: url)
             }
+    }
+}
+
+extension MIAAsyncImageView {
+    
+    public init(_ identifiableURL: IdentifiableURL?, background: Color) {
+        
+        self.url = identifiableURL?.url
+        self.background = background
     }
 }
 
@@ -65,11 +75,8 @@ private extension MIAAsyncImageView {
     VStack {
         
 //        MIAAsyncImageView(.image1MockUrl)
-        
         MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360"), background: .pink)
-        
         MIAAsyncImageView(URL(string: "noimage"), background: .blue)
-
         MIAAsyncImageView(URL(string: "https://loremflickr.com/640/360"), background: .red)
     }
 }

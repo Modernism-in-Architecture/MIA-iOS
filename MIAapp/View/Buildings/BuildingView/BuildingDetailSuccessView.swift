@@ -85,7 +85,8 @@ private extension BuildingDetailSuccessView {
                 locationDetail
             }
             MIASection("Impressions", ignoreIf: buildingDetail.galleryImages.isEmpty) {
-                BuildingDetailGridGalleryView(images: buildingDetail.galleryImages)
+                
+                BuildingDetailGridGalleryView(identifiableImageUrls: buildingDetail.galleryImages)
                     .padding(.top, 5)
             }
         }

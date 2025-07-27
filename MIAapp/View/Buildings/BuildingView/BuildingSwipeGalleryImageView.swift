@@ -10,13 +10,20 @@ import MIACoreUI
 
 struct BuildingSwipeGalleryImageView: View {
     
-    @State var galleryImage: URL
-    @State var currentScale: CGFloat = 1.0
-    @GestureState var scale: CGFloat = 1.0
+    @State
+    var galleryImage: URL
+    
+    @State
+    var currentScale: CGFloat = 1.0
+    
+    @GestureState
+    var scale: CGFloat = 1.0
     
     var body: some View {
+        
         Color.black
             .overlay {
+                
                 MIAAsyncImageView(galleryImage, background: Color.black)
                     .scaledToFit()
                     .scaleEffect(currentScale * scale)

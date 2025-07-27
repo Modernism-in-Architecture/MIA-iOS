@@ -6,28 +6,38 @@
 //
 
 import SwiftUI
+import MIACore
 
 struct BuildingSwipeGalleryView: View {
     
-    @State var images: [URL]
-    @State var selection: URL
+    @Environment(\.presentationMode)
+    var presentation
     
-    @Environment(\.presentationMode) var presentation
+    @State
+    var imageUrls: [IdentifiableURL]
     
+    @State
+    var selection: URL
+
     var body: some View {
+        
         ZStack(alignment: .trailing) {
+            
             Color.black
                 .ignoresSafeArea()
             TabView(selection: $selection) {
-                ForEach(images) { galleryImage in
-                    BuildingSwipeGalleryImageView(galleryImage: galleryImage)
-                        .id(galleryImage.id)
+                
+                ForEach(imageUrls) { imageUrl in
+                    
+                    BuildingSwipeGalleryImageView(galleryImage: imageUrl.url)
+                        .id(imageUrl.id)
                 }
             }
             .tabViewStyle(.page)
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             
             VStack(alignment: .trailing) {
+                
                 closeButton
                 Spacer()
             }
@@ -36,7 +46,9 @@ struct BuildingSwipeGalleryView: View {
     }
     
     var closeButton: some View {
+        
         Button(action: close) {
+            
             Text("\(Image(systemName: "xmark")) Close")
                 .foregroundColor(.closeButtonForeground)
                 .font(.subheadline)
@@ -50,5 +62,4 @@ struct BuildingSwipeGalleryView: View {
     func close() {
         self.presentation.wrappedValue.dismiss()
     }
-    
 }

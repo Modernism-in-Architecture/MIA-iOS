@@ -43,7 +43,7 @@ extension BuildingDetail {
             "https://modernism.s3.amazonaws.com/original_images/thumbs/IMG_20231030_161338767_HDR.jpg.1200x0_q60.jpg",
             "https://modernism.s3.amazonaws.com/original_images/thumbs/IMG_20231030_160913867_HDR.jpg.1200x0_q60.jpg",
             "https://modernism.s3.amazonaws.com/original_images/thumbs/IMG_20231030_160301549_HDR.jpg.1200x0_q60.jpg"
-        ].compactMap(URL.init(string:)),
+        ].compactMap{ URL.init(string: $0).map(IdentifiableURL.init(url:)) },
         subtitle: "A shopping paradise of the 1930's",
         todaysUse: "Multifunctional building",
         description: "The building's most impressive feature is the glass facade, which makes the building appear transparent, light and illuminates the market from the inside in the dark. The internal concrete structure extends over eight floors. The Schunck family with their four children once lived on the top two floors, designed as a penthouse. A restaurant area with a terrace for clients was set up on the highest level for visitors. The glass facade is is the most striking construction feature of this building. There is a distance of 50 cm between the outer glass facade and the supporting buildings's concrete construction. This distance, also thanks to hopper windows, serves to ventilate and cool the building, especially in summer. The internal construction is very open so that all products could be clearly seen. The shop had no storage rooms, so the goods were all on display, which was very unusual up to that years. The individual floors are supported by characteristic mushroom columns.",

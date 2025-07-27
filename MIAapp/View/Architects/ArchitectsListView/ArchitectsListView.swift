@@ -18,14 +18,13 @@ struct ArchitectsListView: View {
         
         switch architectsController.state {
             
-        case .success:
-            ArchitectsListSuccessView()
+        case let .success(architects):
+            ArchitectsListSuccessView(architects: architects)
             
         case .loading:
             MIAActivityIndicator()
             
         case let .error(error):
-            // TODO: pass real error if changed to ManagerError
             MIAErrorView(error: error)
         }
     }

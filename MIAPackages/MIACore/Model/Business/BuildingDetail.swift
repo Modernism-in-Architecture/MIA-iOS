@@ -7,7 +7,7 @@
 
 import MapKit
 
-public struct BuildingDetail: Decodable, Sendable {
+public struct BuildingDetail: Sendable {
     
     public init(
         id: Int,
@@ -21,7 +21,7 @@ public struct BuildingDetail: Decodable, Sendable {
         latitude: Double,
         longitude: Double,
         feedImageURL: URL?,
-        galleryImages: [URL],
+        galleryImages: [IdentifiableURL],
         subtitle: String,
         todaysUse: String,
         description: String,
@@ -67,7 +67,7 @@ public struct BuildingDetail: Decodable, Sendable {
     public let latitude: Double
     public let longitude: Double
     public let feedImageURL: URL?
-    public let galleryImages: [URL]
+    public let galleryImages: [IdentifiableURL]
     public let subtitle: String
     public let todaysUse: String
     public let description: String

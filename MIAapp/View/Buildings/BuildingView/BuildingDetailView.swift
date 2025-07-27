@@ -41,9 +41,8 @@ extension BuildingDetailView {
         case .loading:
             MIAActivityIndicator()
             
-        case .error:
-            // TODO: pass real error if changed to ManagerError
-            MIAErrorView(error: .notImplementedError)
+        case let .error(error):
+            MIAErrorView(error: error)
         }
     }
 }

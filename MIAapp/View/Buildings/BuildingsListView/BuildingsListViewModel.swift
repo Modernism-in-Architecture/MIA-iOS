@@ -15,13 +15,12 @@ import MIACoreNetworking
 class BuildingsListViewModel: ObservableObject {
         
     @Published
-    var state: LoadingState = .loading
-    
-    @Published
-    var buildings: [Building] = []
-    
+    var state: LoadingState<[Building]> = .loading
+
     private var buildingsMangager = BuildingsManager()
 }
+
+// MARK: - Load
 
 extension BuildingsListViewModel {
     
@@ -35,9 +34,12 @@ extension BuildingsListViewModel {
     }
 }
 
+// MARK: - Refresh
+
 @MainActor
 extension BuildingsListViewModel {
     
+    @Sendable
     func refresh() async {
         await fetch()
     }
@@ -60,14 +62,11 @@ private extension BuildingsListViewModel {
     }
     
     private func handle(buildings: [Building]) {
-        
-        self.buildings = buildings
-        self.state = .success
+        self.state = .success(buildings)
     }
     
-    private func handleLoadError(error: Error) {
-        // TODO: Handle correct Manager error
-        self.state = .error(.networkError)
+    private func handleLoadError(error: ManagerError) {
+        self.state = .error(error)
     }
 }
 

@@ -19,6 +19,7 @@ struct BuildingsListView: View {
     var body: some View {
         
         content
+            .refreshable(action: self.buildingsViewModel.refresh)
     }
 }
 
@@ -31,15 +32,14 @@ extension BuildingsListView {
         
         switch buildingsViewModel.state {
             
-        case .success:
-            BuildingsListSuccessView(buildings: buildingsViewModel.buildings)
+        case let .success(buildings):
+            BuildingsListSuccessView(buildings: buildings)
             
         case .loading:
             MIAActivityIndicator()
             
         case .error(let error):
-            // TODO: pass real error if changed to ManagerError
-            MIAErrorView(error: .notImplementedError)
+            MIAErrorView(error: error)
         }
     }
 }

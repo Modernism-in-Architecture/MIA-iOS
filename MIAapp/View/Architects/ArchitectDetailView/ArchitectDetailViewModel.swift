@@ -12,7 +12,7 @@ import MIACore
 class ArchitectDetailViewModel: ObservableObject {
     
     @Published
-    var architectDetail: LoadingStateWithContent<ArchitectDetail> = .loading
+    var architectDetail: LoadingState<ArchitectDetail> = .loading
     
     private var architectsManager = ArchitectsManager()
 }

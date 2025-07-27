@@ -14,7 +14,7 @@ public class ArchitectsManager {
     
     public init() {}
     
-    public func getArchitects() async throws -> [Architect] {
+    public func getArchitects() async throws(ManagerError) -> [Architect] {
         
         let result = await MIAClient.fetch(.architects)
         
