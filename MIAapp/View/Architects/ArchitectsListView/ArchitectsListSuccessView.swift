@@ -20,6 +20,9 @@ struct ArchitectsListSuccessView: View {
     var architectsListViewModel: ArchitectsListViewModel
     
     @State
+    var architects: [Architect]
+    
+    @State
     var isKeyboardShowing = false
     
     @State
@@ -29,10 +32,9 @@ struct ArchitectsListSuccessView: View {
     private var isSearching = false
 
     var body: some View {
+        
         content
-            .refreshable {
-                await architectsListViewModel.refresh()
-            }
+            .refreshable(action: architectsListViewModel.refresh)
     }
 }
 
@@ -115,8 +117,8 @@ private extension ArchitectsListSuccessView {
                 LazyVStack(
                     alignment: .leading,
                     spacing: .zero,
-                    pinnedViews: [.sectionHeaders])
-                {
+                    pinnedViews: [.sectionHeaders]
+                ) {
                     
                     ForEach(groupedArchitects.keys.sorted(), id: \.self) { sectionKey in
                         
@@ -235,9 +237,9 @@ private extension ArchitectsListSuccessView {
     var searchResults: [Architect] {
         
         if searchText.isEmpty {
-            return architectsListViewModel.architects
+            return self.architects
         }
-        return architectsListViewModel.architects.filter { architect in
+        return self.architects.filter { architect in
             
             architect.firstName.lowercased().contains(searchText.lowercased()) ||
                 architect.lastName.lowercased().contains(searchText.lowercased())
@@ -260,11 +262,9 @@ private extension ArchitectsListSuccessView {
 
     let viewModel = ArchitectsListViewModel()
     
-    Task {
-        await viewModel.fetch()
-    }
+    viewModel.fetch()
     
-    return ArchitectsListSuccessView()
+    return ArchitectsListSuccessView(architects: [])
         .environmentObject(MIARouter())
         .environmentObject(viewModel)
 }
@@ -273,11 +273,9 @@ private extension ArchitectsListSuccessView {
 
     let viewModel = ArchitectsListViewModel()
     
-    Task {
-        await viewModel.fetch()
-    }
+    viewModel.fetch()
     
-    return ArchitectsListSuccessView()
+    return ArchitectsListSuccessView(architects: [])
         .environmentObject(MIARouter())
         .environmentObject(viewModel)
         .preferredColorScheme(.dark)

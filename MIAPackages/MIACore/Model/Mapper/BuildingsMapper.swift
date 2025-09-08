@@ -52,7 +52,7 @@ extension BuildingsMapper {
             latitude: data.latitude,
             longitude: data.longitude, 
             feedImageURL: URL(string: data.feedImage),
-            galleryImages: data.galleryImages.compactMap(URL.init(string:)),
+            galleryImages: data.galleryImages.compactMap { (URL(string: $0)).map(IdentifiableURL.init(url:)) },
             subtitle: data.subtitle,
             todaysUse: data.todaysUse,
             description: data.description,

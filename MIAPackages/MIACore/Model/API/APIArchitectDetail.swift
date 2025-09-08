@@ -8,13 +8,15 @@
 import Foundation
 
 // MARK: - APIWelcome
+
 public struct APIArchitectDetail: Decodable {
+    
     let data: APIArchitect
 }
 
+// MARK: - APIArchitect
+
 extension APIArchitectDetail {
-    
-    // MARK: - APIArchitect
     
     struct APIArchitect: Decodable {
         
@@ -32,8 +34,11 @@ extension APIArchitectDetail {
         let relatedBuildings: [APIRelatedBuilding]
         let absoluteURL: String
     }
+}
     
-    // MARK: - APIRelatedBuilding
+// MARK: - APIRelatedBuilding
+
+extension APIArchitectDetail {
     
     struct APIRelatedBuilding: Decodable {
         

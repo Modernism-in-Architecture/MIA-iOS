@@ -11,14 +11,13 @@ import MIACore
 
 // MARK: - BuildingsManager
 
-// TODO: Cleanup and Format this File
 public class BuildingsManager {
     
     public init() {}
 
     let mapper = BuildingsMapper()
 
-    public func getBuildings() async throws -> [Building] {
+    public func getBuildings() async throws(ManagerError) -> [Building] {
 
         let result = await MIAClient.fetch(.buildings)
         
@@ -27,16 +26,13 @@ public class BuildingsManager {
             
             do {
                 
-                debugPrint(data.data)
                 let jsonData = try JSONDecoder().decode(APIBuildings.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
-                Logger.buildingsManager.debug("\(error)")
                 throw ManagerError.unknownError
             }
 
         case .failure(let error):
-            Logger.buildingsManager.debug("\(error)")
             throw ManagerError(clientError: error)
         }
     }
@@ -60,6 +56,7 @@ public class BuildingsManager {
                 
                 return business
             } catch {
+                
                 Logger.buildingsManager.debug("\(error)")
                 throw ManagerError.unknownError
             }
@@ -77,9 +74,8 @@ public enum ManagerError: Error {
 
     case networkError
     case unknownError
-    case notImplementedError
 
-    init(clientError: ClientError) {
+    public init(clientError: ClientError) {
         
         switch clientError {
 

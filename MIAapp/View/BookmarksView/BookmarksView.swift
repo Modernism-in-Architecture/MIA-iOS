@@ -69,7 +69,11 @@ struct BookmarksView: View {
     
     var bookmarkedBuildings: [Building] {
         
-        buildingsController.buildings.filter { building in
+        guard case let .success(buildings) = self.buildingsController.state else {
+            return []
+        }
+
+        return buildings.filter { building in
             cloudKitBookmarksController.contains(id: building.id)
         }
     }
@@ -78,6 +82,7 @@ struct BookmarksView: View {
 // MARK: - BookmarksView_Previews
 
 struct BookmarksView_Previews: PreviewProvider {
+    
     static var previews: some View {
         BookmarksView()
     }

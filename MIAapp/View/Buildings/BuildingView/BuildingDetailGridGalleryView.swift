@@ -6,31 +6,38 @@
 //
 
 import SwiftUI
+import MIACore
 import MIACoreUI
 
 struct BuildingDetailGridGalleryView: View {
     
-    @State var images: [URL]
-    @State var tabbedImage: URL?
+    @State
+    var identifiableImageUrls: [IdentifiableURL]
+    
+    @State
+    var tabbedImage: IdentifiableURL?
     
     var body: some View {
+        
         LazyVGrid(columns: [GridItem(spacing: 10), GridItem()], spacing: 10) {
+            
             // TODO: separate Cell View
-            ForEach(images) { image in
+            ForEach(identifiableImageUrls) { imageUrl in
+                
                 RoundedRectangle(cornerRadius: 10)
                     .aspectRatio(1, contentMode: .fill)
                     .overlay {
-                        MIAAsyncImageView(image, background: .background)
+                        MIAAsyncImageView(imageUrl, background: .background)
                     }
                     .mask(RoundedRectangle(cornerRadius: 10))
                     .shadow(color: .shadow, radius: 3, x: 2, y: 2)
                     .onTapGesture {
-                        tabbedImage = image
+                        tabbedImage = imageUrl
                     }
             }
         }
-        .fullScreenCover(item: $tabbedImage, onDismiss: {}, content: { galleryImage in
-            BuildingSwipeGalleryView(images: images, selection: galleryImage)
+        .fullScreenCover(item: $tabbedImage, onDismiss: {}, content: { imageUrl in
+            BuildingSwipeGalleryView(imageUrls: identifiableImageUrls, selection: imageUrl.url)
         })
     }
 }

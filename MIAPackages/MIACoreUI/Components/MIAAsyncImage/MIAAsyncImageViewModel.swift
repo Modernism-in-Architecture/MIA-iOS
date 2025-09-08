@@ -15,7 +15,7 @@ import SwiftUI
 public class MIAAsyncImageViewModel: ObservableObject {
 
     @Published
-    var loadingState: LoadingStateWithContent<UIImage> = .loading
+    var loadingState: LoadingState<UIImage> = .loading
 }
 
 extension MIAAsyncImageViewModel {

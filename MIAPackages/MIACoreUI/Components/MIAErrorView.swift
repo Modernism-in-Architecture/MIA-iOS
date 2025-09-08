@@ -28,10 +28,6 @@ public struct MIAErrorView: View {
                 
             case .unknownError:
                 unknownError
-                
-            case .notImplementedError:
-                #warning(".notImplementedError Needs to be removed")
-                Text("notImplementedError")
             }
         }
     }
@@ -70,12 +66,14 @@ extension MIAErrorView {
 // MARK: - Preview
 
 #Preview("Network Error") {
+    
     MIAErrorView(error: .networkError)
     MIAErrorView(error: .networkError)
         .preferredColorScheme(.dark)
 }
 
 #Preview("Unknown Error") {
+    
     MIAErrorView(error: .unknownError)
     MIAErrorView(error: .unknownError)
         .preferredColorScheme(.dark)

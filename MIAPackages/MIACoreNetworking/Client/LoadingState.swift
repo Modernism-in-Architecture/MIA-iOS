@@ -7,16 +7,9 @@
 
 import Foundation
 
-public enum LoadingStateWithContent<Value> {
+public enum LoadingState<Value> {
 
     case loading
     case success(Value)
     case error(ManagerError)
-}
-
-public enum LoadingState {
-
-    case loading
-    case success
-    case error(MiaClientError)
 }

@@ -12,7 +12,8 @@ import MIACore
 
 class BuildingViewModel: ObservableObject {
     
-    @Published var detail: LoadingStateWithContent<BuildingDetail> = .loading
+    @Published
+    var detail: LoadingState<BuildingDetail> = .loading
     
     private var buildingsMangager = BuildingsManager()
 }

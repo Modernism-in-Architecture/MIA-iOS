@@ -12,10 +12,7 @@ import MIACoreNetworking
 class ArchitectsListViewModel: ObservableObject {
     
     @Published
-    var architects: [Architect] = []
-    
-    @Published
-    var state: LoadingState = .loading
+    var state: LoadingState<[Architect]> = .loading
     
     private var architectsManager = ArchitectsManager()
 }
@@ -35,6 +32,7 @@ extension ArchitectsListViewModel {
 @MainActor
 extension ArchitectsListViewModel {
     
+    @Sendable
     func refresh() async {
         await fetch()
     }
@@ -55,14 +53,10 @@ private extension ArchitectsListViewModel {
     }
     
     private func handle(architects: [Architect]) {
-        
-        self.architects = architects
-        self.state = .success
+        self.state = .success(architects)
     }
     
-    private func handleLoadError(error: Error) {
-        
-        // TODO: Handle correct Manager error
-        self.state = .error(.NetworkError)
+    private func handleLoadError(error: ManagerError) {
+        self.state = .error(error)
     }
 }

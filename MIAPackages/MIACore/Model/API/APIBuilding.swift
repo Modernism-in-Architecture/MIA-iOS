@@ -8,6 +8,7 @@
 import Foundation
 
 public struct APIBuildings: Decodable {
+    
     var data: [APIBuilding]
 }
 
