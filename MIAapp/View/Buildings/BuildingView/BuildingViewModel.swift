@@ -35,7 +35,7 @@ extension BuildingViewModel {
         } catch let error as ManagerError {
             await handleLoadError(error: error)
         } catch {
-            await handleLoadError(error: .unknownError)
+            await handleLoadError(error: .unknown)
         }
     }
 }

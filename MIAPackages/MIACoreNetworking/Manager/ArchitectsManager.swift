@@ -25,7 +25,7 @@ public class ArchitectsManager {
                 let jsonData = try JSONDecoder().decode(APIArchitects.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
-                throw ManagerError.unknownError
+                throw ManagerError.unknown
             }
             
         case .failure(let error):
@@ -44,7 +44,7 @@ public class ArchitectsManager {
                 let jsonData = try JSONDecoder().decode(APIArchitectDetail.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
-                throw ManagerError.unknownError
+                throw ManagerError.unknown
             }
 
         case .failure(let error):

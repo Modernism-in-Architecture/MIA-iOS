@@ -29,7 +29,7 @@ extension ArchitectDetailViewModel {
         } catch let error as ManagerError {
             handleLoadError(error: error)
         } catch {
-            handleLoadError(error: .unknownError)
+            handleLoadError(error: .unknown)
         }
     }
     

@@ -18,6 +18,8 @@ class BuildingsListViewModel: ObservableObject {
     var state: LoadingState<[Building]> = .loading
 
     private var buildingsMangager = BuildingsManager()
+    
+    private var fetchTask: Task<Void, Error>?
 }
 
 // MARK: - Load
@@ -28,20 +30,23 @@ extension BuildingsListViewModel {
         
         state = .loading
         
-        Task {
-            await fetch()
+        fetchTask?.cancel()
+        fetchTask = Task {
+            await performFetch()
         }
     }
 }
 
 // MARK: - Refresh
 
-@MainActor
 extension BuildingsListViewModel {
     
-    @Sendable
     func refresh() async {
-        await fetch()
+        
+        fetchTask?.cancel()
+        fetchTask = Task {
+            await performFetch()
+        }
     }
 }
 
@@ -50,7 +55,7 @@ extension BuildingsListViewModel {
 @MainActor
 private extension BuildingsListViewModel {
     
-    func fetch() async {
+    func performFetch() async {
         
         do {
             
@@ -62,10 +67,20 @@ private extension BuildingsListViewModel {
     }
     
     private func handle(buildings: [Building]) {
+        
+        if Task.isCancelled {
+            return
+        }
+        
         self.state = .success(buildings)
     }
     
     private func handleLoadError(error: ManagerError) {
+        
+        if Task.isCancelled {
+            return
+        }
+        
         self.state = .error(error)
     }
 }
@@ -76,3 +91,4 @@ extension BuildingsListViewModel {
         try await buildingsMangager.getBuildingDetail(for: id)
     }
 }
+
