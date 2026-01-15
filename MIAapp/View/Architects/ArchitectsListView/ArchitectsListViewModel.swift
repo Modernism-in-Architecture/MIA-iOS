@@ -15,6 +15,8 @@ class ArchitectsListViewModel: ObservableObject {
     var state: LoadingState<[Architect]> = .loading
     
     private var architectsManager = ArchitectsManager()
+    
+    private var fetchTask: Task<Void, Error>?
 }
 
 extension ArchitectsListViewModel {
@@ -23,18 +25,21 @@ extension ArchitectsListViewModel {
         
         self.state = .loading
         
-        Task {
+        fetchTask?.cancel()
+        fetchTask = Task {
             await fetch()
         }
     }
 }
 
-@MainActor
 extension ArchitectsListViewModel {
     
-    @Sendable
     func refresh() async {
-        await fetch()
+        
+        fetchTask?.cancel()
+        fetchTask = Task {
+            await fetch()
+        }
     }
 }
 
@@ -53,10 +58,20 @@ private extension ArchitectsListViewModel {
     }
     
     private func handle(architects: [Architect]) {
+        
+        if Task.isCancelled {
+            return
+        }
+        
         self.state = .success(architects)
     }
     
     private func handleLoadError(error: ManagerError) {
+        
+        if Task.isCancelled {
+            return
+        }
+        
         self.state = .error(error)
     }
 }

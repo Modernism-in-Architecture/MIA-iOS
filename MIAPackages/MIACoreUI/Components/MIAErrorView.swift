@@ -23,10 +23,10 @@ public struct MIAErrorView: View {
             
             switch error {
                 
-            case .networkError:
+            case .network:
                 networkError
                 
-            case .unknownError:
+            case .unknown:
                 unknownError
             }
         }
@@ -67,14 +67,14 @@ extension MIAErrorView {
 
 #Preview("Network Error") {
     
-    MIAErrorView(error: .networkError)
-    MIAErrorView(error: .networkError)
+    MIAErrorView(error: .network)
+    MIAErrorView(error: .network)
         .preferredColorScheme(.dark)
 }
 
 #Preview("Unknown Error") {
     
-    MIAErrorView(error: .unknownError)
-    MIAErrorView(error: .unknownError)
+    MIAErrorView(error: .unknown)
+    MIAErrorView(error: .unknown)
         .preferredColorScheme(.dark)
 }

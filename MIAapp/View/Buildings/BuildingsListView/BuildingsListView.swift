@@ -19,7 +19,9 @@ struct BuildingsListView: View {
     var body: some View {
         
         content
-            .refreshable(action: self.buildingsViewModel.refresh)
+            .refreshable {
+                await buildingsViewModel.refresh()
+            }
     }
 }
 

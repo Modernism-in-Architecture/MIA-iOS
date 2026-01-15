@@ -29,7 +29,7 @@ public class BuildingsManager {
                 let jsonData = try JSONDecoder().decode(APIBuildings.self, from: data.data)
                 return mapper.map(jsonData)
             } catch {
-                throw ManagerError.unknownError
+                throw ManagerError.unknown
             }
 
         case .failure(let error):
@@ -58,7 +58,7 @@ public class BuildingsManager {
             } catch {
                 
                 Logger.buildingsManager.debug("\(error)")
-                throw ManagerError.unknownError
+                throw ManagerError.unknown
             }
 
         case .failure(let error):
@@ -72,8 +72,8 @@ public class BuildingsManager {
 
 public enum ManagerError: Error {
 
-    case networkError
-    case unknownError
+    case network
+    case unknown
 
     public init(clientError: ClientError) {
         
@@ -81,11 +81,11 @@ public enum ManagerError: Error {
 
         case .HTTPClientError(_),
              .HTTPServerError:
-            self = .networkError
+            self = .network
             
         case .DecodingError(_),
              .InternalError:
-            self = .unknownError
+            self = .unknown
         }
     }
 }

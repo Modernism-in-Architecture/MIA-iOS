@@ -34,7 +34,7 @@ extension MIAAsyncImageViewModel {
 
         case let .failure(error):
             Logger.client.error("\(error.localizedDescription) for url: \(url?.debugDescription ?? "")")
-            loadingState = .error(.unknownError)
+            loadingState = .error(.unknown)
         }
     }
 }

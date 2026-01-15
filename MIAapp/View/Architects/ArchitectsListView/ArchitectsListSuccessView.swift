@@ -34,7 +34,9 @@ struct ArchitectsListSuccessView: View {
     var body: some View {
         
         content
-            .refreshable(action: architectsListViewModel.refresh)
+            .refreshable {
+                await architectsListViewModel.refresh()
+            }
     }
 }
 
@@ -280,3 +282,4 @@ private extension ArchitectsListSuccessView {
         .environmentObject(viewModel)
         .preferredColorScheme(.dark)
 }
+
