@@ -10,7 +10,7 @@ import SwiftUI
 public struct MIAFoldableText: View {
     
     @State
-    private var showLongVersion = false
+    private var showLongVersion: Bool
     
     let text: AttributedString
     

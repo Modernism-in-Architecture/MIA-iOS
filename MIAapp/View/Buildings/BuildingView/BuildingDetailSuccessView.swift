@@ -29,9 +29,6 @@ struct BuildingDetailSuccessView: View {
     @State
     private var showShareSheet = false
     
-    @State
-    private var sharedItems = []
-    
     var body: some View {
         
         content
